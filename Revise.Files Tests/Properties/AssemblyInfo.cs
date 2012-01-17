@@ -21,20 +21,16 @@
 
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Windows;
 
-[assembly: AssemblyTitle("Revise")]
+[assembly: AssemblyTitle("Revise.Files Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Revise")]
+[assembly: AssemblyProduct("Revise.Files Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
-[assembly: ThemeInfo(
-    ResourceDictionaryLocation.None,
-    ResourceDictionaryLocation.SourceAssembly
-)]
+[assembly: Guid("b7eb4a49-517b-45a8-b042-cf611249975e")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

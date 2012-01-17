@@ -19,22 +19,19 @@
 
 #endregion
 
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Windows;
+using System;
+using System.IO;
 
-[assembly: AssemblyTitle("Revise")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Revise")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: ComVisible(false)]
-[assembly: ThemeInfo(
-    ResourceDictionaryLocation.None,
-    ResourceDictionaryLocation.SourceAssembly
-)]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+namespace Revise.Files.Exceptions {
+    /// <summary>
+    /// The exception that is thrown when an attempt is made to get or set the value of a row which is out of the row range.
+    /// </summary>
+    public class DataRowOutOfRangeException : Exception {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataRowOutOfRangeException"/> class.
+        /// </summary>
+        public DataRowOutOfRangeException()
+            : base(string.Format("Row specified is out of the row range")) {
+        }
+    }
+}

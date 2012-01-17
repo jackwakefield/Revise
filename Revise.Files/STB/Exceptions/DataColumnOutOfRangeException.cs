@@ -19,22 +19,19 @@
 
 #endregion
 
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Windows;
+using System;
+using System.IO;
 
-[assembly: AssemblyTitle("Revise")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Revise")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: ComVisible(false)]
-[assembly: ThemeInfo(
-    ResourceDictionaryLocation.None,
-    ResourceDictionaryLocation.SourceAssembly
-)]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+namespace Revise.Files.Exceptions {
+    /// <summary>
+    /// The exception that is thrown when an attempt is made to get or set the value of a column which is out of the column range.
+    /// </summary>
+    public class DataColumnOutOfRangeException : Exception {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataColumnOutOfRangeException"/> class.
+        /// </summary>
+        public DataColumnOutOfRangeException()
+            : base(string.Format("Column specified is out of the column range")) {
+        }
+    }
+}

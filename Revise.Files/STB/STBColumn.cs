@@ -19,22 +19,25 @@
 
 #endregion
 
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Windows;
+namespace Revise.Files {
+    /// <summary>
+    /// Represents an STB file column.
+    /// </summary>
+    public class STBColumn {
+        /// <summary>
+        /// Gets or sets the colum name.
+        /// </summary>
+        /// <value>
+        /// The column name.
+        /// </value>
+        public string Name { get; set; }
 
-[assembly: AssemblyTitle("Revise")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Revise")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: ComVisible(false)]
-[assembly: ThemeInfo(
-    ResourceDictionaryLocation.None,
-    ResourceDictionaryLocation.SourceAssembly
-)]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+        /// <summary>
+        /// Gets or sets the column width.
+        /// </summary>
+        /// <value>
+        /// The column width.
+        /// </value>
+        public short Width { get; set; }
+    }
+}
