@@ -32,23 +32,36 @@ namespace Revise.Files.Exceptions {
         /// </summary>
         private const string MESSAGE_FORMAT = "File '{0}' has incorrect file identifier; Expecting '{1}', encountered '{2}'";
 
+        #region Properties
+
         /// <summary>
         /// Gets the file path of the file which threw the exception.
         /// </summary>
-        public string FilePath { get; private set; }
+        public string FilePath {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Gets the file identifier the file reader expected.
         /// </summary>
-        public string IdentifierExpected { get; private set; }
+        public string IdentifierExpected {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Gets the file identifier the file reader read.
         /// </summary>
-        public string IdentifierRead { get; private set; }
+        public string IdentifierRead {
+            get;
+            private set;
+        }
+
+        #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileIdentifierMismatchException"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileIdentifierMismatchException"/> class.
         /// </summary>
         /// <param name="filePath">The file path of the file which threw the exception.</param>
         /// <param name="identifierExpected">The file identifier the file reader expected.</param>

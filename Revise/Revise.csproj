@@ -93,6 +93,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Revise.Extensions\Revise.Extensions.csproj">
+      <Project>{6114A78C-DA76-4333-9649-1B49AD2B4AE4}</Project>
+      <Name>Revise.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Revise.Files\Revise.Files.csproj">
       <Project>{5EBE8893-60C4-444F-A2D5-39C81035B013}</Project>
       <Name>Revise.Files</Name>

@@ -24,9 +24,15 @@ using System.IO;
 using System.Text;
 using NUnit.Framework;
 
-namespace Revise.Files.Tests {
+namespace Revise.Extensions.Tests {
+    /// <summary>
+    /// Provides testing for the <see cref="BinaryReaderExtensions"/> class.
+    /// </summary>
     [TestFixture]
     public class BinaryReaderTests {
+        /// <summary>
+        /// Tests the ReadNullTerminatedString method using a UTF-8 encoded string.
+        /// </summary>
         [Test]
         public void TestReadNullTerminatedStringMethodUTF8() {
             const string value = "Null terminated string";
@@ -45,6 +51,9 @@ namespace Revise.Files.Tests {
             Assert.AreEqual(value, nullTerminatedString, "Incorrect string value");
         }
 
+        /// <summary>
+        /// Tests the ReadNullTerminatedString method using a EUC-KR encoded string.
+        /// </summary>
         [Test]
         public void TestReadNullTerminatedStringMethodKorean() {
             Encoding encoding = Encoding.GetEncoding("EUC-KR");

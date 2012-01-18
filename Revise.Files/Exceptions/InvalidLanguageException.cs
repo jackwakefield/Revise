@@ -19,25 +19,18 @@
 
 #endregion
 
-namespace Revise.Files {
-    /// <summary>
-    /// Represents an STB file column.
-    /// </summary>
-    public class STBColumn {
-        /// <summary>
-        /// Gets or sets the colum name.
-        /// </summary>
-        /// <value>
-        /// The column name.
-        /// </value>
-        public string Name { get; set; }
+using System;
 
+namespace Revise.Files.Exceptions {
+    /// <summary>
+    /// The exception that is thrown when a language value is invalid.
+    /// </summary>
+    public class InvalidLanguageException : Exception {
         /// <summary>
-        /// Gets or sets the column width.
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidLanguageException"/> class.
         /// </summary>
-        /// <value>
-        /// The column width.
-        /// </value>
-        public short Width { get; set; }
+        public InvalidLanguageException()
+            : base("Table language specified is invalid") {
+        }
     }
 }

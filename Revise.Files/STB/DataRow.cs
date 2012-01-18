@@ -26,14 +26,14 @@ namespace Revise.Files {
     /// <summary>
     /// Represents an STB file row.
     /// </summary>
-    public class STBRow {
+    public class DataRow {
         private List<string> data;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="STBRow"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.DataRow"/> class.
         /// </summary>
         /// <param name="columnCount">The number of columns to add.</param>
-        public STBRow(int columnCount) {
+        public DataRow(int columnCount) {
             data = new List<string>();
 
             for (int i = 0; i < columnCount; i++) {
@@ -44,18 +44,18 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the <see cref="System.String"/> of the specified cell.
         /// </summary>
-        /// <exception cref="Revise.Exceptions.DataCellOutOfRangeException">Thrown when the specified cell is out of range.</exception>
+        /// <exception cref="Revise.Exceptions.CellOutOfRangeException">Thrown when the specified cell is out of range.</exception>
         public string this[int cell] {
             get {
                 if (cell < 0 || cell > data.Count - 1) {
-                    throw new DataCellOutOfRangeException();
+                    throw new CellOutOfRangeException();
                 }
 
                 return data[cell];
             }
             set {
                 if (cell < 0 || cell > data.Count - 1) {
-                    throw new DataCellOutOfRangeException();
+                    throw new CellOutOfRangeException();
                 }
 
                 data[cell] = value;
@@ -73,10 +73,10 @@ namespace Revise.Files {
         /// Removes the specified column.
         /// </summary>
         /// <param name="column">The column.</param>
-        /// <exception cref="Revise.Exceptions.DataColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
         internal void RemoveColumn(int column) {
             if (column < 0 || column > data.Count - 1) {
-                throw new DataColumnOutOfRangeException();
+                throw new ColumnOutOfRangeException();
             }
 
             data.RemoveAt(column);

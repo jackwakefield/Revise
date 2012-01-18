@@ -19,19 +19,35 @@
 
 #endregion
 
-using System;
-using System.IO;
-
-namespace Revise.Files.Exceptions {
+namespace Revise.Files {
     /// <summary>
-    /// The exception that is thrown when an attempt is made to get or set the value of a cell which is out of the column range.
+    /// Represents an STL key.
     /// </summary>
-    public class DataCellOutOfRangeException : Exception {
+    public class TableKey {
+        #region Properties
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataCellOutOfRangeException"/> class.
+        /// Gets or sets the key.
         /// </summary>
-        public DataCellOutOfRangeException()
-            : base(string.Format("Cell specified is out of the column range")) {
+        /// <value>
+        /// The key.
+        /// </value>
+        public string Key {
+            get;
+            set;
         }
+
+        /// <summary>
+        /// Gets or sets the ID.
+        /// </summary>
+        /// <value>
+        /// The ID.
+        /// </value>
+        public int ID {
+            get;
+            set;
+        }
+
+        #endregion
     }
 }

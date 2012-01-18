@@ -19,19 +19,15 @@
 
 #endregion
 
-using System;
-using System.IO;
-
-namespace Revise.Files.Exceptions {
+namespace Revise.Files {
     /// <summary>
-    /// The exception that is thrown when an attempt is made to get or set the value of a column which is out of the column range.
+    /// Specifies table languages.
     /// </summary>
-    public class DataColumnOutOfRangeException : Exception {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataColumnOutOfRangeException"/> class.
-        /// </summary>
-        public DataColumnOutOfRangeException()
-            : base(string.Format("Column specified is out of the column range")) {
-        }
+    public enum TableLanguage {
+        Korean = 0,
+        English = 1,
+        Japanese = 2,
+        ChineseTraditional = 3,
+        ChineseSimplified = 4
     }
 }

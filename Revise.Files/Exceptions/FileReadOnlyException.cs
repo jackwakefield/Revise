@@ -32,13 +32,20 @@ namespace Revise.Files.Exceptions {
         /// </summary>
         private const string MESSAGE_FORMAT = "File '{0}' is set to read-only";
 
+        #region Properties
+
         /// <summary>
         /// Gets the file path of the file which threw the exception.
         /// </summary>
-        public string FilePath { get; private set; }
+        public string FilePath {
+            get;
+            private set;
+        }
+
+        #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileReadOnlyException"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileReadOnlyException"/> class.
         /// </summary>
         /// <param name="filePath">The file path of the file which threw the exception.</param>
         public FileReadOnlyException(string filePath)

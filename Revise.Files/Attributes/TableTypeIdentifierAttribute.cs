@@ -21,17 +21,30 @@
 
 using System;
 
-namespace Revise.Files.Exceptions {
+namespace Revise.Files.Attributes {
     /// <summary>
-    /// The exception that is thrown when the calling method requires the file be loaded before-hand.
+    /// Represents an attribute for identifying table types.
     /// </summary>
-    public class FileNotLoadedException : Exception {
+    [AttributeUsage(AttributeTargets.All)]
+    public class TableTypeIdentifierAttribute : Attribute {
+        #region Properties
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileNotLoadedException"/> class.
+        /// Gets the value.
         /// </summary>
-        /// <param name="message">The message that describes the error.</param>
-        public FileNotLoadedException(string message)
-            : base(message) {
+        public string Value {
+            get;
+            private set;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public TableTypeIdentifierAttribute(string value) {
+            Value = value;
         }
     }
 }

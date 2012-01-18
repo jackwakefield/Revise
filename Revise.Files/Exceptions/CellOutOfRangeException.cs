@@ -20,18 +20,18 @@
 #endregion
 
 using System;
+using System.IO;
 
 namespace Revise.Files.Exceptions {
     /// <summary>
-    /// The exception that is thrown when the calling method requires the file be loaded before-hand.
+    /// The exception that is thrown when an attempt is made to get or set the value of a cell which is out of the column range.
     /// </summary>
-    public class FileNotLoadedException : Exception {
+    public class CellOutOfRangeException : Exception {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileNotLoadedException"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.CellOutOfRangeException"/> class.
         /// </summary>
-        /// <param name="message">The message that describes the error.</param>
-        public FileNotLoadedException(string message)
-            : base(message) {
+        public CellOutOfRangeException()
+            : base("Cell specified is out of the column range") {
         }
     }
 }

@@ -19,19 +19,18 @@
 
 #endregion
 
-using System;
+using System.Reflection;
+using System.Runtime.InteropServices;
 
-namespace Revise.Files.Exceptions {
-    /// <summary>
-    /// The exception that is thrown when the calling method requires the file be loaded before-hand.
-    /// </summary>
-    public class FileNotLoadedException : Exception {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileNotLoadedException"/> class.
-        /// </summary>
-        /// <param name="message">The message that describes the error.</param>
-        public FileNotLoadedException(string message)
-            : base(message) {
-        }
-    }
-}
+[assembly: AssemblyTitle("Revise.Extensions Tests")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Revise.Extensions Tests")]
+[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+[assembly: ComVisible(false)]
+[assembly: Guid("b7eb4a49-517b-45a8-b042-cf611249975e")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

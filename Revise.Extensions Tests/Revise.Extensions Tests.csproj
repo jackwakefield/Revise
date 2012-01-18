@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5EBE8893-60C4-444F-A2D5-39C81035B013}</ProjectGuid>
+    <ProjectGuid>{0C08660D-40CC-41C7-93B1-CFD0664A7EF7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Revise.Files</RootNamespace>
-    <AssemblyName>Revise.Files</AssemblyName>
+    <RootNamespace>Revise.Extensions_Tests</RootNamespace>
+    <AssemblyName>Revise.Extensions Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,31 +31,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.mocks, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="pnunit.framework">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\TableTypeIdentifierAttribute.cs" />
-    <Compile Include="Exceptions\FileIdentifierMismatchException.cs" />
-    <Compile Include="Exceptions\FileInUseException.cs" />
-    <Compile Include="Exceptions\FileMissingException.cs" />
-    <Compile Include="Exceptions\FileNotLoadedException.cs" />
-    <Compile Include="Exceptions\FileReadOnlyException.cs" />
-    <Compile Include="Exceptions\InvalidLanguageException.cs" />
-    <Compile Include="Exceptions\KeyNotFoundException.cs" />
-    <Compile Include="FileLoader.cs" />
+    <Compile Include="BinaryReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Exceptions\CellOutOfRangeException.cs" />
-    <Compile Include="Exceptions\ColumnOutOfRangeException.cs" />
-    <Compile Include="Exceptions\RowOutOfRangeException.cs" />
-    <Compile Include="STB\STB.cs" />
-    <Compile Include="STB\DataColumn.cs" />
-    <Compile Include="STB\DataRow.cs" />
-    <Compile Include="Exceptions\InvalidTableTypeException.cs" />
-    <Compile Include="STL\STL.cs" />
-    <Compile Include="STL\TableLanguage.cs" />
-    <Compile Include="STL\TableType.cs" />
-    <Compile Include="STL\TableKey.cs" />
-    <Compile Include="STL\TableRow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Revise.Extensions\Revise.Extensions.csproj">

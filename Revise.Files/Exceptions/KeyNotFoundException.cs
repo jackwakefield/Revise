@@ -20,18 +20,35 @@
 #endregion
 
 using System;
-using System.IO;
 
 namespace Revise.Files.Exceptions {
     /// <summary>
-    /// The exception that is thrown when an attempt is made to get or set the value of a row which is out of the row range.
+    /// The exception that is thrown when a key does not exist.
     /// </summary>
-    public class DataRowOutOfRangeException : Exception {
+    public class KeyNotFoundException : Exception {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataRowOutOfRangeException"/> class.
+        /// The format of the exception message.
         /// </summary>
-        public DataRowOutOfRangeException()
-            : base(string.Format("Row specified is out of the row range")) {
+        private const string MESSAGE_FORMAT = "Key '{0}' does not exist";
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the key.
+        /// </summary>
+        public string Key {
+            get; 
+            private set;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.KeyNotFoundException"/> class.
+        /// </summary>
+        public KeyNotFoundException(string key)
+            : base(string.Format(MESSAGE_FORMAT, key)) {
+            Key = key;
         }
     }
 }

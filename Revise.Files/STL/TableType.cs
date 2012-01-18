@@ -19,19 +19,18 @@
 
 #endregion
 
-using System;
+using Revise.Files.Attributes;
 
-namespace Revise.Files.Exceptions {
+namespace Revise.Files {
     /// <summary>
-    /// The exception that is thrown when the calling method requires the file be loaded before-hand.
+    /// Specifies string mapped table types.
     /// </summary>
-    public class FileNotLoadedException : Exception {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileNotLoadedException"/> class.
-        /// </summary>
-        /// <param name="message">The message that describes the error.</param>
-        public FileNotLoadedException(string message)
-            : base(message) {
-        }
+    public enum TableType {
+        [TableTypeIdentifier("ITST01")]
+        Item,
+        [TableTypeIdentifier("QEST01")]
+        Quest,
+        [TableTypeIdentifier("NRST01")]
+        Normal
     }
 }

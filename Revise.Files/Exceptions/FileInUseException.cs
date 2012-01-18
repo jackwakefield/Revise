@@ -32,13 +32,20 @@ namespace Revise.Files.Exceptions {
         /// </summary>
         private const string MESSAGE_FORMAT = "File '{0}' is in use by another process";
 
+        #region Properties
+
         /// <summary>
         /// Gets the file path of the file which threw the exception.
         /// </summary>
-        public string FilePath { get; private set; }
+        public string FilePath {
+            get;
+            private set;
+        }
+
+        #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileInUseException"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileInUseException"/> class.
         /// </summary>
         /// <param name="filePath">The file path of the file which threw the exception.</param>
         public FileInUseException(string filePath)

@@ -23,15 +23,32 @@ using System;
 
 namespace Revise.Files.Exceptions {
     /// <summary>
-    /// The exception that is thrown when the calling method requires the file be loaded before-hand.
+    /// The exception that is thrown when a table type value is invalid.
     /// </summary>
-    public class FileNotLoadedException : Exception {
+    public class InvalidTableTypeException : Exception {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileNotLoadedException"/> class.
+        /// The format of the exception message.
         /// </summary>
-        /// <param name="message">The message that describes the error.</param>
-        public FileNotLoadedException(string message)
-            : base(message) {
+        private const string MESSAGE_FORMAT = "Table type '{0}' is invalid";
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the table type.
+        /// </summary>
+        public string Type {
+            get; 
+            private set;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidTableTypeException"/> class.
+        /// </summary>
+        public InvalidTableTypeException(string type)
+            : base(string.Format(MESSAGE_FORMAT, type)) {
+            Type = type;
         }
     }
 }

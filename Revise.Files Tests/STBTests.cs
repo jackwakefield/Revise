@@ -26,10 +26,16 @@ using NUnit.Framework;
 using Revise.Files.Exceptions;
 
 namespace Revise.Files.Tests {
+    /// <summary>
+    /// Provides testing for the <see cref="Revise.Files.STB"/> class.
+    /// </summary>
     [TestFixture]
     public class STBTests {
         private const string TEST_FILE = "Files/LIST_QUEST.STB";
 
+        /// <summary>
+        /// Tests the load method.
+        /// </summary>
         [Test]
         public void TestLoadMethod() {
             const int ROW_COUNT = 5501;
@@ -52,6 +58,9 @@ namespace Revise.Files.Tests {
             Assert.AreEqual(stb.ColumnCount, COLUMN_COUNT, "Incorrect column count");
         }
 
+        /// <summary>
+        /// Tests the save method.
+        /// </summary>
         [Test]
         public void TestSaveMethod() {
             MD5 md5 = new MD5CryptoServiceProvider();
@@ -76,6 +85,9 @@ namespace Revise.Files.Tests {
             Assert.IsTrue(originalHash.SequenceEqual(savedHash), "Saved file data does not match the original");
         }
 
+        /// <summary>
+        /// Tests the column and row methods.
+        /// </summary>
         [Test]
         public void TestColumnAndRowMethods() {
             const string COLUMN_HEADER = "Test Column";
@@ -94,17 +106,17 @@ namespace Revise.Files.Tests {
 
             stb.RemoveColumn(0);
 
-            Assert.Throws(typeof(DataColumnOutOfRangeException), () => {
+            Assert.Throws(typeof(ColumnOutOfRangeException), () => {
                 stb.GetColumnName(0);
             }, "Column not removed");
 
-            Assert.Throws(typeof(DataCellOutOfRangeException), () => {
+            Assert.Throws(typeof(CellOutOfRangeException), () => {
                 stb[0][0] = CELL_VALUE;
             }, "Cell not removed");
 
             stb.RemoveRow(0);
 
-            Assert.Throws(typeof(DataRowOutOfRangeException), () => {
+            Assert.Throws(typeof(RowOutOfRangeException), () => {
                 stb[0][0] = CELL_VALUE;
             }, "Row not removed");
         }

@@ -19,19 +19,35 @@
 
 #endregion
 
-using System;
-
-namespace Revise.Files.Exceptions {
+namespace Revise.Files {
     /// <summary>
-    /// The exception that is thrown when the calling method requires the file be loaded before-hand.
+    /// Represents an STB file column.
     /// </summary>
-    public class FileNotLoadedException : Exception {
+    public class DataColumn {
+        #region Properties
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileNotLoadedException"/> class.
+        /// Gets or sets the colum name.
         /// </summary>
-        /// <param name="message">The message that describes the error.</param>
-        public FileNotLoadedException(string message)
-            : base(message) {
+        /// <value>
+        /// The column name.
+        /// </value>
+        public string Name {
+            get;
+            set;
         }
+
+        /// <summary>
+        /// Gets or sets the column width.
+        /// </summary>
+        /// <value>
+        /// The column width.
+        /// </value>
+        public short Width {
+            get;
+            set;
+        }
+
+        #endregion
     }
 }

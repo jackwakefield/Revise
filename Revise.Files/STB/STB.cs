@@ -27,7 +27,7 @@ namespace Revise.Files {
     /// <summary>
     /// Provides the ability to create, open and save STB files.
     /// </summary>
-    public class STB {
+    public class STB : FileLoader {
         #region Constants
 
         private const string FILE_IDENTIFIER = "STB";
@@ -41,15 +41,7 @@ namespace Revise.Files {
         #region Properties
 
         /// <summary>
-        /// Gets the file path of the loaded file.
-        /// </summary>
-        public string FilePath {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets the number of cells.
+        /// Gets the number of columns.
         /// </summary>
         public int ColumnCount {
             get {
@@ -79,29 +71,29 @@ namespace Revise.Files {
 
         #endregion
 
-        private STBColumn rootColumn;
-        private List<STBColumn> columns;
-        private List<STBRow> rows;
+        private DataColumn rootColumn;
+        private List<DataColumn> columns;
+        private List<DataRow> rows;
         
         /// <summary>
-        /// Initializes a new instance of the <see cref="STB"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.STB"/> class.
         /// </summary>
         public STB() {
-            rootColumn = new STBColumn();
-            columns = new List<STBColumn>();
-            rows = new List<STBRow>();
+            rootColumn = new DataColumn();
+            columns = new List<DataColumn>();
+            rows = new List<DataRow>();
             
             Reset();
         }
 
         /// <summary>
-        /// Gets the specified <see cref="Revise.Files.STBRow"/>.
+        /// Gets the specified <see cref="Revise.Files.DataRow"/>.
         /// </summary>
-        /// <exception cref="Revise.Exceptions.DataRowOutOfRangeException">Thrown when the specified row does not exist.</exception>
-        public STBRow this[int row] {
+        /// <exception cref="Revise.Exceptions.RowOutOfRangeException">Thrown when the specified row does not exist.</exception>
+        public DataRow this[int row] {
             get {
                 if (row < 0 || row > rows.Count - 1) {
-                    throw new DataRowOutOfRangeException();
+                    throw new RowOutOfRangeException();
                 }
 
                 return rows[row];
@@ -109,42 +101,11 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Loads an STB file at the specified file path.
+        /// Loads the file from the specified stream.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <exception cref="Revise.Exceptions.FileMissingException">Thrown when the specified file path does not exist.</exception>
-        /// <exception cref="Revise.Exceptions.FileReadOnlyException">Thrown when the specified file is set to read-only.</exception>
-        /// <exception cref="Revise.Exceptions.FileInUseException">Thrown when the specified file is in use by another process.</exception>
+        /// <param name="stream">The stream to load from.</param>
         /// <exception cref="Revise.Exceptions.FileIdentifierMismatchException">Thrown when the specified file has the incorrect file header expected.</exception>
-        public void Load(string filePath) {
-            FileInfo file = new FileInfo(filePath);
-
-            if (!file.Exists) {
-                throw new FileMissingException(filePath);
-            }
-
-            FileStream stream;
-
-            try {
-                stream = file.Open(FileMode.Open);
-            } catch (IOException) {
-                throw new FileInUseException(filePath);
-            }
-
-            FilePath = filePath;
-            Reset();
-
-            Load(stream);
-
-            stream.Close();
-        }
-
-        /// <summary>
-        /// Loads an STB file using the specified stream.
-        /// </summary>
-        /// <param name="stream">The stream.</param>
-        /// <exception cref="Revise.Exceptions.FileIdentifierMismatchException">Thrown when the specified file has the incorrect file header expected.</exception>
-        public void Load(Stream stream) {
+        public override void Load(Stream stream) {
             BinaryReader reader = new BinaryReader(stream);
             string identifier = reader.ReadString(3);
 
@@ -162,7 +123,7 @@ namespace Revise.Files {
             SetRootColumnWidth(reader.ReadInt16());
 
             for (int i = 0; i < columnCount; i++) {
-                columns.Add(new STBColumn());
+                columns.Add(new DataColumn());
                 SetColumnWidth(i, reader.ReadInt16());
             }
 
@@ -173,14 +134,14 @@ namespace Revise.Files {
             }
 
             for (int i = 0; i < rowCount - 1; i++) {
-                STBRow row = new STBRow(columnCount);
+                DataRow row = new DataRow(columnCount);
                 row[0] = reader.ReadShortString();
                 
                 rows.Add(row);
             }
 
             for (int i = 0; i < rowCount - 1; i++) {
-                STBRow row = rows[i];
+                DataRow row = rows[i];
 
                 for (int j = 1; j < columnCount; j++) {
                     row[j] = reader.ReadShortString();
@@ -189,50 +150,10 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Saves the STB file at the previously loaded file path.
+        /// Saves the file to the specified stream.
         /// </summary>
-        /// <exception cref="Revise.Exceptions.FileNotLoadedException">Thrown when the load method has not been called before-hand.</exception>
-        public void Save() {
-            if (FilePath == null) {
-                throw new FileNotLoadedException("The file must be loaded before saving without specifying a file path");
-            }
-
-            Save(FilePath);
-        }
-
-        /// <summary>
-        /// Saves the STB file at the specified file path.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <exception cref="Revise.Exceptions.FileReadOnlyException">Thrown when the specified file is set to read-only.</exception>
-        /// <exception cref="Revise.Exceptions.FileInUseException">Thrown when the specified file is in use by another process.</exception>
-        public void Save(string filePath) {
-            FilePath = filePath;
-
-            FileInfo file = new FileInfo(filePath);
-
-            if (file.Exists && file.IsReadOnly) {
-                throw new FileReadOnlyException(filePath);
-            }
-
-            FileStream stream;
-
-            try {
-                stream = file.Open(FileMode.Create);
-            } catch (IOException) {
-                throw new FileInUseException(filePath);
-            }
-
-            Save(stream);
-
-            stream.Close();
-        }
-
-        /// <summary>
-        /// Saves the specified stream.
-        /// </summary>
-        /// <param name="stream">The stream.</param>
-        public void Save(Stream stream) {
+        /// <param name="stream">The stream to save to.</param>
+        public override void Save(Stream stream) {
             BinaryWriter writer = new BinaryWriter(stream);
 
             writer.WriteString(FILE_IDENTIFIER);
@@ -244,23 +165,23 @@ namespace Revise.Files {
 
             writer.Write(GetRootColumnWidth());
 
-            columns.ForEach((column) => {
+            columns.ForEach(column => {
                 writer.Write(column.Width);
             });
 
             writer.WriteShortString(GetRootColumnName());
 
-            columns.ForEach((column) => {
+            columns.ForEach(column => {
                 writer.WriteShortString(column.Name);
             });
 
-            rows.ForEach((row) => {
+            rows.ForEach(row => {
                 writer.WriteShortString(row[0]);
             });
 
             long position = stream.Position;
 
-            rows.ForEach((row) => {
+            rows.ForEach(row => {
                 for (int i = 1; i < ColumnCount; i++) {
                     writer.WriteShortString(row[i]);
                 }
@@ -276,13 +197,13 @@ namespace Revise.Files {
         /// <param name="name">The header name.</param>
         /// <param name="width">The column width.</param>
         public void AddColumn(string name = "", short width = DEFAULT_COLUMN_WIDTH) {
-            STBColumn column = new STBColumn();
+            DataColumn column = new DataColumn();
             column.Name = name;
             column.Width = width;
 
             columns.Add(column);
 
-            rows.ForEach((row) => {
+            rows.ForEach(row => {
                 row.AddColumn();
             });
         }
@@ -290,16 +211,16 @@ namespace Revise.Files {
         /// <summary>
         /// Removes the specified column.
         /// </summary>
-        /// <param name="column">The column.</param>
-        /// <exception cref="Revise.Exceptions.DataColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <param name="column">The column to remove.</param>
+        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
         public void RemoveColumn(int column) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new DataColumnOutOfRangeException();
+                throw new ColumnOutOfRangeException();
             }
 
             columns.RemoveAt(column);
 
-            rows.ForEach((row) => {
+            rows.ForEach(row => {
                 row.RemoveColumn(column);
             });
         }
@@ -325,10 +246,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="column">The column.</param>
         /// <param name="name">The column name.</param>
-        /// <exception cref="Revise.Exceptions.DataColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
         public void SetColumnName(int column, string name) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new DataColumnOutOfRangeException();
+                throw new ColumnOutOfRangeException();
             }
 
             columns[column].Name = name;
@@ -338,11 +259,11 @@ namespace Revise.Files {
         /// Gets the name of the specified column.
         /// </summary>
         /// <param name="column">The column.</param>
-        /// <exception cref="Revise.Exceptions.DataColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
         /// <returns>The column name.</returns>
         public string GetColumnName(int column) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new DataColumnOutOfRangeException();
+                throw new ColumnOutOfRangeException();
             }
 
             return columns[column].Name;
@@ -369,10 +290,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="column">The column.</param>
         /// <param name="width">The column width.</param>
-        /// <exception cref="Revise.Exceptions.DataColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
         public void SetColumnWidth(int column, short width) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new DataColumnOutOfRangeException();
+                throw new ColumnOutOfRangeException();
             }
 
             columns[column].Width = width;
@@ -382,11 +303,11 @@ namespace Revise.Files {
         /// Gets the width of the specified column.
         /// </summary>
         /// <param name="column">The column.</param>
-        /// <exception cref="Revise.Exceptions.DataColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
         /// <returns>The column width.</returns>
         public int GetColumnWidth(int column) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new DataColumnOutOfRangeException();
+                throw new ColumnOutOfRangeException();
             }
 
             return columns[column].Width;
@@ -395,9 +316,9 @@ namespace Revise.Files {
         /// <summary>
         /// Adds a new row.
         /// </summary>
-        /// <returns></returns>
-        public STBRow AddRow() {
-            STBRow row = new STBRow(ColumnCount);
+        /// <returns>The row created.</returns>
+        public DataRow AddRow() {
+            DataRow row = new DataRow(ColumnCount);
             rows.Add(row);
 
             return row;
@@ -406,28 +327,36 @@ namespace Revise.Files {
         /// <summary>
         /// Removes the specified row.
         /// </summary>
-        /// <param name="row">The row.</param>
-        /// <exception cref="Revise.Exceptions.DataRowOutOfRangeException">Thrown when the specified row is out of range.</exception>
+        /// <param name="row">The row to remove.</param>
+        /// <exception cref="Revise.Exceptions.RowOutOfRangeException">Thrown when the specified row is out of range.</exception>
         public void RemoveRow(int row) {
             if (row < 0 || row > rows.Count - 1) {
-                throw new DataRowOutOfRangeException();
+                throw new RowOutOfRangeException();
             }
 
             rows.RemoveAt(row);
         }
 
         /// <summary>
-        /// Resets all properties to their default values.
+        /// Removes all rows.
         /// </summary>
-        public void Reset() {
+        public void Clear() {
+            rows.Clear();
+        }
+
+        /// <summary>
+        /// Resets properties to their default values.
+        /// </summary>
+        public override void Reset() {
+            base.Reset();
+
             rootColumn.Name = string.Empty;
             rootColumn.Width = DEFAULT_COLUMN_WIDTH;
 
-            columns.Clear();
-            rows.Clear();
-
-            FilePath = null;
             RowHeight = DEFAULT_ROW_HEIGHT;
+
+            columns.Clear();
+            Clear();
         }
     }
 }
