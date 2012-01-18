@@ -21,6 +21,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Revise.Files.Exceptions;
 
 namespace Revise.Files {
@@ -106,7 +107,7 @@ namespace Revise.Files {
         /// <param name="stream">The stream to load from.</param>
         /// <exception cref="Revise.Exceptions.FileIdentifierMismatchException">Thrown when the specified file has the incorrect file header expected.</exception>
         public override void Load(Stream stream) {
-            BinaryReader reader = new BinaryReader(stream);
+            BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
             string identifier = reader.ReadString(3);
 
             if (string.Compare(identifier, FILE_IDENTIFIER, false) != 0) {
@@ -154,7 +155,7 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="stream">The stream to save to.</param>
         public override void Save(Stream stream) {
-            BinaryWriter writer = new BinaryWriter(stream);
+            BinaryWriter writer = new BinaryWriter(stream, Encoding.GetEncoding("EUC-KR"));
 
             writer.WriteString(FILE_IDENTIFIER);
             writer.Write('1');
