@@ -20,25 +20,23 @@
 #endregion
 
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
 using NUnit.Framework;
 using Revise.Files.Exceptions;
 
 namespace Revise.Files.Tests {
     /// <summary>
-    /// Provides testing for the <see cref="Revise.Files.STB"/> class.
+    /// Provides testing for the <see cref="Revise.Files.LTB"/> class.
     /// </summary>
     [TestFixture]
-    public class STBTests {
-        private const string TEST_FILE = "Files/LIST_QUEST.STB";
+    public class LTBTests {
+        private const string TEST_FILE = "Files/ULNGTB_CON.LTB";
 
         /// <summary>
         /// Tests the load method.
         /// </summary>
         [Test]
         public void TestLoadMethod() {
-            const int ROW_COUNT = 5501;
+            const int ROW_COUNT = 200;
             const int COLUMN_COUNT = 6;
 
             Stream stream = File.OpenRead(TEST_FILE);
@@ -47,15 +45,15 @@ namespace Revise.Files.Tests {
             long fileSize = stream.Position;
             stream.Seek(0, SeekOrigin.Begin);
 
-            STB stb = new STB();
-            stb.Load(stream);
+            LTB ltb = new LTB();
+            ltb.Load(stream);
 
             long streamPosition = stream.Position;
             stream.Close();
 
             Assert.AreEqual(streamPosition, fileSize, "Not all of the file was read");
-            Assert.AreEqual(stb.RowCount, ROW_COUNT, "Incorrect row count");
-            Assert.AreEqual(stb.ColumnCount, COLUMN_COUNT, "Incorrect column count");
+            Assert.AreEqual(ltb.RowCount, ROW_COUNT, "Incorrect row count");
+            Assert.AreEqual(ltb.ColumnCount, COLUMN_COUNT, "Incorrect column count");
         }
 
         /// <summary>
@@ -63,60 +61,55 @@ namespace Revise.Files.Tests {
         /// </summary>
         [Test]
         public void TestSaveMethod() {
-            STB stb = new STB();
-            stb.Load(TEST_FILE);
-
+            LTB ltb = new LTB();
+            ltb.Load(TEST_FILE);
+            
             MemoryStream savedStream = new MemoryStream();
-            stb.Save(savedStream);
+            ltb.Save(savedStream);
+
             savedStream.Seek(0, SeekOrigin.Begin);
 
-            STB savedSTB = new STB();
-            savedSTB.Load(savedStream);
+            LTB savedLTB = new LTB();
+            savedLTB.Load(savedStream);
+
             savedStream.Close();
 
-            Assert.AreEqual(stb.RowCount, savedSTB.RowCount, "Row counts do not match");
-            Assert.AreEqual(stb.ColumnCount, savedSTB.ColumnCount, "Column counts do not match");
+            Assert.AreEqual(ltb.RowCount, savedLTB.RowCount, "Row counts do not match");
+            Assert.AreEqual(ltb.ColumnCount, savedLTB.ColumnCount, "Column counts do not match");
 
-            for (int i = 0; i < stb.RowCount; i++) {
-                for (int j = 0; j < stb.ColumnCount; j++) {
-                    Assert.AreEqual(stb[i][j], savedSTB[i][j], "Cell values do not match");
+            for (int i = 0; i < ltb.RowCount; i++) {
+                for (int j = 0; j < ltb.ColumnCount; j++) {
+                    Assert.AreEqual(ltb[i][j], savedLTB[i][j], "Cell values do not match");
                 }
             }
         }
 
         /// <summary>
-        /// Tests the column and row methods.
+        /// Tests the row and column methods.
         /// </summary>
         [Test]
-        public void TestColumnAndRowMethods() {
-            const string COLUMN_HEADER = "Test Column";
-            const int COLUMN_WIDTH = 101;
+        public void TestRowAndColumnMethods() {
             const string CELL_VALUE = "Test Value";
 
-            STB stb = new STB();
-            stb.AddColumn(COLUMN_HEADER, COLUMN_WIDTH);
-            stb.AddRow();
+            LTB ltb = new LTB();
+            ltb.AddRow();
+            ltb.AddColumn();
+            ltb[0][0] = CELL_VALUE;
 
-            stb[0][0] = CELL_VALUE;
+            Assert.AreEqual(ltb.ColumnCount, 1, "Column count is incorrect");
+            Assert.AreEqual(ltb.RowCount, 1, "Row count is incorrect");
+            Assert.AreEqual(ltb[0][0], CELL_VALUE, "Row value is incorrect");
 
-            Assert.AreEqual(stb.GetColumnName(0), COLUMN_HEADER, "Incorrect column header");
-            Assert.AreEqual(stb.GetColumnWidth(0), COLUMN_WIDTH, "Incorrect column width");
-            Assert.AreEqual(stb[0][0], CELL_VALUE, "Incorrect cell value");
-
-            stb.RemoveColumn(0);
-
-            Assert.Throws(typeof(ColumnOutOfRangeException), () => {
-                stb.GetColumnName(0);
-            }, "Column not removed");
+            ltb.RemoveColumn(0);
 
             Assert.Throws(typeof(CellOutOfRangeException), () => {
-                stb[0][0] = CELL_VALUE;
-            }, "Cell not removed");
+                ltb[0][0] = CELL_VALUE;
+            }, "Column not removed");
 
-            stb.RemoveRow(0);
+            ltb.RemoveRow(0);
 
             Assert.Throws(typeof(RowOutOfRangeException), () => {
-                stb[0][0] = CELL_VALUE;
+                ltb[0][0] = CELL_VALUE;
             }, "Row not removed");
         }
     }

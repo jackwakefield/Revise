@@ -58,26 +58,36 @@ namespace Revise.Files.Tests {
         /// Tests the save method using the specified file path.
         /// </summary>
         private void TestSaveMethod(string filePath) {
-            MD5 md5 = new MD5CryptoServiceProvider();
-
-            Stream originalStream = File.OpenRead(filePath);
-            byte[] originalHash = md5.ComputeHash(originalStream);
-
-            originalStream.Seek(0, SeekOrigin.Begin);
-
             STL stl = new STL();
-            stl.Load(originalStream);
+            stl.Load(filePath);
 
             MemoryStream savedStream = new MemoryStream();
             stl.Save(savedStream);
             savedStream.Seek(0, SeekOrigin.Begin);
 
-            byte[] savedHash = md5.ComputeHash(savedStream);
-
-            originalStream.Close();
+            STL savedSTL = new STL();
+            savedSTL.Load(savedStream);
             savedStream.Close();
 
-            Assert.IsTrue(originalHash.SequenceEqual(savedHash), "Saved file data does not match the original");
+            Assert.AreEqual(stl.TableType, stl.TableType, "Table types do not match");
+            Assert.AreEqual(stl.RowCount, stl.RowCount, "Row counts do not match");
+
+            for (int i = 0; i < stl.RowCount; i++) {
+                for (int j = 0; j < stl.LanguageCount; j++) {
+                    TableLanguage language = (TableLanguage)j;
+
+                    Assert.AreEqual(stl[i].GetText(language), savedSTL[i].GetText(language), "Text values do not match");
+
+                    if (stl.TableType == TableType.Item || stl.TableType == TableType.Quest) {
+                        Assert.AreEqual(stl[i].GetDescription(language), savedSTL[i].GetDescription(language), "Description values do not match");
+
+                        if (stl.TableType == TableType.Quest) {
+                            Assert.AreEqual(stl[i].GetStartMessage(language), savedSTL[i].GetStartMessage(language), "Start message values do not match");
+                            Assert.AreEqual(stl[i].GetEndMessage(language), savedSTL[i].GetEndMessage(language), "End message values do not match");
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
