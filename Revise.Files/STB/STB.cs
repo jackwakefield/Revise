@@ -32,6 +32,7 @@ namespace Revise.Files {
         #region Constants
 
         private const string FILE_IDENTIFIER = "STB";
+        private const int FILE_VERSION = 1;
 
         private const byte DEFAULT_VERSION = 1;
         private const short DEFAULT_COLUMN_WIDTH = 50;
@@ -106,6 +107,7 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="stream">The stream to load from.</param>
         /// <exception cref="Revise.Exceptions.FileIdentifierMismatchException">Thrown when the specified file has the incorrect file header expected.</exception>
+        /// <exception cref="Revise.Exceptions.InvalidVersionException">Thrown when the version of the file is invalid.</exception>
         public override void Load(Stream stream) {
             BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
             string identifier = reader.ReadString(3);
@@ -115,6 +117,10 @@ namespace Revise.Files {
             }
 
             int version = (byte)(reader.ReadByte() - '0');
+
+            if (version != FILE_VERSION) {
+                throw new InvalidVersionException(version);
+            }
 
             reader.BaseStream.Seek(4, SeekOrigin.Current);
             int rowCount = reader.ReadInt32();

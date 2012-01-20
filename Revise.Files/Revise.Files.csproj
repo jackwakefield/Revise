@@ -35,16 +35,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\TableTypeIdentifierAttribute.cs" />
+    <Compile Include="Exceptions\ChildOutOfRangeException.cs" />
     <Compile Include="Exceptions\FileIdentifierMismatchException.cs" />
     <Compile Include="Exceptions\FileInUseException.cs" />
     <Compile Include="Exceptions\FileMissingException.cs" />
     <Compile Include="Exceptions\FileNotLoadedException.cs" />
     <Compile Include="Exceptions\FileReadOnlyException.cs" />
     <Compile Include="Exceptions\InvalidLanguageException.cs" />
+    <Compile Include="Exceptions\InvalidHelpNodeCountException.cs" />
+    <Compile Include="Exceptions\InvalidVersionException.cs" />
     <Compile Include="Exceptions\KeyNotFoundException.cs" />
+    <Compile Include="Exceptions\PageOutOfRangeException.cs" />
     <Compile Include="FileLoader.cs" />
     <Compile Include="HIM\HIM.cs" />
     <Compile Include="HIM\Patch.cs" />
+    <Compile Include="HLP\HelpNode.cs" />
+    <Compile Include="HLP\HelpPage.cs" />
+    <Compile Include="HLP\HLP.cs" />
     <Compile Include="LTB\LanguageRow.cs" />
     <Compile Include="LTB\LTB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

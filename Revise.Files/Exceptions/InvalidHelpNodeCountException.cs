@@ -23,14 +23,14 @@ using System;
 
 namespace Revise.Files.Exceptions {
     /// <summary>
-    /// The exception that is thrown when an attempt is made to get or set the value of a row which is out of the row range.
+    /// The exception that is thrown when the node count for a help file is invalid.
     /// </summary>
-    public class RowOutOfRangeException : Exception {
+    public class InvalidHelpNodeCountException : Exception {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.RowOutOfRangeException"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidHelpNodeCountException"/> class.
         /// </summary>
-        public RowOutOfRangeException()
-            : base("Row specified is out of the row range") {
+        public InvalidHelpNodeCountException()
+            : base("There must be only one root node") {
         }
     }
 }

@@ -23,14 +23,32 @@ using System;
 
 namespace Revise.Files.Exceptions {
     /// <summary>
-    /// The exception that is thrown when an attempt is made to get or set the value of a row which is out of the row range.
+    /// The exception that is thrown when a file version is invalid.
     /// </summary>
-    public class RowOutOfRangeException : Exception {
+    public class InvalidVersionException : Exception {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.RowOutOfRangeException"/> class.
+        /// The format of the exception message.
         /// </summary>
-        public RowOutOfRangeException()
-            : base("Row specified is out of the row range") {
+        private const string MESSAGE_FORMAT = "Version '{0}' is invalid";
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the version.
+        /// </summary>
+        public object Version {
+            get; 
+            private set;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidVersionException"/> class.
+        /// </summary>
+        public InvalidVersionException(object version)
+            : base(string.Format(MESSAGE_FORMAT, version)) {
+            Version = version;
         }
     }
 }

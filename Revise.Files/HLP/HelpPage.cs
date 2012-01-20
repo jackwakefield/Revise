@@ -19,18 +19,35 @@
 
 #endregion
 
-using System;
-
-namespace Revise.Files.Exceptions {
+namespace Revise.Files {
     /// <summary>
-    /// The exception that is thrown when an attempt is made to get or set the value of a row which is out of the row range.
+    /// Represents an HLP page.
     /// </summary>
-    public class RowOutOfRangeException : Exception {
+    public class HelpPage {
+        #region Properties
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.RowOutOfRangeException"/> class.
+        /// Gets or sets the page title.
         /// </summary>
-        public RowOutOfRangeException()
-            : base("Row specified is out of the row range") {
+        /// <value>
+        /// The page title.
+        /// </value>
+        public string Title {
+            get;
+            set;
         }
+
+        /// <summary>
+        /// Gets or sets the page content.
+        /// </summary>
+        /// <value>
+        /// The page content.
+        /// </value>
+        public string Content {
+            get;
+            set;
+        }
+
+        #endregion
     }
 }

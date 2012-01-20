@@ -20,8 +20,6 @@
 #endregion
 
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
 using NUnit.Framework;
 using Revise.Files.Exceptions;
 
