@@ -30,7 +30,7 @@ namespace Revise.Files {
         private List<string> data;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.DataRow"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.LanguageRow"/> class.
         /// </summary>
         /// <param name="columnCount">The number of columns to add.</param>
         public LanguageRow(int columnCount) {

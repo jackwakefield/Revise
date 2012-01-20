@@ -43,6 +43,8 @@
     <Compile Include="Exceptions\InvalidLanguageException.cs" />
     <Compile Include="Exceptions\KeyNotFoundException.cs" />
     <Compile Include="FileLoader.cs" />
+    <Compile Include="HIM\HIM.cs" />
+    <Compile Include="HIM\Patch.cs" />
     <Compile Include="LTB\LanguageRow.cs" />
     <Compile Include="LTB\LTB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

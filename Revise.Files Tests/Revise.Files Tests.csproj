@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HIMTests.cs" />
     <Compile Include="LTBTests.cs" />
     <Compile Include="STBTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +63,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Files\31_30.HIM">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Files\LIST_FACEITEM_S.STL">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

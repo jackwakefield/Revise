@@ -53,7 +53,7 @@ namespace Revise.Files {
         private List<LanguageRow> rows;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LTB"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.LTB"/> class.
         /// </summary>
         public LTB() {
             rows = new List<LanguageRow>();
