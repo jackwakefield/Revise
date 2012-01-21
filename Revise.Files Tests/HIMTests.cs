@@ -50,9 +50,9 @@ namespace Revise.Files.Tests {
             long streamPosition = stream.Position;
             stream.Close();
 
-            Assert.AreEqual(streamPosition, fileSize, "Not all of the file was read");
-            Assert.AreEqual(him.Width, WIDTH, "Incorrect width");
-            Assert.AreEqual(him.Height, HEIGHT, "Incorrect height");
+            Assert.AreEqual(fileSize, streamPosition, "Not all of the file was read");
+            Assert.AreEqual(WIDTH, him.Width, "Incorrect width");
+            Assert.AreEqual(HEIGHT, him.Height, "Incorrect height");
         }
 
         /// <summary>

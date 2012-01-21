@@ -51,9 +51,9 @@ namespace Revise.Files.Tests {
             long streamPosition = stream.Position;
             stream.Close();
 
-            Assert.AreEqual(streamPosition, fileSize, "Not all of the file was read");
-            Assert.AreEqual(ltb.RowCount, ROW_COUNT, "Incorrect row count");
-            Assert.AreEqual(ltb.ColumnCount, COLUMN_COUNT, "Incorrect column count");
+            Assert.AreEqual(fileSize, streamPosition, "Not all of the file was read");
+            Assert.AreEqual(ROW_COUNT, ltb.RowCount, "Incorrect row count");
+            Assert.AreEqual(COLUMN_COUNT, ltb.ColumnCount, "Incorrect column count");
         }
 
         /// <summary>

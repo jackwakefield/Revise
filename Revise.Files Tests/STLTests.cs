@@ -48,8 +48,8 @@ namespace Revise.Files.Tests {
             long streamPosition = stream.Position;
             stream.Close();
 
-            Assert.AreEqual(streamPosition, fileSize, "Not all of the file was read");
-            Assert.AreEqual(stl.RowCount, rowCount, "Incorrect row count");
+            Assert.AreEqual(fileSize, streamPosition, "Not all of the file was read");
+            Assert.AreEqual(rowCount, stl.RowCount, "Incorrect row count");
         }
 
         /// <summary>

@@ -50,9 +50,9 @@ namespace Revise.Files.Tests {
             long streamPosition = stream.Position;
             stream.Close();
 
-            Assert.AreEqual(streamPosition, fileSize, "Not all of the file was read");
-            Assert.AreEqual(mov.Width, WIDTH, "Incorrect width");
-            Assert.AreEqual(mov.Height, HEIGHT, "Incorrect height");
+            Assert.AreEqual(fileSize, streamPosition, "Not all of the file was read");
+            Assert.AreEqual(WIDTH, mov.Width, "Incorrect width");
+            Assert.AreEqual(HEIGHT, mov.Height, "Incorrect height");
         }
 
         /// <summary>
@@ -65,7 +65,6 @@ namespace Revise.Files.Tests {
 
             MemoryStream savedStream = new MemoryStream();
             mov.Save(savedStream);
-            mov.Load(TEST_FILE);
 
             savedStream.Seek(0, SeekOrigin.Begin);
 

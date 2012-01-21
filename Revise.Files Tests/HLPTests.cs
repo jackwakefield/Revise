@@ -49,8 +49,8 @@ namespace Revise.Files.Tests {
             long streamPosition = stream.Position;
             stream.Close();
 
-            Assert.AreEqual(streamPosition, fileSize, "Not all of the file was read");
-            Assert.AreEqual(hlp.Pages.Count, PAGE_COUNT, "Incorrect page count");
+            Assert.AreEqual(fileSize, streamPosition, "Not all of the file was read");
+            Assert.AreEqual(PAGE_COUNT, hlp.Pages.Count, "Incorrect page count");
         }
 
         /// <summary>

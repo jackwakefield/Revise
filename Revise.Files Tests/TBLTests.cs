@@ -49,8 +49,8 @@ namespace Revise.Files.Tests {
             long streamPosition = stream.Position;
             stream.Close();
 
-            Assert.AreEqual(streamPosition, fileSize, "Not all of the file was read");
-            Assert.AreEqual(tbl.MaximumRange, MAXIMUM_RANGE, "Incorrect maximum range");
+            Assert.AreEqual(fileSize, streamPosition, "Not all of the file was read");
+            Assert.AreEqual(MAXIMUM_RANGE, tbl.MaximumRange, "Incorrect maximum range");
         }
 
         /// <summary>

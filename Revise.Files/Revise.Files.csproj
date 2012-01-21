@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Attributes\TableTypeIdentifierAttribute.cs" />
     <Compile Include="Exceptions\FileIdentifierMismatchException.cs" />
     <Compile Include="Exceptions\FileInUseException.cs" />
@@ -68,6 +65,13 @@
     <Compile Include="TBL\TBL.cs" />
     <Compile Include="TIL\TIL.cs" />
     <Compile Include="TIL\TilePatch.cs" />
+    <Compile Include="TSI\Sprite.cs" />
+    <Compile Include="TSI\SpriteTexture.cs" />
+    <Compile Include="TSI\TSI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Revise.Extensions\Revise.Extensions.csproj">
@@ -75,7 +79,6 @@
       <Name>Revise.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

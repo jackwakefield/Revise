@@ -19,6 +19,7 @@
 
 #endregion
 
+using System;
 using System.IO;
 using System.Text;
 
@@ -71,5 +72,27 @@ public static class BinaryWriterExtensions {
     /// <param name="encoding">The character encoding.</param>
     public static void WriteString(this BinaryWriter writer, string value, Encoding encoding) {
         writer.Write(encoding.GetBytes(value));
+    }
+
+    /// <summary>
+    /// Writes the specified string to the underlying stream.
+    /// </summary>
+    /// <param name="value">The string value.</param>
+    /// <param name="length">The fixed length.</param>
+    public static void WriteString(this BinaryWriter writer, string value, int length) {
+        writer.WriteString(value, length, DefaultEncoding);
+    }
+
+    /// <summary>
+    /// Writes the specified string to the underlying stream.
+    /// </summary>
+    /// <param name="value">The string value.</param>
+    /// <param name="length">The fixed length.</param>
+    /// <param name="encoding">The character encoding.</param>
+    public static void WriteString(this BinaryWriter writer, string value, int length, Encoding encoding) {
+        byte[] values = encoding.GetBytes(value);
+        Array.Resize<byte>(ref values, length);
+
+        writer.Write(values);
     }
 }

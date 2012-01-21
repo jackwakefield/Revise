@@ -61,6 +61,7 @@
     <Compile Include="STLTests.cs" />
     <Compile Include="TBLTests.cs" />
     <Compile Include="TILTests.cs" />
+    <Compile Include="TSITests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Revise.Files\Revise.Files.csproj">
@@ -97,6 +98,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\STR_ITEMTYPE.STL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\UI.TSI">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\ULNGTB_CON.LTB">
