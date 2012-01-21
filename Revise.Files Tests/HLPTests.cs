@@ -19,7 +19,6 @@
 
 #endregion
 
-using System;
 using System.IO;
 using NUnit.Framework;
 
@@ -51,7 +50,7 @@ namespace Revise.Files.Tests {
             stream.Close();
 
             Assert.AreEqual(streamPosition, fileSize, "Not all of the file was read");
-            Assert.AreEqual(hlp.PageCount, PAGE_COUNT, "Incorrect page count");
+            Assert.AreEqual(hlp.Pages.Count, PAGE_COUNT, "Incorrect page count");
         }
 
         /// <summary>
@@ -72,13 +71,13 @@ namespace Revise.Files.Tests {
 
             savedStream.Close();
 
-            Assert.AreEqual(hlp.PageCount, savedHLP.PageCount, "Page counts do not match");
+            Assert.AreEqual(hlp.Pages.Count, savedHLP.Pages.Count, "Page counts do not match");
 
             TestNodes(hlp.RootNode, savedHLP.RootNode);
 
-            for (int i = 0; i < hlp.PageCount; i++) {
-                Assert.AreEqual(hlp[i].Title, savedHLP[i].Title, "Page title values do not match");
-                Assert.AreEqual(hlp[i].Content, savedHLP[i].Content, "Page content values do not match");
+            for (int i = 0; i < hlp.Pages.Count; i++) {
+                Assert.AreEqual(hlp.Pages[i].Title, savedHLP.Pages[i].Title, "Page title values do not match");
+                Assert.AreEqual(hlp.Pages[i].Content, savedHLP.Pages[i].Content, "Page content values do not match");
             }
         }
 
@@ -89,83 +88,11 @@ namespace Revise.Files.Tests {
         /// <param name="nodeB">The second node.</param>
         private void TestNodes(HelpNode nodeA, HelpNode nodeB) {
             Assert.AreEqual(nodeA.Name, nodeB.Name, "Node name values do not match");
-            Assert.AreEqual(nodeA.ChildCount, nodeB.ChildCount, "Child counts do not match");
+            Assert.AreEqual(nodeA.Children.Count, nodeB.Children.Count, "Child counts do not match");
 
-            for (int i = 0; i < nodeA.ChildCount; i++) {
-                TestNodes(nodeA[i], nodeB[i]);
+            for (int i = 0; i < nodeA.Children.Count; i++) {
+                TestNodes(nodeA.Children[i], nodeA.Children[i]);
             }
-        }
-
-        /// <summary>
-        /// Tests the node methods.
-        /// </summary>
-        [Test]
-        public void TestNodeMethods() {
-            const string CHILD_NAME_VALUE_1 = "Child Value 1";
-            const string CHILD_NAME_VALUE_2 = "Child Value 2";
-
-            HLP hlp = new HLP();
-
-            hlp.RootNode.AddChild();
-            hlp.RootNode[0].Name = CHILD_NAME_VALUE_1;
-
-            Assert.AreEqual(hlp.RootNode.ChildCount, 1, "Child count is incorrect");
-            Assert.AreEqual(hlp.RootNode[0].Name, CHILD_NAME_VALUE_1, "Child name value is incorrect");
-
-            hlp.RootNode.AddChild(CHILD_NAME_VALUE_2);
-
-            Assert.AreEqual(hlp.RootNode.ChildCount, 2, "Child count is incorrect");
-            Assert.AreEqual(hlp.RootNode[1].Name, CHILD_NAME_VALUE_2, "Child name value is incorrect");
-
-            hlp.RootNode.RemoveChild(0);
-
-            Assert.AreEqual(hlp.RootNode.ChildCount, 1, "Child count is incorrect");
-            Assert.AreEqual(hlp.RootNode[0].Name, CHILD_NAME_VALUE_2, "Child name value is incorrect");
-
-            hlp.RootNode.RemoveChild(0);
-
-            Assert.Throws(typeof(ArgumentOutOfRangeException), () => {
-                hlp.RootNode[0].Name = CHILD_NAME_VALUE_2;
-            }, "Child not removed");
-        }
-
-        /// <summary>
-        /// Tests the page methods.
-        /// </summary>
-        [Test]
-        public void TestPageMethods() {
-            const string PAGE_TITLE_VALUE_1 = "Title Value 1";
-            const string PAGE_CONTENT_VALUE_1 = "Content Value 1";
-            const string PAGE_TITLE_VALUE_2 = "Title Value 2";
-            const string PAGE_CONTENT_VALUE_2 = "Content Value 2";
-
-            HLP hlp = new HLP();
-
-            hlp.AddPage();
-            hlp[0].Title = PAGE_TITLE_VALUE_1;
-            hlp[0].Content = PAGE_CONTENT_VALUE_1;
-
-            Assert.AreEqual(hlp.PageCount, 1, "Page count is incorrect");
-            Assert.AreEqual(hlp[0].Title, PAGE_TITLE_VALUE_1, "Page title value is incorrect");
-            Assert.AreEqual(hlp[0].Content, PAGE_CONTENT_VALUE_1, "Page content value is incorrect");
-
-            hlp.AddPage(PAGE_TITLE_VALUE_2, PAGE_CONTENT_VALUE_2);
-
-            Assert.AreEqual(hlp.PageCount, 2, "Page count is incorrect");
-            Assert.AreEqual(hlp[1].Title, PAGE_TITLE_VALUE_2, "Page title value is incorrect");
-            Assert.AreEqual(hlp[1].Content, PAGE_CONTENT_VALUE_2, "Page content value is incorrect");
-
-            hlp.RemovePage(0);
-
-            Assert.AreEqual(hlp.PageCount, 1, "Page count is incorrect");
-            Assert.AreEqual(hlp[0].Title, PAGE_TITLE_VALUE_2, "Page title value is incorrect");
-            Assert.AreEqual(hlp[0].Content, PAGE_CONTENT_VALUE_2, "Page content value is incorrect");
-
-            hlp.RemovePage(0);
-
-            Assert.Throws(typeof(ArgumentOutOfRangeException), () => {
-                hlp[0].Title = PAGE_TITLE_VALUE_2;
-            }, "Page not removed");
         }
     }
 }

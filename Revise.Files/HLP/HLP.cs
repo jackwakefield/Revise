@@ -19,7 +19,6 @@
 
 #endregion
 
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -38,46 +37,27 @@ namespace Revise.Files {
         /// Gets the root node.
         /// </summary>
         public HelpNode RootNode {
-            get {
-                return rootNode;
-            }
+            get;
+            private set;
         }
 
         /// <summary>
-        /// Gets the page count.
+        /// Gets the pages.
         /// </summary>
-        public int PageCount {
-            get {
-                return pages.Count;
-            }
+        public List<HelpPage> Pages {
+            get;
+            private set;
         }
 
         #endregion
-
-        private HelpNode rootNode;
-        private List<HelpPage> pages;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Revise.Files.HLP"/> class.
         /// </summary>
         public HLP() {
-            pages = new List<HelpPage>();
+            Pages = new List<HelpPage>();
 
             Reset();
-        }
-
-        /// <summary>
-        /// Gets the specified <see cref="Revise.Files.HelpPage"/>.
-        /// </summary>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified page does not exist.</exception>
-        public HelpPage this[int page] {
-            get {
-                if (page < 0 || page > pages.Count - 1) {
-                    throw new ArgumentOutOfRangeException("page", "Page is out of range");
-                }
-
-                return pages[page];
-            }
         }
 
         /// <summary>
@@ -101,7 +81,7 @@ namespace Revise.Files {
                 throw new InvalidHelpNodeCountException();
             }
 
-            LoadNode(rootNode, reader);
+            LoadNode(RootNode, reader);
 
             int pageCount = reader.ReadInt32();
 
@@ -109,8 +89,8 @@ namespace Revise.Files {
                 HelpPage page = new HelpPage();
                 page.Title = reader.ReadString();
                 page.Content = reader.ReadString();
-                
-                pages.Add(page);
+
+                Pages.Add(page);
             }
         }
 
@@ -127,7 +107,7 @@ namespace Revise.Files {
                 HelpNode child = new HelpNode();
                 LoadNode(child, reader);
 
-                node.AddChild(child);
+                node.Children.Add(child);
             }
         }
 
@@ -142,11 +122,11 @@ namespace Revise.Files {
             writer.WriteString(FILE_VERSION);
 
             writer.Write(1);
-            SaveNode(rootNode, writer);
+            SaveNode(RootNode, writer);
 
-            writer.Write(pages.Count);
+            writer.Write(Pages.Count);
 
-            pages.ForEach(page => {
+            Pages.ForEach(page => {
                 writer.Write(page.Title);
                 writer.Write(page.Content);
             });
@@ -159,63 +139,19 @@ namespace Revise.Files {
         /// <param name="writer">The writer.</param>
         private void SaveNode(HelpNode node, BinaryWriter writer) {
             writer.Write(node.Name);
-            writer.Write(node.ChildCount);
+            writer.Write(node.Children.Count);
 
-            for (int i = 0; i < node.ChildCount; i++) {
-                HelpNode child = node[i];
+            node.Children.ForEach(child => {
                 SaveNode(child, writer);
-            }
-        }
-
-        /// <summary>
-        /// Adds the page with the option title and content
-        /// </summary>
-        /// <param name="title">The title.</param>
-        /// <param name="content">The content.</param>
-        /// <returns>The page added.</returns>
-        public HelpPage AddPage(string title = "", string content = "") {
-            HelpPage page = new HelpPage();
-            page.Title = title;
-            page.Content = content;
-
-            pages.Add(page);
-            
-            return page;
-        }
-
-        /// <summary>
-        /// Removes the specified page.
-        /// </summary>
-        /// <param name="row">The page to remove.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified page is out of range.</exception>
-        public void RemovePage(int page) {
-            if (page < 0 || page > pages.Count - 1) {
-                throw new ArgumentOutOfRangeException("page", "Page is out of range");
-            }
-
-            pages.RemoveAt(page);
-        }
-
-        /// <summary>
-        /// Removes the specified page.
-        /// </summary>
-        /// <param name="page">The page to remove.</param>
-        /// <exception cref="System.ArgumentException">Thrown when the file does not contain the specified page.</exception>
-        public void RemovePage(HelpPage page) {
-            if (!pages.Contains(page)) {
-                throw new ArgumentException("page", "File does not contain the specified page");
-            }
-
-            int pageIndex = pages.IndexOf(page);
-            RemovePage(pageIndex);
+            });
         }
 
         /// <summary>
         /// Removes all nodes and pages.
         /// </summary>
         public void Clear() {
-            rootNode = new HelpNode();
-            pages.Clear();
+            RootNode = new HelpNode();
+            Pages.Clear();
         }
 
         /// <summary>

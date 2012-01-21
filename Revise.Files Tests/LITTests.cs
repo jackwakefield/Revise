@@ -50,7 +50,7 @@ namespace Revise.Files.Tests {
             stream.Close();
 
             Assert.AreEqual(streamPosition, fileSize, "Not all of the file was read");
-            Assert.AreEqual(lit.ObjectCount, OBJECT_COUNT, "Incorrect object count");
+            Assert.AreEqual(lit.Objects.Count, OBJECT_COUNT, "Incorrect object count");
         }
 
         /// <summary>
@@ -71,26 +71,26 @@ namespace Revise.Files.Tests {
 
             savedStream.Close();
 
-            Assert.AreEqual(lit.ObjectCount, savedLIT.ObjectCount, "Object counts do not match");
+            Assert.AreEqual(lit.Objects.Count, savedLIT.Objects.Count, "Object counts do not match");
 
-            for (int i = 0; i < lit.ObjectCount; i++) {
-                Assert.AreEqual(lit[i].ID, savedLIT[i].ID, "Object IDs do not match");
-                Assert.AreEqual(lit[i].PartCount, savedLIT[i].PartCount, "Part counts do not match");
+            for (int i = 0; i < lit.Objects.Count; i++) {
+                Assert.AreEqual(lit.Objects[i].ID, savedLIT.Objects[i].ID, "Object IDs do not match");
+                Assert.AreEqual(lit.Objects[i].Parts.Count, savedLIT.Objects[i].Parts.Count, "Part counts do not match");
 
-                for (int j = 0; j < lit[i].PartCount; j++) {
-                    Assert.AreEqual(lit[i][j].Name, lit[i][j].Name, "Part names do not match");
-                    Assert.AreEqual(lit[i][j].ID, lit[i][j].ID, "Part IDs do not match");
-                    Assert.AreEqual(lit[i][j].FileName, lit[i][j].FileName, "Part file names do not match");
-                    Assert.AreEqual(lit[i][j].PixelsPerObject, lit[i][j].PixelsPerObject, "Part pixel per object values do not match");
-                    Assert.AreEqual(lit[i][j].ObjectsPerWidth, lit[i][j].ObjectsPerWidth, "Part objects per width values do not match");
-                    Assert.AreEqual(lit[i][j].ObjectPosition, lit[i][j].ObjectPosition, "Part position values do not match");
+                for (int j = 0; j < lit.Objects[i].Parts.Count; j++) {
+                    Assert.AreEqual(lit.Objects[i].Parts[j].Name, lit.Objects[i].Parts[j].Name, "Part names do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].ID, lit.Objects[i].Parts[j].ID, "Part IDs do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].FileName, lit.Objects[i].Parts[j].FileName, "Part file names do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].PixelsPerObject, lit.Objects[i].Parts[j].PixelsPerObject, "Part pixel per object values do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].ObjectsPerWidth, lit.Objects[i].Parts[j].ObjectsPerWidth, "Part objects per width values do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].ObjectPosition, lit.Objects[i].Parts[j].ObjectPosition, "Part position values do not match");
                 }
             }
 
-            Assert.AreEqual(lit.FileCount, savedLIT.FileCount, "File counts do not match");
+            Assert.AreEqual(lit.Files.Count, savedLIT.Files.Count, "File counts do not match");
 
-            for (int i = 0; i < lit.FileCount; i++) {
-                Assert.AreEqual(lit.GetFileName(i), savedLIT.GetFileName(i), "File names do not match");
+            for (int i = 0; i < lit.Files.Count; i++) {
+                Assert.AreEqual(lit.Files[i], savedLIT.Files[i], "File names do not match");
             }
         }
     }

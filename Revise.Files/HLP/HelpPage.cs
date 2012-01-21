@@ -49,5 +49,13 @@ namespace Revise.Files {
         }
 
         #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Revise.Files.HelpPage"/> class.
+        /// </summary>
+        public HelpPage() {
+            Title = string.Empty;
+            Content = string.Empty;
+        }
     }
 }

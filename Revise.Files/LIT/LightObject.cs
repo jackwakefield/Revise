@@ -19,7 +19,6 @@
 
 #endregion
 
-using System;
 using System.Collections.Generic;
 
 namespace Revise.Files {
@@ -41,82 +40,20 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Gets the numbers of parts.
+        /// Gets the light parts.
         /// </summary>
-        public int PartCount {
-            get {
-                return parts.Count;
-            }
+        public List<LightPart> Parts {
+            get;
+            private set;
         }
 
         #endregion
-
-        private List<LightPart> parts;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Revise.Files.LightObject"/> class.
         /// </summary>
         public LightObject() {
-            parts = new List<LightPart>();
-        }
-
-        /// <summary>
-        /// Gets the specified <see cref="Revise.Files.LightPart"/>.
-        /// </summary>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified page does not exist.</exception>
-        public LightPart this[int part] {
-            get {
-                if (part < 0 || part > parts.Count - 1) {
-                    throw new ArgumentOutOfRangeException("part", "Part is out of range");
-                }
-
-                return parts[part];
-            }
-        }
-
-        /// <summary>
-        /// Adds a new light part.
-        /// </summary>
-        /// <returns>The created light part.</returns>
-        public LightPart AddPart() {
-            return AddPart(new LightPart());
-        }
-
-        /// <summary>
-        /// Adds the specified light part.
-        /// </summary>
-        /// <param name="part">The light part.</param>
-        /// <returns></returns>
-        public LightPart AddPart(LightPart part) {
-            parts.Add(part);
-
-            return part;
-        }
-
-        /// <summary>
-        /// Removes the specified light part.
-        /// </summary>
-        /// <param name="part">The light part to remove.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified light part does not exist.</exception>
-        public void RemovePart(int part) {
-            if (part < 0 || part > parts.Count - 1) {
-                throw new ArgumentOutOfRangeException("part", "Part is out of range");
-            }
-
-            parts.RemoveAt(part);
-        }
-
-        /// <summary>
-        /// Removes the specified light part.
-        /// </summary>
-        /// <param name="part">The light part to remove.</param>
-        /// <exception cref="System.ArgumentException">Thrown when the object does not contain the specified light part.</exception>
-        public void RemovePart(LightPart part) {
-            if (parts.Contains(part)) {
-                throw new ArgumentException("part", "Object does not contain part");
-            }
-
-            parts.Remove(part);
+            Parts = new List<LightPart>();
         }
     }
 }

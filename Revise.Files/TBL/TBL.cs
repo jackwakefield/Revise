@@ -68,9 +68,8 @@ namespace Revise.Files {
         /// Gets the points.
         /// </summary>
         public List<TablePoint> Points {
-            get {
-                return points;
-            }
+            get;
+            private set;
         }
 
         #endregion
@@ -79,13 +78,11 @@ namespace Revise.Files {
         private short[] startIndexes;
         private short[] indexCounts;
 
-        private List<TablePoint> points;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Revise.Files.TBL"/> class.
         /// </summary>
         public TBL() {
-            points = new List<TablePoint>();
+            Points = new List<TablePoint>();
 
             Reset();
         }
@@ -111,7 +108,7 @@ namespace Revise.Files {
                 point.X = reader.ReadInt16();
                 point.Y = reader.ReadInt16();
 
-                points.Add(point);
+                Points.Add(point);
             }
         }
 
@@ -129,9 +126,9 @@ namespace Revise.Files {
                 writer.Write(indexCounts[i]);
             }
 
-            writer.Write((short)points.Count);
+            writer.Write((short)Points.Count);
 
-            points.ForEach(point => {
+            Points.ForEach(point => {
                 writer.Write(point.X);
                 writer.Write(point.Y);
             });
@@ -147,7 +144,7 @@ namespace Revise.Files {
             startIndexes = new short[0];
             indexCounts = new short[0];
 
-            points.Clear();
+            Points.Clear();
         }
     }
 }

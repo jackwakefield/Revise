@@ -64,9 +64,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the height of the row cell.
         /// </summary>
-        /// <value>
-        /// The height of the row cell.
-        /// </value>
         public int RowHeight {
             get;
             set;

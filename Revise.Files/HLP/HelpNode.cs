@@ -19,7 +19,6 @@
 
 #endregion
 
-using System;
 using System.Collections.Generic;
 
 namespace Revise.Files {
@@ -41,90 +40,21 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Gets the child count.
+        /// Gets the child nodes.
         /// </summary>
-        public int ChildCount {
-            get {
-                return children.Count;
-            }
+        public List<HelpNode> Children {
+            get;
+            private set;
         }
 
         #endregion
-
-        private List<HelpNode> children;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Revise.Files.HelpNode"/> class.
         /// </summary>
         public HelpNode() {
             Name = string.Empty;
-            children = new List<HelpNode>();
-        }
-
-        /// <summary>
-        /// Gets the specified <see cref="Revise.Files.HelpNode"/> .
-        /// </summary>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified child is out of range.</exception>
-        public HelpNode this[int child] {
-            get {
-                if (child < 0 || child > children.Count - 1) {
-                    throw new ArgumentOutOfRangeException("child", "Child is out of range");
-                }
-
-                return children[child];
-            }
-        }
-
-        /// <summary>
-        /// Adds the child node.
-        /// </summary>
-        /// <param name="node">The node.</param>
-        /// <returns>The added node.</returns>
-        public HelpNode AddChild(HelpNode node) {
-            children.Add(node);
-
-            return node;
-        }
-
-        /// <summary>
-        /// Adds a new child node with the optional name;
-        /// </summary>
-        /// <param name="name">The node name.</param>
-        /// <returns>The added node.</returns>
-        public HelpNode AddChild(string name = "") {
-            HelpNode node = new HelpNode();
-            node.Name = name;
-
-            children.Add(node);
-
-            return node;
-        }
-
-        /// <summary>
-        /// Removes the specified child node.
-        /// </summary>
-        /// <param name="child">The child node to remove.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified child is out of range.</exception>
-        public void RemoveChild(int child) {
-            if (child < 0 || child > children.Count - 1) {
-                throw new ArgumentOutOfRangeException("child", "Child is out of range");
-            }
-
-            children.RemoveAt(child);
-        }
-
-        /// <summary>
-        /// Removes the specified child node.
-        /// </summary>
-        /// <param name="child">The child node to remove.</param>
-        /// <exception cref="System.ArgumentException">Thrown when the file does not contain the specified child node.</exception>
-        public void RemoveChild(HelpNode child) {
-            if (!children.Contains(child)) {
-                throw new ArgumentException("child", "Node does not contain the specified child node");
-            }
-
-            int childIndex = children.IndexOf(child);
-            RemoveChild(childIndex);
+            Children = new List<HelpNode>();
         }
     }
 }

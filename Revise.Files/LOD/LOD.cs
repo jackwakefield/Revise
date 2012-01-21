@@ -124,6 +124,7 @@ namespace Revise.Files {
         public override void Reset() {
             base.Reset();
 
+            Name = string.Empty;
             values = new int[DEFAULT_HEIGHT, DEFAULT_WIDTH];
         }
     }
