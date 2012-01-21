@@ -103,7 +103,7 @@ namespace Revise.Files {
         /// <summary>
         /// Removes the specified child node.
         /// </summary>
-        /// <param name="child">The child node.</param>
+        /// <param name="child">The child node to remove.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified child is out of range.</exception>
         public void RemoveChild(int child) {
             if (child < 0 || child > children.Count - 1) {
@@ -111,6 +111,20 @@ namespace Revise.Files {
             }
 
             children.RemoveAt(child);
+        }
+
+        /// <summary>
+        /// Removes the specified child node.
+        /// </summary>
+        /// <param name="child">The child node to remove.</param>
+        /// <exception cref="System.ArgumentException">Thrown when the file does not contain the specified child node.</exception>
+        public void RemoveChild(HelpNode child) {
+            if (!children.Contains(child)) {
+                throw new ArgumentException("child", "Node does not contain the specified child node");
+            }
+
+            int childIndex = children.IndexOf(child);
+            RemoveChild(childIndex);
         }
     }
 }

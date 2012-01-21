@@ -346,6 +346,20 @@ namespace Revise.Files {
         }
 
         /// <summary>
+        /// Removes the specified row.
+        /// </summary>
+        /// <param name="row">The row to remove.</param>
+        /// <exception cref="System.ArgumentException">Thrown when the file does not contain the specified row.</exception>
+        public void RemoveRow(DataRow row) {
+            if (!rows.Contains(row)) {
+                throw new ArgumentException("row", "File does not contain the specified row");
+            }
+
+            int rowIndex = rows.IndexOf(row);
+            RemoveRow(rowIndex);
+        }
+
+        /// <summary>
         /// Removes all rows.
         /// </summary>
         public void Clear() {

@@ -281,7 +281,7 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Removes the row.
+        /// Removes the specified row.
         /// </summary>
         /// <param name="row">The row to remove.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified row is out of range.</exception>
@@ -292,6 +292,20 @@ namespace Revise.Files {
 
             keys.RemoveAt(row);
             rows.RemoveAt(row);
+        }
+
+        /// <summary>
+        /// Removes the specified row.
+        /// </summary>
+        /// <param name="row">The row to remove.</param>
+        /// <exception cref="System.ArgumentException">Thrown when the file does not contain the specified row.</exception>
+        public void RemoveRow(TableRow row) {
+            if (!rows.Contains(row)) {
+                throw new ArgumentException("row", "File does not contain the specified row");
+            }
+
+            int rowIndex = rows.IndexOf(row);
+            RemoveRow(rowIndex);
         }
 
         /// <summary>

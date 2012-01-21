@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="HIMTests.cs" />
     <Compile Include="HLPTests.cs" />
+    <Compile Include="LITTests.cs" />
     <Compile Include="LODTests.cs" />
     <Compile Include="LTBTests.cs" />
     <Compile Include="STBTests.cs" />
@@ -79,6 +80,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\LIST_QUEST_S.STL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\OBJECTLIGHTMAPDATA.LIT">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\O_RANGE.TBL">

@@ -197,7 +197,21 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Removes all rows.
+        /// Removes the specified page.
+        /// </summary>
+        /// <param name="page">The page to remove.</param>
+        /// <exception cref="System.ArgumentException">Thrown when the file does not contain the specified page.</exception>
+        public void RemovePage(HelpPage page) {
+            if (!pages.Contains(page)) {
+                throw new ArgumentException("page", "File does not contain the specified page");
+            }
+
+            int pageIndex = pages.IndexOf(page);
+            RemovePage(pageIndex);
+        }
+
+        /// <summary>
+        /// Removes all nodes and pages.
         /// </summary>
         public void Clear() {
             rootNode = new HelpNode();
