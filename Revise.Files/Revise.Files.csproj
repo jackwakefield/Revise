@@ -35,17 +35,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\TableTypeIdentifierAttribute.cs" />
-    <Compile Include="Exceptions\ChildOutOfRangeException.cs" />
     <Compile Include="Exceptions\FileIdentifierMismatchException.cs" />
     <Compile Include="Exceptions\FileInUseException.cs" />
     <Compile Include="Exceptions\FileMissingException.cs" />
     <Compile Include="Exceptions\FileNotLoadedException.cs" />
     <Compile Include="Exceptions\FileReadOnlyException.cs" />
-    <Compile Include="Exceptions\InvalidLanguageException.cs" />
     <Compile Include="Exceptions\InvalidHelpNodeCountException.cs" />
     <Compile Include="Exceptions\InvalidVersionException.cs" />
-    <Compile Include="Exceptions\KeyNotFoundException.cs" />
-    <Compile Include="Exceptions\PageOutOfRangeException.cs" />
     <Compile Include="FileLoader.cs" />
     <Compile Include="HIM\HIM.cs" />
     <Compile Include="HIM\Patch.cs" />
@@ -56,18 +52,16 @@
     <Compile Include="LTB\LanguageRow.cs" />
     <Compile Include="LTB\LTB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Exceptions\CellOutOfRangeException.cs" />
-    <Compile Include="Exceptions\ColumnOutOfRangeException.cs" />
-    <Compile Include="Exceptions\RowOutOfRangeException.cs" />
     <Compile Include="STB\STB.cs" />
     <Compile Include="STB\DataColumn.cs" />
     <Compile Include="STB\DataRow.cs" />
-    <Compile Include="Exceptions\InvalidTableTypeException.cs" />
     <Compile Include="STL\STL.cs" />
     <Compile Include="STL\TableLanguage.cs" />
     <Compile Include="STL\TableType.cs" />
     <Compile Include="STL\TableKey.cs" />
     <Compile Include="STL\TableRow.cs" />
+    <Compile Include="TBL\TablePoint.cs" />
+    <Compile Include="TBL\TBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Revise.Extensions\Revise.Extensions.csproj">

@@ -19,8 +19,8 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
-using Revise.Files.Exceptions;
 
 namespace Revise.Files {
     /// <summary>
@@ -44,18 +44,18 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the <see cref="System.String"/> of the specified cell.
         /// </summary>
-        /// <exception cref="Revise.Exceptions.CellOutOfRangeException">Thrown when the specified cell is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified cell is out of range.</exception>
         public string this[int cell] {
             get {
                 if (cell < 0 || cell > data.Count - 1) {
-                    throw new CellOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("cell", "Cell is out of range");
                 }
 
                 return data[cell];
             }
             set {
                 if (cell < 0 || cell > data.Count - 1) {
-                    throw new CellOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("cell", "Cell is out of range");
                 }
 
                 data[cell] = value;
@@ -73,10 +73,10 @@ namespace Revise.Files {
         /// Removes the specified column.
         /// </summary>
         /// <param name="column">The column.</param>
-        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified column is out of range.</exception>
         internal void RemoveColumn(int column) {
             if (column < 0 || column > data.Count - 1) {
-                throw new ColumnOutOfRangeException();
+                throw new ArgumentOutOfRangeException("column", "Column is out of range");
             }
 
             data.RemoveAt(column);

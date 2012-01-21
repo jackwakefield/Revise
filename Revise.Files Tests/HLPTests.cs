@@ -19,9 +19,9 @@
 
 #endregion
 
+using System;
 using System.IO;
 using NUnit.Framework;
-using Revise.Files.Exceptions;
 
 namespace Revise.Files.Tests {
     /// <summary>
@@ -124,7 +124,7 @@ namespace Revise.Files.Tests {
 
             hlp.RootNode.RemoveChild(0);
 
-            Assert.Throws(typeof(ChildOutOfRangeException), () => {
+            Assert.Throws(typeof(ArgumentOutOfRangeException), () => {
                 hlp.RootNode[0].Name = CHILD_NAME_VALUE_2;
             }, "Child not removed");
         }
@@ -163,7 +163,7 @@ namespace Revise.Files.Tests {
 
             hlp.RemovePage(0);
 
-            Assert.Throws(typeof(PageOutOfRangeException), () => {
+            Assert.Throws(typeof(ArgumentOutOfRangeException), () => {
                 hlp[0].Title = PAGE_TITLE_VALUE_2;
             }, "Page not removed");
         }

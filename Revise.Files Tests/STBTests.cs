@@ -19,9 +19,9 @@
 
 #endregion
 
+using System;
 using System.IO;
 using NUnit.Framework;
-using Revise.Files.Exceptions;
 
 namespace Revise.Files.Tests {
     /// <summary>
@@ -103,17 +103,17 @@ namespace Revise.Files.Tests {
 
             stb.RemoveColumn(0);
 
-            Assert.Throws(typeof(ColumnOutOfRangeException), () => {
+            Assert.Throws(typeof(ArgumentOutOfRangeException), () => {
                 stb.GetColumnName(0);
             }, "Column not removed");
 
-            Assert.Throws(typeof(CellOutOfRangeException), () => {
+            Assert.Throws(typeof(ArgumentOutOfRangeException), () => {
                 stb[0][0] = CELL_VALUE;
             }, "Cell not removed");
 
             stb.RemoveRow(0);
 
-            Assert.Throws(typeof(RowOutOfRangeException), () => {
+            Assert.Throws(typeof(ArgumentOutOfRangeException), () => {
                 stb[0][0] = CELL_VALUE;
             }, "Row not removed");
         }

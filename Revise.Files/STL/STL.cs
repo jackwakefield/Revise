@@ -23,8 +23,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Revise.Files.Attributes;
-using Revise.Files.Exceptions;
-using KeyNotFoundException = Revise.Files.Exceptions.KeyNotFoundException;
 
 namespace Revise.Files {
     /// <summary>
@@ -90,11 +88,11 @@ namespace Revise.Files {
         /// <summary>
         /// Gets the specified <see cref="Revise.Files.TableRow"/>.
         /// </summary>
-        /// <exception cref="Revise.Exceptions.RowOutOfRangeException">Thrown when the specified row does not exist.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified row does not exist.</exception>
         public TableRow this[int row] {
             get {
                 if (row < 0 || row > rows.Count - 1) {
-                    throw new RowOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("row", "Row is out of range");
                 }
 
                 return rows[row];
@@ -104,7 +102,7 @@ namespace Revise.Files {
         /// <summary>
         /// Gets the <see cref="Revise.Files.TableRow"/> matching the specified key.
         /// </summary>
-        /// <exception cref="Revise.Exceptions.KeyNotFoundException">Thrown when the specified key does not exist.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified key does not exist.</exception>
         public TableRow this[string key] {
             get {
                 for (int i = 0; i < keys.Count; i++) {
@@ -113,7 +111,7 @@ namespace Revise.Files {
                     }
                 }
 
-                throw new KeyNotFoundException(key);
+                throw new ArgumentException("key", "Key does not exist");
             }
         }
 
@@ -270,7 +268,7 @@ namespace Revise.Files {
         /// Removes the row matching the specified key.
         /// </summary>
         /// <param name="key">The key to remove.</param>
-        /// <exception cref="Revise.Exceptions.KeyNotFoundException">Thrown when the specified key does not exist.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified key does not exist.</exception>
         public void RemoveRow(string key) {
             for (int i = 0; i < keys.Count; i++) {
                 if (string.Compare(key, keys[i].Key, false) == 0) {
@@ -279,17 +277,17 @@ namespace Revise.Files {
                 }
             }
 
-            throw new KeyNotFoundException(key);
+            throw new ArgumentException("key", "Key does not exist");
         }
 
         /// <summary>
         /// Removes the row.
         /// </summary>
         /// <param name="row">The row to remove.</param>
-        /// <exception cref="Revise.Exceptions.RowOutOfRangeException">Thrown when the specified row is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified row is out of range.</exception>
         public void RemoveRow(int row) {
             if (row < 0 || row > rows.Count - 1) {
-                throw new RowOutOfRangeException();
+                throw new ArgumentOutOfRangeException("row", "Row is out of range");
             }
 
             keys.RemoveAt(row);
@@ -319,7 +317,7 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="value">The table type string.</param>
         /// <returns>The table type value.</returns>
-        /// <exception cref="Revise.Exceptions.InvalidTableTypeException">Thrown when the specified string does not match a table type.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified string does not match a table type.</exception>
         public static TableType GetTableType(string value) {
             Array values = Enum.GetValues(typeof(TableType));
 
@@ -332,7 +330,7 @@ namespace Revise.Files {
                 }
             }
 
-            throw new InvalidTableTypeException(value);
+            throw new ArgumentException("value", "Table type does not exist");
         }
     }
 }

@@ -19,6 +19,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -68,11 +69,11 @@ namespace Revise.Files {
         /// <summary>
         /// Gets the specified <see cref="Revise.Files.HelpPage"/>.
         /// </summary>
-        /// <exception cref="Revise.Exceptions.PageOutOfRangeException">Thrown when the specified page does not exist.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified page does not exist.</exception>
         public HelpPage this[int page] {
             get {
                 if (page < 0 || page > pages.Count - 1) {
-                    throw new PageOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("page", "Page is out of range");
                 }
 
                 return pages[page];
@@ -186,10 +187,10 @@ namespace Revise.Files {
         /// Removes the specified page.
         /// </summary>
         /// <param name="row">The page to remove.</param>
-        /// <exception cref="Revise.Exceptions.PageOutOfRangeException">Thrown when the specified page is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified page is out of range.</exception>
         public void RemovePage(int page) {
             if (page < 0 || page > pages.Count - 1) {
-                throw new PageOutOfRangeException();
+                throw new ArgumentOutOfRangeException("page", "Page is out of range");
             }
 
             pages.RemoveAt(page);

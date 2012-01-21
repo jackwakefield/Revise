@@ -19,8 +19,8 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
-using Revise.Files.Exceptions;
 
 namespace Revise.Files {
     /// <summary>
@@ -64,11 +64,11 @@ namespace Revise.Files {
         /// <summary>
         /// Gets the specified <see cref="Revise.Files.HelpNode"/> .
         /// </summary>
-        /// <exception cref="Revise.Exceptions.ChildOutOfRangeException">Thrown when the specified child is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified child is out of range.</exception>
         public HelpNode this[int child] {
             get {
                 if (child < 0 || child > children.Count - 1) {
-                    throw new ChildOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("child", "Child is out of range");
                 }
 
                 return children[child];
@@ -104,10 +104,10 @@ namespace Revise.Files {
         /// Removes the specified child node.
         /// </summary>
         /// <param name="child">The child node.</param>
-        /// <exception cref="Revise.Exceptions.ChildOutOfRangeException">Thrown when the specified child is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified child is out of range.</exception>
         public void RemoveChild(int child) {
             if (child < 0 || child > children.Count - 1) {
-                throw new ChildOutOfRangeException();
+                throw new ArgumentOutOfRangeException("child", "Child is out of range");
             }
 
             children.RemoveAt(child);

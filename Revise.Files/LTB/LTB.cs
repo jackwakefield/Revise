@@ -19,10 +19,10 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Revise.Files.Exceptions;
 
 namespace Revise.Files {
     /// <summary>
@@ -64,11 +64,11 @@ namespace Revise.Files {
         /// <summary>
         /// Gets the specified <see cref="Revise.Files.LanguageRow"/>.
         /// </summary>
-        /// <exception cref="Revise.Exceptions.RowOutOfRangeException">Thrown when the specified row does not exist.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified row does not exist.</exception>
         public LanguageRow this[int row] {
             get {
                 if (row < 0 || row > rows.Count - 1) {
-                    throw new RowOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("row", "Row is out of range");
                 }
 
                 return rows[row];
@@ -163,10 +163,10 @@ namespace Revise.Files {
         /// Removes the specified column.
         /// </summary>
         /// <param name="column">The column to remove.</param>
-        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified column is out of range.</exception>
         public void RemoveColumn(int column) {
             if (column < 0 || column > ColumnCount - 1) {
-                throw new ColumnOutOfRangeException();
+                throw new ArgumentOutOfRangeException("column", "Column is out of range");
             }
 
             ColumnCount--;
@@ -191,10 +191,10 @@ namespace Revise.Files {
         /// Removes the specified row.
         /// </summary>
         /// <param name="row">The row to remove.</param>
-        /// <exception cref="Revise.Exceptions.RowOutOfRangeException">Thrown when the specified row is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified row is out of range.</exception>
         public void RemoveRow(int row) {
             if (row < 0 || row > rows.Count - 1) {
-                throw new RowOutOfRangeException();
+                throw new ArgumentOutOfRangeException("row", "Row is out of range");
             }
 
             rows.RemoveAt(row);

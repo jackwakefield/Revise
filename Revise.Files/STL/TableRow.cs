@@ -20,7 +20,6 @@
 #endregion
 
 using System;
-using Revise.Files.Exceptions;
 
 namespace Revise.Files {
     /// <summary>
@@ -55,10 +54,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="language">The language.</param>
         /// <returns>The text.</returns>
-        /// <exception cref="Revise.Exceptions.InvalidLanguageException">Thrown when the specified language is invalid.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified language is invalid.</exception>
         public string GetText(TableLanguage language = TableLanguage.English) {
             if (!Enum.IsDefined(typeof(TableLanguage), language)) {
-                throw new InvalidLanguageException();
+                throw new ArgumentException("language", "Language does not exist");
             }
 
             return text[(int)language];
@@ -69,10 +68,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="text">The text.</param>
         /// <param name="language">The language.</param>
-        /// <exception cref="Revise.Exceptions.InvalidLanguageException">Thrown when the specified language is invalid.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified language is invalid.</exception>
         public void SetText(string text, TableLanguage language = TableLanguage.English) {
             if (!Enum.IsDefined(typeof(TableLanguage), language)) {
-                throw new InvalidLanguageException();
+                throw new ArgumentException("language", "Language does not exist");
             }
 
             this.text[(int)language] = text;
@@ -83,10 +82,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="language">The language.</param>
         /// <returns>The description.</returns>
-        /// <exception cref="Revise.Exceptions.InvalidLanguageException">Thrown when the specified language is invalid.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified language is invalid.</exception>
         public string GetDescription(TableLanguage language = TableLanguage.English) {
             if (!Enum.IsDefined(typeof(TableLanguage), language)) {
-                throw new InvalidLanguageException();
+                throw new ArgumentException("language", "Language does not exist");
             }
 
             return descriptions[(int)language];
@@ -97,10 +96,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="description">The description.</param>
         /// <param name="language">The language.</param>
-        /// <exception cref="Revise.Exceptions.InvalidLanguageException">Thrown when the specified language is invalid.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified language is invalid.</exception>
         public void SetDescription(string description, TableLanguage language = TableLanguage.English) {
             if (!Enum.IsDefined(typeof(TableLanguage), language)) {
-                throw new InvalidLanguageException();
+                throw new ArgumentException("language", "Language does not exist");
             }
 
             descriptions[(int)language] = description;
@@ -111,10 +110,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="language">The language.</param>
         /// <returns>The start message.</returns>
-        /// <exception cref="Revise.Exceptions.InvalidLanguageException">Thrown when the specified language is invalid.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified language is invalid.</exception>
         public string GetStartMessage(TableLanguage language = TableLanguage.English) {
             if (!Enum.IsDefined(typeof(TableLanguage), language)) {
-                throw new InvalidLanguageException();
+                throw new ArgumentException("language", "Language does not exist");
             }
 
             return startMessages[(int)language];
@@ -125,10 +124,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="language">The language.</param>
-        /// <exception cref="Revise.Exceptions.InvalidLanguageException">Thrown when the specified language is invalid.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified language is invalid.</exception>
         public void SetStartMessage(string message, TableLanguage language = TableLanguage.English) {
             if (!Enum.IsDefined(typeof(TableLanguage), language)) {
-                throw new InvalidLanguageException();
+                throw new ArgumentException("language", "Language does not exist");
             }
 
             startMessages[(int)language] = message;
@@ -139,10 +138,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="language">The language.</param>
         /// <returns>The end message.</returns>
-        /// <exception cref="Revise.Exceptions.InvalidLanguageException">Thrown when the specified language is invalid.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified language is invalid.</exception>
         public string GetEndMessage(TableLanguage language = TableLanguage.English) {
             if (!Enum.IsDefined(typeof(TableLanguage), language)) {
-                throw new InvalidLanguageException();
+                throw new ArgumentException("language", "Language does not exist");
             }
 
             return endMessages[(int)language];
@@ -153,10 +152,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="language">The language.</param>
-        /// <exception cref="Revise.Exceptions.InvalidLanguageException">Thrown when the specified language is invalid.</exception>
+        /// <exception cref="System.ArgumentException">Thrown when the specified language is invalid.</exception>
         public void SetEndMessage(string message, TableLanguage language = TableLanguage.English) {
             if (!Enum.IsDefined(typeof(TableLanguage), language)) {
-                throw new InvalidLanguageException();
+                throw new ArgumentException("language", "Language does not exist");
             }
 
             endMessages[(int)language] = message;

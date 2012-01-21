@@ -9,9 +9,11 @@ The following is a list of file formats implemented and yet to be implemented in
 
 * HIM (generating quad patches is currently bugged)
 * HLP
+* LOD
 * LTB
 * STB
 * STL
+* TBL
 
 ### Not Implemented
 
@@ -22,12 +24,10 @@ The following is a list of file formats implemented and yet to be implemented in
 * IDX
 * IFO
 * LIT
-* LOD
 * MOV
 * MRP
 * PTL
 * QSD
-* TBL
 * TIL
 * TSI
 * ZCA

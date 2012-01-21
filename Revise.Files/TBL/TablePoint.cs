@@ -19,18 +19,35 @@
 
 #endregion
 
-using System;
-
-namespace Revise.Files.Exceptions {
+namespace Revise.Files {
     /// <summary>
-    /// The exception that is thrown when a language value is invalid.
+    /// Represents a table point.
     /// </summary>
-    public class InvalidLanguageException : Exception {
+    public struct TablePoint {
+        #region Properties
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidLanguageException"/> class.
+        /// Gets or sets the X point.
         /// </summary>
-        public InvalidLanguageException()
-            : base("Table language specified is invalid") {
+        /// <value>
+        /// The X point.
+        /// </value>
+        public short X {
+            get;
+            set;
         }
+
+        /// <summary>
+        /// Gets or sets the Y point.
+        /// </summary>
+        /// <value>
+        /// The Y point.
+        /// </value>
+        public short Y {
+            get;
+            set;
+        }
+
+        #endregion
     }
 }

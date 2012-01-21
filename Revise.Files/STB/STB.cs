@@ -19,6 +19,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -91,11 +92,11 @@ namespace Revise.Files {
         /// <summary>
         /// Gets the specified <see cref="Revise.Files.DataRow"/>.
         /// </summary>
-        /// <exception cref="Revise.Exceptions.RowOutOfRangeException">Thrown when the specified row does not exist.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified row does not exist.</exception>
         public DataRow this[int row] {
             get {
                 if (row < 0 || row > rows.Count - 1) {
-                    throw new RowOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("row", "Row is out of range");
                 }
 
                 return rows[row];
@@ -219,10 +220,10 @@ namespace Revise.Files {
         /// Removes the specified column.
         /// </summary>
         /// <param name="column">The column to remove.</param>
-        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified column is out of range.</exception>
         public void RemoveColumn(int column) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new ColumnOutOfRangeException();
+                throw new ArgumentOutOfRangeException("column", "Column is out of range");
             }
 
             columns.RemoveAt(column);
@@ -253,10 +254,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="column">The column.</param>
         /// <param name="name">The column name.</param>
-        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified column is out of range.</exception>
         public void SetColumnName(int column, string name) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new ColumnOutOfRangeException();
+                throw new ArgumentOutOfRangeException("column", "Column is out of range");
             }
 
             columns[column].Name = name;
@@ -266,11 +267,11 @@ namespace Revise.Files {
         /// Gets the name of the specified column.
         /// </summary>
         /// <param name="column">The column.</param>
-        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified column is out of range.</exception>
         /// <returns>The column name.</returns>
         public string GetColumnName(int column) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new ColumnOutOfRangeException();
+                throw new ArgumentOutOfRangeException("column", "Column is out of range");
             }
 
             return columns[column].Name;
@@ -297,10 +298,10 @@ namespace Revise.Files {
         /// </summary>
         /// <param name="column">The column.</param>
         /// <param name="width">The column width.</param>
-        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified column is out of range.</exception>
         public void SetColumnWidth(int column, short width) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new ColumnOutOfRangeException();
+                throw new ArgumentOutOfRangeException("column", "Column is out of range");
             }
 
             columns[column].Width = width;
@@ -310,11 +311,11 @@ namespace Revise.Files {
         /// Gets the width of the specified column.
         /// </summary>
         /// <param name="column">The column.</param>
-        /// <exception cref="Revise.Exceptions.ColumnOutOfRangeException">Thrown when the specified column is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified column is out of range.</exception>
         /// <returns>The column width.</returns>
         public int GetColumnWidth(int column) {
             if (column < 0 || column > columns.Count - 1) {
-                throw new ColumnOutOfRangeException();
+                throw new ArgumentOutOfRangeException("column", "Column is out of range");
             }
 
             return columns[column].Width;
@@ -335,10 +336,10 @@ namespace Revise.Files {
         /// Removes the specified row.
         /// </summary>
         /// <param name="row">The row to remove.</param>
-        /// <exception cref="Revise.Exceptions.RowOutOfRangeException">Thrown when the specified row is out of range.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown when the specified row is out of range.</exception>
         public void RemoveRow(int row) {
             if (row < 0 || row > rows.Count - 1) {
-                throw new RowOutOfRangeException();
+                throw new ArgumentOutOfRangeException("row", "Row is out of range");
             }
 
             rows.RemoveAt(row);
