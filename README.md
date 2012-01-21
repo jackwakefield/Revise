@@ -17,6 +17,7 @@ The following is a list of file formats implemented and yet to be implemented in
 * STL
 * TBL
 * TIL
+* TSI
 
 ### Not Implemented
 
@@ -28,7 +29,6 @@ The following is a list of file formats implemented and yet to be implemented in
 * IFO
 * PTL
 * QSD
-* TSI
 * ZCA
 * ZMD
 * ZMO
