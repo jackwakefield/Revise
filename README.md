@@ -12,6 +12,7 @@ The following is a list of file formats implemented and yet to be implemented in
 * LIT
 * LOD
 * LTB
+* MOV
 * STB
 * STL
 * TBL
@@ -25,7 +26,6 @@ The following is a list of file formats implemented and yet to be implemented in
 * EFT
 * IDX
 * IFO
-* MOV
 * PTL
 * QSD
 * TSI

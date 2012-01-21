@@ -55,6 +55,7 @@
     <Compile Include="LITTests.cs" />
     <Compile Include="LODTests.cs" />
     <Compile Include="LTBTests.cs" />
+    <Compile Include="MOVTests.cs" />
     <Compile Include="STBTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="STLTests.cs" />
@@ -102,6 +103,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\31_31.MOV">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

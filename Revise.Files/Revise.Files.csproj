@@ -54,6 +54,7 @@
     <Compile Include="LOD\LOD.cs" />
     <Compile Include="LTB\LanguageRow.cs" />
     <Compile Include="LTB\LTB.cs" />
+    <Compile Include="MOV\MOV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="STB\STB.cs" />
     <Compile Include="STB\DataColumn.cs" />
