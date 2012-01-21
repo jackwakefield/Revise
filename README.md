@@ -15,6 +15,7 @@ The following is a list of file formats implemented and yet to be implemented in
 * STB
 * STL
 * TBL
+* TIL
 
 ### Not Implemented
 
@@ -25,10 +26,8 @@ The following is a list of file formats implemented and yet to be implemented in
 * IDX
 * IFO
 * MOV
-* MRP
 * PTL
 * QSD
-* TIL
 * TSI
 * ZCA
 * ZMD

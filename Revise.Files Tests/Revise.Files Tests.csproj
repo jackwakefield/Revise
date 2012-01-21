@@ -59,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="STLTests.cs" />
     <Compile Include="TBLTests.cs" />
+    <Compile Include="TILTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Revise.Files\Revise.Files.csproj">
@@ -68,6 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Files\31_30.HIM">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\31_31.TIL">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\HELP.HLP">

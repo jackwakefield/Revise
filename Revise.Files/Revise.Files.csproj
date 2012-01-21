@@ -65,6 +65,8 @@
     <Compile Include="STL\TableRow.cs" />
     <Compile Include="TBL\TablePoint.cs" />
     <Compile Include="TBL\TBL.cs" />
+    <Compile Include="TIL\TIL.cs" />
+    <Compile Include="TIL\TilePatch.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Revise.Extensions\Revise.Extensions.csproj">
@@ -72,6 +74,7 @@
       <Name>Revise.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
