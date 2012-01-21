@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="HIMTests.cs" />
     <Compile Include="HLPTests.cs" />
+    <Compile Include="LODTests.cs" />
     <Compile Include="LTBTests.cs" />
     <Compile Include="STBTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +78,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\LIST_QUEST_S.STL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\PATCHTYPE.LOD">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\STR_ITEMTYPE.STL">
