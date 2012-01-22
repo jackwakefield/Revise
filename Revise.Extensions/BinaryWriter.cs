@@ -120,4 +120,23 @@ public static class BinaryWriterExtensions {
             writer.Write(values[i]);
         }
     }
+
+    /// <summary>
+    /// Writes the specified vector to the underlying stream.
+    /// </summary>
+    /// <param name="value">The quaternion value.</param>
+    /// <param name="w">if set to <c>true</c> the value is written in the order WXYZ, else XYZW.</param>
+    public static void Write(this BinaryWriter writer, Quaternion value, bool w = false) {
+        if (w) {
+            writer.Write(value.W);
+        }
+
+        writer.Write(value.X);
+        writer.Write(value.Y);
+        writer.Write(value.Z);
+
+        if (!w) {
+            writer.Write(value.W);
+        }
+    }
 }

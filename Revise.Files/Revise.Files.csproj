@@ -36,6 +36,7 @@
     <Compile Include="Exceptions\FileInUseException.cs" />
     <Compile Include="Exceptions\FileNotLoadedException.cs" />
     <Compile Include="Exceptions\FileReadOnlyException.cs" />
+    <Compile Include="Exceptions\InvalidBoneCountException.cs" />
     <Compile Include="Exceptions\InvalidHelpNodeCountException.cs" />
     <Compile Include="Exceptions\InvalidVersionException.cs" />
     <Compile Include="FileLoader.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="TSI\TSI.cs" />
     <Compile Include="ZCA\ProjectionType.cs" />
     <Compile Include="ZCA\ZCA.cs" />
+    <Compile Include="ZMD\Bone.cs" />
+    <Compile Include="ZMD\ZMD.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SharpDX">

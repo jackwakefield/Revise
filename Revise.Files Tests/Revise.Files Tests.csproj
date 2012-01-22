@@ -66,6 +66,7 @@
     <Compile Include="TILTests.cs" />
     <Compile Include="TSITests.cs" />
     <Compile Include="ZCATests.cs" />
+    <Compile Include="ZMDTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Revise.Files\Revise.Files.csproj">
@@ -81,6 +82,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\CAMERA.ZCA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\CART01.ZMD">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\HELP.HLP">
