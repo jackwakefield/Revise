@@ -32,6 +32,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Attributes\TableTypeIdentifierAttribute.cs" />
+    <Compile Include="CHR\AnimationType.cs" />
+    <Compile Include="CHR\Character.cs" />
+    <Compile Include="CHR\CharacterAnimation.cs" />
+    <Compile Include="CHR\CharacterEffect.cs" />
+    <Compile Include="CHR\CharacterObject.cs" />
+    <Compile Include="CHR\CHR.cs" />
     <Compile Include="Exceptions\FileIdentifierMismatchException.cs" />
     <Compile Include="Exceptions\FileInUseException.cs" />
     <Compile Include="Exceptions\FileNotLoadedException.cs" />
