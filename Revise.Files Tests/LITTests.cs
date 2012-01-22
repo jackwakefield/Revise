@@ -78,12 +78,12 @@ namespace Revise.Files.Tests {
                 Assert.AreEqual(lit.Objects[i].Parts.Count, savedLIT.Objects[i].Parts.Count, "Part counts do not match");
 
                 for (int j = 0; j < lit.Objects[i].Parts.Count; j++) {
-                    Assert.AreEqual(lit.Objects[i].Parts[j].Name, lit.Objects[i].Parts[j].Name, "Part names do not match");
-                    Assert.AreEqual(lit.Objects[i].Parts[j].ID, lit.Objects[i].Parts[j].ID, "Part IDs do not match");
-                    Assert.AreEqual(lit.Objects[i].Parts[j].FileName, lit.Objects[i].Parts[j].FileName, "Part file names do not match");
-                    Assert.AreEqual(lit.Objects[i].Parts[j].PixelsPerObject, lit.Objects[i].Parts[j].PixelsPerObject, "Part pixel per object values do not match");
-                    Assert.AreEqual(lit.Objects[i].Parts[j].ObjectsPerWidth, lit.Objects[i].Parts[j].ObjectsPerWidth, "Part objects per width values do not match");
-                    Assert.AreEqual(lit.Objects[i].Parts[j].ObjectPosition, lit.Objects[i].Parts[j].ObjectPosition, "Part position values do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].Name, savedLIT.Objects[i].Parts[j].Name, "Part names do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].ID, savedLIT.Objects[i].Parts[j].ID, "Part IDs do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].FileName, savedLIT.Objects[i].Parts[j].FileName, "Part file names do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].PixelsPerObject, savedLIT.Objects[i].Parts[j].PixelsPerObject, "Part pixel per object values do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].ObjectsPerWidth, savedLIT.Objects[i].Parts[j].ObjectsPerWidth, "Part objects per width values do not match");
+                    Assert.AreEqual(lit.Objects[i].Parts[j].ObjectPosition, savedLIT.Objects[i].Parts[j].ObjectPosition, "Part position values do not match");
                 }
             }
 

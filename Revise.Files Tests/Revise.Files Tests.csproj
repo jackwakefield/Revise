@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="HIMTests.cs" />
     <Compile Include="HLPTests.cs" />
+    <Compile Include="IDXTests.cs" />
     <Compile Include="LITTests.cs" />
     <Compile Include="LODTests.cs" />
     <Compile Include="LTBTests.cs" />
@@ -85,6 +86,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\CART01.ZMD">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\data.idx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\HELP.HLP">

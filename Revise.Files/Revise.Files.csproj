@@ -45,6 +45,9 @@
     <Compile Include="HLP\HelpNode.cs" />
     <Compile Include="HLP\HelpPage.cs" />
     <Compile Include="HLP\HLP.cs" />
+    <Compile Include="IDX\IDX.cs" />
+    <Compile Include="IDX\VirtualFileEntry.cs" />
+    <Compile Include="IDX\VirtualFileSystem.cs" />
     <Compile Include="LIT\LightObject.cs" />
     <Compile Include="LIT\LightPart.cs" />
     <Compile Include="LIT\LIT.cs" />
