@@ -19,6 +19,7 @@ The following is a list of file formats implemented and yet to be implemented in
 * TIL
 * TSI
 * ZCA
+* ZMD
 
 ### Not Implemented
 
@@ -30,7 +31,6 @@ The following is a list of file formats implemented and yet to be implemented in
 * IFO
 * PTL
 * QSD
-* ZMD
 * ZMO
 * ZMS
 * ZON
