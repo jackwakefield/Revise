@@ -64,7 +64,7 @@ namespace Revise.Files {
 
             for (int i = 0; i < textureCount; i++) {
                 SpriteTexture texture = new SpriteTexture();
-                texture.FileName = reader.ReadString(reader.ReadInt16());
+                texture.FileName = reader.ReadShortString();
                 texture.ColourKey = reader.ReadInt32();
 
                 Textures.Add(texture);
@@ -100,8 +100,7 @@ namespace Revise.Files {
             writer.Write((short)Textures.Count);
 
             Textures.ForEach(texture => {
-                writer.Write((short)texture.FileName.Length);
-                writer.WriteString(texture.FileName);
+                writer.WriteShortString(texture.FileName);
                 writer.Write(texture.ColourKey);
             });
 

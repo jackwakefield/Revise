@@ -65,7 +65,6 @@ namespace Revise.Files.Tests {
 
             MemoryStream savedStream = new MemoryStream();
             tsi.Save(savedStream);
-            tsi.Save(@"C:\UI.TSI");
 
             savedStream.Seek(0, SeekOrigin.Begin);
 

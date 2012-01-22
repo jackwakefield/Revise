@@ -22,6 +22,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using SharpDX;
 
 /// <summary>
 /// A collection of extensions for the <see cref="BinaryReader"/> class.
@@ -43,7 +44,7 @@ public static class BinaryReaderExtensions {
     /// Reads a null-terminated string from the current stream.
     /// </summary>
     /// <returns>
-    /// The string being read.
+    /// The read string.
     /// </returns>
     public static string ReadNullTerminatedString(this BinaryReader reader) {
         return reader.ReadNullTerminatedString(DefaultEncoding);
@@ -54,7 +55,7 @@ public static class BinaryReaderExtensions {
     /// </summary>
     /// <param name="encoding">The character encoding.</param>
     /// <returns>
-    /// The string being read.
+    /// The read string.
     /// </returns>
     public static string ReadNullTerminatedString(this BinaryReader reader, Encoding encoding) {
         List<byte> values = new List<byte>();
@@ -71,7 +72,7 @@ public static class BinaryReaderExtensions {
     /// Reads a string with a pre-fixed length as a 16-bit integer from the underlying stream.
     /// </summary>
     /// <returns>
-    /// The string being read.
+    /// The read string.
     /// </returns>
     public static string ReadShortString(this BinaryReader reader) {
         return reader.ReadShortString(DefaultEncoding);
@@ -81,7 +82,7 @@ public static class BinaryReaderExtensions {
     /// Reads a string with a pre-fixed length as a 16-bit integer from the underlying stream.
     /// </summary>
     /// <returns>
-    /// The string being read.
+    /// The read string.
     /// </returns>
     public static string ReadShortString(this BinaryReader reader, Encoding encoding) {
         return reader.ReadString(reader.ReadInt16(), DefaultEncoding);
@@ -92,7 +93,7 @@ public static class BinaryReaderExtensions {
     /// </summary>
     /// <param name="length">The length of the string.</param>
     /// <returns>
-    /// The string being read.
+    /// The read string.
     /// </returns>
     public static string ReadString(this BinaryReader reader, int length) {
         return reader.ReadString(length, DefaultEncoding);
@@ -104,9 +105,31 @@ public static class BinaryReaderExtensions {
     /// <param name="length">The length of the string.</param>
     /// <param name="encoding">The character encoding.</param>
     /// <returns>
-    /// The string being read.
+    /// The read string.
     /// </returns>
     public static string ReadString(this BinaryReader reader, int length, Encoding encoding) {
         return encoding.GetString(reader.ReadBytes(length));
+    }
+
+    /// <summary>
+    /// Reads a matrix from the underlying stream.
+    /// </summary>
+    /// <returns>The matrix read.</returns>
+    public static Matrix ReadMatrix(this BinaryReader reader) {
+        float[] values = new float[16];
+
+        for (int i = 0; i < 16; i++) {
+            values[i] = reader.ReadSingle();
+        }
+
+        return new Matrix(values);
+    }
+
+    /// <summary>
+    /// Reads a vector from the underlying stream.
+    /// </summary>
+    /// <returns>The vector read.</returns>
+    public static Vector3 ReadVector3(this BinaryReader reader) {
+        return new Vector3(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
     }
 }

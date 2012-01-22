@@ -108,6 +108,7 @@ namespace Revise.Files {
         /// <exception cref="Revise.Exceptions.InvalidVersionException">Thrown when the version of the file is invalid.</exception>
         public override void Load(Stream stream) {
             BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
+
             string identifier = reader.ReadString(3);
 
             if (string.Compare(identifier, FILE_IDENTIFIER, false) != 0) {

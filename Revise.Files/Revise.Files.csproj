@@ -34,7 +34,6 @@
     <Compile Include="Attributes\TableTypeIdentifierAttribute.cs" />
     <Compile Include="Exceptions\FileIdentifierMismatchException.cs" />
     <Compile Include="Exceptions\FileInUseException.cs" />
-    <Compile Include="Exceptions\FileMissingException.cs" />
     <Compile Include="Exceptions\FileNotLoadedException.cs" />
     <Compile Include="Exceptions\FileReadOnlyException.cs" />
     <Compile Include="Exceptions\InvalidHelpNodeCountException.cs" />
@@ -68,8 +67,13 @@
     <Compile Include="TSI\Sprite.cs" />
     <Compile Include="TSI\SpriteTexture.cs" />
     <Compile Include="TSI\TSI.cs" />
+    <Compile Include="ZCA\ProjectionType.cs" />
+    <Compile Include="ZCA\ZCA.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="SharpDX">
+      <HintPath>..\packages\SharpDX.2.0.2\lib\net20\SharpDX.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
   </ItemGroup>
@@ -78,6 +82,9 @@
       <Project>{6114A78C-DA76-4333-9649-1B49AD2B4AE4}</Project>
       <Name>Revise.Extensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

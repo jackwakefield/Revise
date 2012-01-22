@@ -43,13 +43,13 @@ namespace Revise.Files {
         /// Loads the file at the specified file path.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        /// <exception cref="Revise.Exceptions.FileMissingException">Thrown when the specified file path does not exist.</exception>
+        /// <exception cref="System.IO.FileNotFoundException">Thrown when the specified file path does not exist.</exception>
         /// <exception cref="Revise.Exceptions.FileInUseException">Thrown when the specified file is in use by another process.</exception>
         public virtual void Load(string filePath) {
             FileInfo file = new FileInfo(filePath);
 
             if (!file.Exists) {
-                throw new FileMissingException(filePath);
+                throw new FileNotFoundException(filePath);
             }
 
             FileStream stream;

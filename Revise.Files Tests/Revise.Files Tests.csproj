@@ -41,6 +41,9 @@
     <Reference Include="pnunit.framework">
       <HintPath>..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>..\packages\SharpDX.2.0.2\lib\net20\SharpDX.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -62,6 +65,7 @@
     <Compile Include="TBLTests.cs" />
     <Compile Include="TILTests.cs" />
     <Compile Include="TSITests.cs" />
+    <Compile Include="ZCATests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Revise.Files\Revise.Files.csproj">
@@ -74,6 +78,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\31_31.TIL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\CAMERA.ZCA">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\HELP.HLP">

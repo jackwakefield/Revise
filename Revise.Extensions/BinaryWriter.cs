@@ -22,6 +22,7 @@
 using System;
 using System.IO;
 using System.Text;
+using SharpDX;
 
 /// <summary>
 /// A collection of extensions for the <see cref="BinaryWriter"/> class.
@@ -94,5 +95,29 @@ public static class BinaryWriterExtensions {
         Array.Resize<byte>(ref values, length);
 
         writer.Write(values);
+    }
+
+    /// <summary>
+    /// Writes the specified matrix to the underlying stream.
+    /// </summary>
+    /// <param name="value">The matrix value.</param>
+    public static void Write(this BinaryWriter writer, Matrix value) {
+        float[] values = value.ToArray();
+
+        for (int i = 0; i < values.Length; i++) {
+            writer.Write(values[i]);
+        }
+    }
+
+    /// <summary>
+    /// Writes the specified vector to the underlying stream.
+    /// </summary>
+    /// <param name="value">The vector value.</param>
+    public static void Write(this BinaryWriter writer, Vector3 value) {
+        float[] values = value.ToArray();
+
+        for (int i = 0; i < values.Length; i++) {
+            writer.Write(values[i]);
+        }
     }
 }
