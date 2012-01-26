@@ -70,7 +70,6 @@
     <Compile Include="STL\TableType.cs" />
     <Compile Include="STL\TableKey.cs" />
     <Compile Include="STL\TableRow.cs" />
-    <Compile Include="TBL\TablePoint.cs" />
     <Compile Include="TBL\TBL.cs" />
     <Compile Include="TIL\TIL.cs" />
     <Compile Include="TIL\TilePatch.cs" />
@@ -81,15 +80,26 @@
     <Compile Include="ZCA\ZCA.cs" />
     <Compile Include="ZMD\Bone.cs" />
     <Compile Include="ZMD\ZMD.cs" />
+    <Compile Include="ZMS\ModelVertex.cs" />
+    <Compile Include="ZMS\PoolType.cs" />
+    <Compile Include="ZMS\VertexFormat.cs" />
+    <Compile Include="ZMS\ZMS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SharpDX">
       <HintPath>..\packages\SharpDX.2.0.2\lib\net20\SharpDX.dll</HintPath>
     </Reference>
+    <Reference Include="SharpDX.Direct3D9">
+      <HintPath>..\packages\SharpDX.Direct3D9.2.0.2\lib\net20\SharpDX.Direct3D9.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Revise.Common\Revise.Common.csproj">
+      <Project>{35368721-7710-4DB3-93CF-FC604EF14609}</Project>
+      <Name>Revise.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Revise.Extensions\Revise.Extensions.csproj">
       <Project>{6114A78C-DA76-4333-9649-1B49AD2B4AE4}</Project>
       <Name>Revise.Extensions</Name>

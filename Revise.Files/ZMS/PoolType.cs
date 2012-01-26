@@ -21,10 +21,11 @@
 
 namespace Revise.Files {
     /// <summary>
-    /// Specifies the projection matrix creation type.
+    /// Specifies the pool properties of the vertex buffer.
     /// </summary>
-    public enum ProjectionType {
-        Orthographic = 0,
-        Perspective = 1
+    public enum PoolType : short {
+        Static,
+        Dynamic,
+        System
     }
 }

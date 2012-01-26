@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,8 +70,13 @@
     <Compile Include="TSITests.cs" />
     <Compile Include="ZCATests.cs" />
     <Compile Include="ZMDTests.cs" />
+    <Compile Include="ZMSTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Revise.Common\Revise.Common.csproj">
+      <Project>{35368721-7710-4DB3-93CF-FC604EF14609}</Project>
+      <Name>Revise.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Revise.Files\Revise.Files.csproj">
       <Project>{5EBE8893-60C4-444F-A2D5-39C81035B013}</Project>
       <Name>Revise.Files</Name>
@@ -89,7 +95,13 @@
     <None Include="Files\CART01.ZMD">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Files\CART01_ABILITY01.ZMS">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Files\data.idx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\HEADBAD01.ZMS">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\HELP.HLP">
@@ -114,6 +126,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\PATCHTYPE.LOD">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\STONE014.ZMS">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\STR_ITEMTYPE.STL">

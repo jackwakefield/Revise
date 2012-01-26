@@ -56,6 +56,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Revise.Common\Revise.Common.csproj">
+      <Project>{35368721-7710-4DB3-93CF-FC604EF14609}</Project>
+      <Name>Revise.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Revise.Extensions\Revise.Extensions.csproj">
       <Project>{6114A78C-DA76-4333-9649-1B49AD2B4AE4}</Project>
       <Name>Revise.Extensions</Name>

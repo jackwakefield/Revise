@@ -22,6 +22,7 @@
 using System;
 using System.IO;
 using System.Text;
+using Revise;
 using SharpDX;
 
 /// <summary>
@@ -113,12 +114,51 @@ public static class BinaryWriterExtensions {
     /// Writes the specified vector to the underlying stream.
     /// </summary>
     /// <param name="value">The vector value.</param>
-    public static void Write(this BinaryWriter writer, Vector3 value) {
-        float[] values = value.ToArray();
+    public static void Write(this BinaryWriter writer, Vector2 value) {
+        writer.Write(value.X);
+        writer.Write(value.Y);
+    }
 
-        for (int i = 0; i < values.Length; i++) {
-            writer.Write(values[i]);
-        }
+    /// <summary>
+    /// Writes the specified vector to the underlying stream.
+    /// </summary>
+    /// <param name="value">The vector value.</param>
+    public static void Write(this BinaryWriter writer, Vector3 value) {
+        writer.Write(value.X);
+        writer.Write(value.Y);
+        writer.Write(value.Z);
+    }
+
+    /// <summary>
+    /// Writes the specified vector to the underlying stream.
+    /// </summary>
+    /// <param name="value">The vector value.</param>
+    public static void Write(this BinaryWriter writer, Vector4 value) {
+        writer.Write(value.X);
+        writer.Write(value.Y);
+        writer.Write(value.Z);
+        writer.Write(value.W);
+    }
+
+    /// <summary>
+    /// Writes the specified vector to the underlying stream.
+    /// </summary>
+    /// <param name="value">The vector value.</param>
+    public static void Write(this BinaryWriter writer, ShortVector3 value) {
+        writer.Write(value.X);
+        writer.Write(value.Y);
+        writer.Write(value.Z);
+    }
+
+    /// <summary>
+    /// Writes the specified vector to the underlying stream.
+    /// </summary>
+    /// <param name="value">The vector value.</param>
+    public static void Write(this BinaryWriter writer, ShortVector4 value) {
+        writer.Write(value.X);
+        writer.Write(value.Y);
+        writer.Write(value.Z);
+        writer.Write(value.W);
     }
 
     /// <summary>

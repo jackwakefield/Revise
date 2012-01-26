@@ -22,6 +22,7 @@ The following is a list of file formats implemented and yet to be implemented in
 * TSI
 * ZCA
 * ZMD
+* ZMS
 
 ### Not Implemented
 
@@ -32,6 +33,5 @@ The following is a list of file formats implemented and yet to be implemented in
 * PTL
 * QSD
 * ZMO
-* ZMS
 * ZON
 * ZSC

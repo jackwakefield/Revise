@@ -24,18 +24,13 @@ namespace Revise.Files {
     /// Represents a tile.
     /// </summary>
     public struct TilePatch {
-        #region Properties
-
         /// <summary>
         /// Gets or sets the brush value.
         /// </summary>
         /// <value>
         /// The brush value.
         /// </value>
-        public byte Brush {
-            get;
-            set;
-        }
+        public byte Brush;
 
         /// <summary>
         /// Gets or sets the index of the tile.
@@ -43,10 +38,7 @@ namespace Revise.Files {
         /// <value>
         /// The index of the tile.
         /// </value>
-        public byte TileIndex {
-            get;
-            set;
-        }
+        public byte TileIndex;
 
         /// <summary>
         /// Gets or sets the tile set value.
@@ -54,10 +46,7 @@ namespace Revise.Files {
         /// <value>
         /// The tile set value.
         /// </value>
-        public byte TileSet {
-            get;
-            set;
-        }
+        public byte TileSet;
 
         /// <summary>
         /// Gets or sets the tile value.
@@ -65,11 +54,6 @@ namespace Revise.Files {
         /// <value>
         /// The tile value.
         /// </value>
-        public int Tile {
-            get;
-            set;
-        }
-
-        #endregion
+        public int Tile;
     }
 }

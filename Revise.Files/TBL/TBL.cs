@@ -67,7 +67,7 @@ namespace Revise.Files {
         /// <summary>
         /// Gets the points.
         /// </summary>
-        public List<TablePoint> Points {
+        public List<ShortVector2> Points {
             get;
             private set;
         }
@@ -82,7 +82,7 @@ namespace Revise.Files {
         /// Initializes a new instance of the <see cref="Revise.Files.TBL"/> class.
         /// </summary>
         public TBL() {
-            Points = new List<TablePoint>();
+            Points = new List<ShortVector2>();
 
             Reset();
         }
@@ -104,7 +104,7 @@ namespace Revise.Files {
             int maximumArray = reader.ReadInt16();
 
             for (int i = 0; i < maximumArray; i++) {
-                TablePoint point = new TablePoint();
+                ShortVector2 point = new ShortVector2();
                 point.X = reader.ReadInt16();
                 point.Y = reader.ReadInt16();
 

@@ -24,18 +24,13 @@ namespace Revise.Files {
     /// Represents a heightmap patch.
     /// </summary>
     public struct Patch {
-        #region Properties
-
         /// <summary>
         /// Gets or sets the minimum height of the patch
         /// </summary>
         /// <value>
         /// The minimum height of the patch.
         /// </value>
-        public float Minimum {
-            get;
-            set;
-        }
+        public float Minimum;
 
         /// <summary>
         /// Gets or sets the maximum height of the patch.
@@ -43,11 +38,6 @@ namespace Revise.Files {
         /// <value>
         /// The maximum height of the patch.
         /// </value>
-        public float Maximum {
-            get;
-            set;
-        }
-
-        #endregion
+        public float Maximum;
     }
 }

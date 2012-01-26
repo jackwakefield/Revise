@@ -19,35 +19,16 @@
 
 #endregion
 
-namespace Revise.Files {
-    /// <summary>
-    /// Represents a table point.
-    /// </summary>
-    public struct TablePoint {
-        #region Properties
+using System.Reflection;
+using System.Runtime.InteropServices;
 
-        /// <summary>
-        /// Gets or sets the X point.
-        /// </summary>
-        /// <value>
-        /// The X point.
-        /// </value>
-        public short X {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets the Y point.
-        /// </summary>
-        /// <value>
-        /// The Y point.
-        /// </value>
-        public short Y {
-            get;
-            set;
-        }
-
-        #endregion
-    }
-}
+[assembly: AssemblyTitle("Revise.Common")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Revise.Common")]
+[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: ComVisible(false)]
+[assembly: Guid("3f998e4f-a6f0-4a25-8c99-b99fb0e192cd")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

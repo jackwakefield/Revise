@@ -21,10 +21,19 @@
 
 namespace Revise.Files {
     /// <summary>
-    /// Specifies the projection matrix creation type.
+    /// Specifies the properties of a vertex.
     /// </summary>
-    public enum ProjectionType {
-        Orthographic = 0,
-        Perspective = 1
+    public enum VertexFormat {
+        None = 1 << 0,
+        Position = 1 << 1,
+        Normal = 1 << 2,
+        Colour = 1 << 3,
+        BlendWeight = 1 << 4,
+        BlendIndex = 1 << 5,
+        Tangent = 1 << 6,
+        TextureCoordinate0 = 1 << 7,
+        TextureCoordinate1 = 1 << 8,
+        TextureCoordinate2 = 1 << 9,
+        TextureCoordinate3 = 1 << 10,
     }
 }

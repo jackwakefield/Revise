@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6114A78C-DA76-4333-9649-1B49AD2B4AE4}</ProjectGuid>
+    <ProjectGuid>{35368721-7710-4DB3-93CF-FC604EF14609}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Revise.Extensions</RootNamespace>
-    <AssemblyName>Revise.Extensions</AssemblyName>
+    <RootNamespace>Revise.Common</RootNamespace>
+    <AssemblyName>Revise.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpDX">
-      <HintPath>..\packages\SharpDX.2.0.2\lib\net20\SharpDX.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,19 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinaryReader.cs" />
-    <Compile Include="BinaryWriter.cs" />
-    <Compile Include="Enum.cs" />
+    <Compile Include="ShortVector2.cs" />
+    <Compile Include="ShortVector3.cs" />
+    <Compile Include="ShortVector4.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Revise.Common\Revise.Common.csproj">
-      <Project>{35368721-7710-4DB3-93CF-FC604EF14609}</Project>
-      <Name>Revise.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,6 +22,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Revise;
 using SharpDX;
 
 /// <summary>
@@ -129,8 +130,40 @@ public static class BinaryReaderExtensions {
     /// Reads a vector from the underlying stream.
     /// </summary>
     /// <returns>The vector read.</returns>
+    public static Vector2 ReadVector2(this BinaryReader reader) {
+        return new Vector2(reader.ReadSingle(), reader.ReadSingle());
+    }
+
+    /// <summary>
+    /// Reads a vector from the underlying stream.
+    /// </summary>
+    /// <returns>The vector read.</returns>
     public static Vector3 ReadVector3(this BinaryReader reader) {
         return new Vector3(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
+    }
+    
+    /// <summary>
+    /// Reads a vector from the underlying stream.
+    /// </summary>
+    /// <returns>The vector read.</returns>
+    public static Vector4 ReadVector4(this BinaryReader reader) {
+        return new Vector4(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
+    }
+
+    /// <summary>
+    /// Reads a vector from the underlying stream.
+    /// </summary>
+    /// <returns>The vector read.</returns>
+    public static ShortVector3 ReadShortVector3(this BinaryReader reader) {
+        return new ShortVector3(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
+    }
+
+    /// <summary>
+    /// Reads a vector from the underlying stream.
+    /// </summary>
+    /// <returns>The vector read.</returns>
+    public static ShortVector4 ReadShortVector4(this BinaryReader reader) {
+        return new ShortVector4(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
     }
 
     /// <summary>
