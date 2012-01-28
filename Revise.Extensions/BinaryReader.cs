@@ -90,6 +90,26 @@ public static class BinaryReaderExtensions {
     }
 
     /// <summary>
+    /// Reads a string with a pre-fixed length as a 32-bit integer from the underlying stream.
+    /// </summary>
+    /// <returns>
+    /// The read string.
+    /// </returns>
+    public static string ReadIntString(this BinaryReader reader) {
+        return reader.ReadIntString(DefaultEncoding);
+    }
+
+    /// <summary>
+    /// Reads a string with a pre-fixed length as a 32-bit integer from the underlying stream.
+    /// </summary>
+    /// <returns>
+    /// The read string.
+    /// </returns>
+    public static string ReadIntString(this BinaryReader reader, Encoding encoding) {
+        return reader.ReadString(reader.ReadInt32(), DefaultEncoding);
+    }
+
+    /// <summary>
     /// Reads a fixed-length string from the underlying stream.
     /// </summary>
     /// <param name="length">The length of the string.</param>

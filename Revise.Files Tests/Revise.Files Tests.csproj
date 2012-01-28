@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CHRTests.cs" />
+    <Compile Include="EFTTests.cs" />
     <Compile Include="HIMTests.cs" />
     <Compile Include="HLPTests.cs" />
     <Compile Include="IDXTests.cs" />
@@ -138,6 +139,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\ULNGTB_CON.LTB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\_RUNASTON_01.EFT">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

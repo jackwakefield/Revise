@@ -38,6 +38,9 @@
     <Compile Include="CHR\CharacterEffect.cs" />
     <Compile Include="CHR\CharacterObject.cs" />
     <Compile Include="CHR\CHR.cs" />
+    <Compile Include="EFT\EffectAnimation.cs" />
+    <Compile Include="EFT\EffectParticle.cs" />
+    <Compile Include="EFT\EFT.cs" />
     <Compile Include="Exceptions\FileIdentifierMismatchException.cs" />
     <Compile Include="Exceptions\FileInUseException.cs" />
     <Compile Include="Exceptions\FileNotLoadedException.cs" />

@@ -482,6 +482,7 @@ namespace Revise.Files {
             base.Reset();
 
             Pool = PoolType.Static;
+            format = VertexFormat.Position | VertexFormat.TextureCoordinate0;
 
             Clear();
         }
