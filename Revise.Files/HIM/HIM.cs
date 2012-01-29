@@ -158,7 +158,7 @@ namespace Revise.Files {
                 }
             }
 
-            InvalidatePatches();
+            GeneratePatches();
 
             writer.Write("quad");
             writer.Write(patches.GetLength(0) * patches.GetLength(1));
@@ -179,71 +179,73 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Invalidates the patches.
+        /// Generates the patches and quad patches for current height data.
         /// </summary>
-        public void InvalidatePatches() {
+        public void GeneratePatches() {
             for (int h = 0; h < patches.GetLength(0); h++) {
                 for (int w = 0; w < patches.GetLength(1); w++) {
-                    float maximumHeight = float.MinValue;
-                    float minimumHeight = float.MaxValue;
+                    float maximum = float.MinValue;
+                    float minimum = float.MaxValue;
 
                     for (int vh = 0; vh < 5; vh++) {
                         for (int vw = 0; vw < 5; vw++) {
                             float height = heights[65 - (h * 4 + vh + 1), w * 4 + vw];
 
-                            if (height > maximumHeight) {
-                                maximumHeight = height;
+                            if (height > maximum) {
+                                maximum = height;
                             }
 
-                            if (height < minimumHeight) {
-                                minimumHeight = height;
+                            if (height < minimum) {
+                                minimum = height;
                             }
                         }
                     }
 
-                    patches[h, w].Maximum = maximumHeight;
-                    patches[h, w].Minimum = minimumHeight;
+                    patches[h, w].Maximum = maximum;
+                    patches[h, w].Minimum = minimum;
                 }
             }
 
-            InvalidateQuadPatches(0, 256);
-            InvalidateQuadPatches(1, 128);
-            InvalidateQuadPatches(5, 64);
-            InvalidateQuadPatches(21, 32);
+            GenerateQuadPatches(0, 0, 16, 0, 0);
         }
 
         /// <summary>
-        /// Invalidates the quad patches.
-        /// TODO: Fix this, it generates the patches in the wrong order.
+        /// Generates the quad patches.
         /// </summary>
-        /// <param name="index">The index.</param>
-        /// <param name="size">The size.</param>
-        private void InvalidateQuadPatches(int index, int size) {
-            int segments = 256 / size;
-            int patchCount = size / 16;
+        /// <param name="index">The quad patch index.</param>
+        /// <param name="level">The recursion level.</param>
+        /// <param name="quadSize">The size of the quad patch.</param>
+        /// <param name="x">The x position of the heightmap.</param>
+        /// <param name="y">The y position of the heightmap.</param>
+        private void GenerateQuadPatches(int index, int level, int quadSize, int x, int y) {
+            int nextSize = quadSize / 2;
+            int nextLevel = level + 1;
 
-            for (int h = 0; h < segments; h++) {
-                for (int w = 0; w < segments; w++) {
-                    float maximumHeight = float.MinValue;
-                    float minimumHeight = float.MaxValue;
+            float minimum = 10000.0f;
+            float maximum = -10.0f;
 
-                    for (int ph = 0; ph < patchCount; ph++) {
-                        for (int pw = 0; pw < patchCount; pw++) {
-                            Patch patch = patches[h * patchCount + ph, w * patchCount + pw];
+            for (int h = y; h < y + quadSize; h++) {
+                for (int w = x; w < x + quadSize; w++) {
+                    Patch patch = patches[h, w];
 
-                            if (patch.Maximum > maximumHeight) {
-                                maximumHeight = patch.Maximum;
-                            }
-
-                            if (patch.Minimum < minimumHeight) {
-                                minimumHeight = patch.Minimum;
-                            }
-                        }
+                    if (patch.Maximum > maximum) {
+                        maximum = patch.Maximum;
                     }
 
-                    quadPatches[index].Maximum = maximumHeight;
-                    quadPatches[index++].Minimum = minimumHeight;
+                    if (patch.Minimum < minimum) {
+                        minimum = patch.Minimum;
+                    }
                 }
+            }
+
+            quadPatches[index].Minimum = minimum;
+            quadPatches[index].Maximum = maximum;
+
+            if (nextLevel < 4) {
+                GenerateQuadPatches(index * 4 + 1, nextLevel, nextSize, x, y);
+                GenerateQuadPatches(index * 4 + 2, nextLevel, nextSize, x + nextSize, y);
+                GenerateQuadPatches(index * 4 + 3, nextLevel, nextSize, x + nextSize, y + nextSize);
+                GenerateQuadPatches(index * 4 + 4, nextLevel, nextSize, x, y + nextSize);
             }
         }
 
