@@ -19,32 +19,16 @@
 
 #endregion
 
-using System;
-
-namespace Revise.Files.Attributes {
+namespace Revise.Files {
     /// <summary>
-    /// Represents an attribute for identifying table types.
+    /// Specifies the type of ability.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
-    public class TableTypeIdentifierAttribute : Attribute {
-        #region Properties
-
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        public string Value {
-            get;
-            private set;
-        }
-
-        #endregion
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        public TableTypeIdentifierAttribute(string value) {
-            Value = value;
-        }
+    public enum AbilityType : byte {
+        Level = 0,
+        Attack = 1,
+        Defense = 2,
+        MagicResistance = 3,
+        Health = 4,
+        Charm = 5
     }
 }

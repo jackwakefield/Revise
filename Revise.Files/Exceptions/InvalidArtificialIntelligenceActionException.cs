@@ -21,30 +21,34 @@
 
 using System;
 
-namespace Revise.Files.Attributes {
+namespace Revise.Files.Exceptions {
     /// <summary>
-    /// Represents an attribute for identifying table types.
+    /// The exception that is thrown when an AI action type is invalid.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
-    public class TableTypeIdentifierAttribute : Attribute {
+    public class InvalidArtificialIntelligenceActionException : Exception {
+        /// <summary>
+        /// The format of the exception message.
+        /// </summary>
+        private const string MESSAGE_FORMAT = "Action '{0}' is invalid";
+
         #region Properties
 
         /// <summary>
-        /// Gets the value.
+        /// Gets the action.
         /// </summary>
-        public string Value {
-            get;
+        public int Action {
+            get; 
             private set;
         }
 
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
+        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidArtificialIntelligenceActionException"/> class.
         /// </summary>
-        /// <param name="value">The value.</param>
-        public TableTypeIdentifierAttribute(string value) {
-            Value = value;
+        public InvalidArtificialIntelligenceActionException(int action)
+            : base(string.Format(MESSAGE_FORMAT, action)) {
+            Action = action;
         }
     }
 }

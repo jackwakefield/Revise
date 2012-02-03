@@ -179,7 +179,7 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Generates the patches and quad patches for current height data.
+        /// Generates the patches and quad patches from the current height data.
         /// </summary>
         public void GeneratePatches() {
             for (int h = 0; h < patches.GetLength(0); h++) {

@@ -19,32 +19,34 @@
 
 #endregion
 
-using System;
+using System.IO;
 
-namespace Revise.Files.Attributes {
+namespace Revise.Files {
     /// <summary>
-    /// Represents an attribute for identifying table types.
+    /// Provides an interface for AI actions.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
-    public class TableTypeIdentifierAttribute : Attribute {
+    public interface IArtificialIntelligenceAction {
         #region Properties
 
         /// <summary>
-        /// Gets the value.
+        /// Gets the action type.
         /// </summary>
-        public string Value {
+        ArtificialIntelligenceActions Type {
             get;
-            private set;
         }
 
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
+        /// Reads the condition data from the underlying stream.
         /// </summary>
-        /// <param name="value">The value.</param>
-        public TableTypeIdentifierAttribute(string value) {
-            Value = value;
-        }
+        /// <param name="reader">The reader.</param>
+        void Read(BinaryReader reader);
+
+        /// <summary>
+        /// Writes the condition data to the underlying stream.
+        /// </summary>
+        /// <param name="writer">The writer.</param>
+        void Write(BinaryWriter writer);
     }
 }

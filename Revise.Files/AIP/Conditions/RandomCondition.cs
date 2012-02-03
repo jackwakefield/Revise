@@ -19,32 +19,48 @@
 
 #endregion
 
-using System;
+using System.IO;
 
-namespace Revise.Files.Attributes {
+namespace Revise.Files {
     /// <summary>
-    /// Represents an attribute for identifying table types.
+    /// Represents a random condition.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
-    public class TableTypeIdentifierAttribute : Attribute {
+    public class RandomCondition : IArtificialIntelligenceCondition {
         #region Properties
 
         /// <summary>
-        /// Gets the value.
+        /// Gets the condition type.
         /// </summary>
-        public string Value {
+        public ArtificialIntelligenceConditions Type {
+            get {
+                return ArtificialIntelligenceConditions.Random;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the percent value.
+        /// </summary>
+        public int Percent {
             get;
-            private set;
+            set;
         }
 
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
+        /// Reads the condition data from the underlying stream.
         /// </summary>
-        /// <param name="value">The value.</param>
-        public TableTypeIdentifierAttribute(string value) {
-            Value = value;
+        /// <param name="reader">The reader.</param>
+        public void Read(BinaryReader reader) {
+            Percent = reader.ReadInt32();
+        }
+
+        /// <summary>
+        /// Writes the condition data to the underlying stream.
+        /// </summary>
+        /// <param name="writer">The writer.</param>
+        public void Write(BinaryWriter writer) {
+            writer.Write(Percent);
         }
     }
 }

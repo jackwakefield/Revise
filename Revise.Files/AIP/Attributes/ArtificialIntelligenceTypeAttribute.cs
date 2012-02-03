@@ -21,18 +21,18 @@
 
 using System;
 
-namespace Revise.Files.Attributes {
+namespace Revise.Files {
     /// <summary>
-    /// Represents an attribute for identifying table types.
+    /// Represents an attribute for associating classes with condition or action types.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
-    public class TableTypeIdentifierAttribute : Attribute {
+    public class ArtificialIntelligenceTypeAttribute : Attribute {
         #region Properties
 
         /// <summary>
-        /// Gets the value.
+        /// Gets the class associated with the condition or action type.
         /// </summary>
-        public string Value {
+        public Type Type {
             get;
             private set;
         }
@@ -40,11 +40,11 @@ namespace Revise.Files.Attributes {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
+        /// Initializes a new instance of the <see cref="ArtificialIntelligenceTypeAttribute"/> class.
         /// </summary>
-        /// <param name="value">The value.</param>
-        public TableTypeIdentifierAttribute(string value) {
-            Value = value;
+        /// <param name="type">The class associated with the condition or action type.</param>
+        public ArtificialIntelligenceTypeAttribute(Type type) {
+            Type = type;
         }
     }
 }

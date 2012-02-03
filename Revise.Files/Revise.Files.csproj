@@ -30,8 +30,100 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Attributes\TableTypeIdentifierAttribute.cs" />
+    <Compile Include="AIP\AbilityType.cs" />
+    <Compile Include="AIP\Actions\AttackNearestCharacterDuplicateAction.cs" />
+    <Compile Include="AIP\Actions\AttackNearestCharacterUsingNumberOfMonstersAction.cs" />
+    <Compile Include="AIP\Actions\AttackNearestCharacterAction.cs" />
+    <Compile Include="AIP\Actions\AttackOwnerIfNotAllyAction.cs" />
+    <Compile Include="AIP\Actions\AttackSelectedCharacterAction.cs" />
+    <Compile Include="AIP\Actions\AttackTargetCharacterAction.cs" />
+    <Compile Include="AIP\Actions\AttackTargetUsingAlliedMonstersAction.cs" />
+    <Compile Include="AIP\Actions\AttackTargetUsingNumberOfMonstersAction.cs" />
+    <Compile Include="AIP\Actions\CommitSuicideAction.cs" />
+    <Compile Include="AIP\Actions\DropRandomItemAction.cs" />
+    <Compile Include="AIP\Actions\GiveItemToOwnerAction.cs" />
+    <Compile Include="AIP\Actions\HaltActionsAction.cs" />
+    <Compile Include="AIP\Actions\Invalid22Action.cs" />
+    <Compile Include="AIP\Actions\Invalid23Action.cs" />
+    <Compile Include="AIP\Actions\MoveAwayFromTargetAction.cs" />
+    <Compile Include="AIP\Actions\MoveNearOwnerAction.cs" />
+    <Compile Include="AIP\Actions\MoveToNearbyCharacterByAbilityAction.cs" />
+    <Compile Include="AIP\Actions\MoveToRandomPositionAction.cs" />
+    <Compile Include="AIP\Actions\MoveToRandomPositionOfSelectedCharacterAction.cs" />
+    <Compile Include="AIP\Actions\MoveToRandomSpawnLocationAction.cs" />
+    <Compile Include="AIP\Actions\PerformEmotionAction.cs" />
+    <Compile Include="AIP\Actions\PerformSkillAction.cs" />
+    <Compile Include="AIP\Actions\PerformSpecialAttackAction.cs" />
+    <Compile Include="AIP\Actions\PerformTriggerAction.cs" />
+    <Compile Include="AIP\Actions\RunAwayAction.cs" />
+    <Compile Include="AIP\Actions\SayMessageAction.cs" />
+    <Compile Include="AIP\Actions\SayMessageByTypeAction.cs" />
+    <Compile Include="AIP\Actions\SetAIVariableAction.cs" />
+    <Compile Include="AIP\Actions\SetEconomyVariableAction.cs" />
+    <Compile Include="AIP\Actions\SetNPCVariableAction.cs" />
+    <Compile Include="AIP\Actions\SetPlayerKillFlagAction.cs" />
+    <Compile Include="AIP\Actions\SetRegenerationSystemAction.cs" />
+    <Compile Include="AIP\Actions\SetWorldVariableAction.cs" />
+    <Compile Include="AIP\Actions\SpawnMonsterAction.cs" />
+    <Compile Include="AIP\Actions\SpawnMonsterAtPositionAction.cs" />
+    <Compile Include="AIP\Actions\SpawnMonsterAtPositionWithMasterTypeAction.cs" />
+    <Compile Include="AIP\Actions\SpawnMonsterWithMasterTypeAction.cs" />
+    <Compile Include="AIP\Actions\TransformIntoMonsterAction.cs" />
+    <Compile Include="AIP\ArtificialIntelligenceActions.cs" />
+    <Compile Include="AIP\ArtificialIntelligenceConditions.cs" />
+    <Compile Include="AIP\AIP.cs" />
+    <Compile Include="AIP\ArtificialIntelligenceEvent.cs" />
+    <Compile Include="AIP\ArtificialIntelligencePattern.cs" />
+    <Compile Include="AIP\Attributes\ArtificialIntelligenceTypeAttribute.cs" />
+    <Compile Include="AIP\ComparisonOperator.cs" />
+    <Compile Include="AIP\Conditions\CheckAbilityCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckOwnerCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckOwnerTargetCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckChannelNumberCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckDamageCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckDateAndTimeCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckDistanceBetweenOwnerCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckEconomicVariableCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckHealthCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckMagicStatusCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckMoveDistanceCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckNPCVariableCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckSourceAbilityCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckTargetAbilityCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckTargetDistanceCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckClanMasterStatusCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckVariableCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckWeekDayAndTimeCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckWorldTimeCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckWorldVariableCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckZoneTimeCondition.cs" />
+    <Compile Include="AIP\Conditions\CompareAbilityCondition.cs" />
+    <Compile Include="AIP\Conditions\TimeOfDayCondition.cs" />
+    <Compile Include="AIP\Conditions\FightOrDelayCondition.cs" />
+    <Compile Include="AIP\Conditions\SelectNearestCharacterByCountCondition.cs" />
+    <Compile Include="AIP\Conditions\SelectNearestCharacterByTypeCondition.cs" />
+    <Compile Include="AIP\Conditions\SelectNearestCharacterCondition.cs" />
+    <Compile Include="AIP\Conditions\HasTargetCondition.cs" />
+    <Compile Include="AIP\Conditions\RandomCondition.cs" />
+    <Compile Include="AIP\Conditions\SelectNPCCondition.cs" />
+    <Compile Include="AIP\Interfaces\IArtificialIntelligenceAction.cs" />
+    <Compile Include="AIP\Interfaces\IArtificialIntelligenceCondition.cs" />
+    <Compile Include="AIP\MagicStatus.cs" />
+    <Compile Include="AIP\MessageType.cs" />
+    <Compile Include="AIP\SummonPosition.cs" />
+    <Compile Include="AIP\TargetType.cs" />
+    <Compile Include="Exceptions\InvalidArtificialIntelligenceActionException.cs" />
+    <Compile Include="Exceptions\InvalidArtificialIntelligenceConditionException.cs" />
+    <Compile Include="STL\Attributes\TableTypeIdentifierAttribute.cs" />
     <Compile Include="CHR\AnimationType.cs" />
     <Compile Include="CHR\Character.cs" />
     <Compile Include="CHR\CharacterAnimation.cs" />
@@ -79,6 +171,7 @@
     <Compile Include="TSI\Sprite.cs" />
     <Compile Include="TSI\SpriteTexture.cs" />
     <Compile Include="TSI\TSI.cs" />
+    <Compile Include="AIP\VariableOperation.cs" />
     <Compile Include="ZCA\ProjectionType.cs" />
     <Compile Include="ZCA\ZCA.cs" />
     <Compile Include="ZMD\Bone.cs" />
@@ -111,6 +204,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -19,20 +19,27 @@
 
 #endregion
 
-using System;
+using System.Collections.Generic;
 
-namespace Revise.Files.Attributes {
+namespace Revise.Files {
     /// <summary>
-    /// Represents an attribute for identifying table types.
+    /// Represents an AI pattern.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
-    public class TableTypeIdentifierAttribute : Attribute {
+    public class ArtificialIntelligencePattern {
         #region Properties
 
         /// <summary>
-        /// Gets the value.
+        /// Gets or sets the pattern name.
         /// </summary>
-        public string Value {
+        public string Name {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets the events.
+        /// </summary>
+        public List<ArtificialIntelligenceEvent> Events {
             get;
             private set;
         }
@@ -40,11 +47,11 @@ namespace Revise.Files.Attributes {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
+        /// Initializes a new instance of the <see cref="ArtificialIntelligencePattern"/> class.
         /// </summary>
-        /// <param name="value">The value.</param>
-        public TableTypeIdentifierAttribute(string value) {
-            Value = value;
+        public ArtificialIntelligencePattern() {
+            Name = string.Empty;
+            Events = new List<ArtificialIntelligenceEvent>();
         }
     }
 }

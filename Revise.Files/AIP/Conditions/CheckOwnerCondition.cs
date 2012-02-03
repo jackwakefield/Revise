@@ -19,32 +19,40 @@
 
 #endregion
 
-using System;
+using System.IO;
 
-namespace Revise.Files.Attributes {
+namespace Revise.Files {
     /// <summary>
-    /// Represents an attribute for identifying table types.
+    /// Represents a condition to check if the source character has an owner.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
-    public class TableTypeIdentifierAttribute : Attribute {
+    public class CheckOwnerCondition : IArtificialIntelligenceCondition {
         #region Properties
 
         /// <summary>
-        /// Gets the value.
+        /// Gets the condition type.
         /// </summary>
-        public string Value {
-            get;
-            private set;
+        public ArtificialIntelligenceConditions Type {
+            get {
+                return ArtificialIntelligenceConditions.CheckOwner;
+            }
         }
 
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
+        /// Reads the condition data from the underlying stream.
         /// </summary>
-        /// <param name="value">The value.</param>
-        public TableTypeIdentifierAttribute(string value) {
-            Value = value;
+        /// <param name="reader">The reader.</param>
+        public void Read(BinaryReader reader) {
+
+        }
+
+        /// <summary>
+        /// Writes the condition data to the underlying stream.
+        /// </summary>
+        /// <param name="writer">The writer.</param>
+        public void Write(BinaryWriter writer) {
+
         }
     }
 }

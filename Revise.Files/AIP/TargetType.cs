@@ -19,32 +19,13 @@
 
 #endregion
 
-using System;
-
-namespace Revise.Files.Attributes {
+namespace Revise.Files {
     /// <summary>
-    /// Represents an attribute for identifying table types.
+    /// Specifies the target type.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
-    public class TableTypeIdentifierAttribute : Attribute {
-        #region Properties
-
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        public string Value {
-            get;
-            private set;
-        }
-
-        #endregion
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        public TableTypeIdentifierAttribute(string value) {
-            Value = value;
-        }
+    public enum TargetType : byte {
+        SelectedCharacter = 0,
+        TargetCharacter = 1,
+        Self = 2
     }
 }

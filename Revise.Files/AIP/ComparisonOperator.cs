@@ -19,32 +19,16 @@
 
 #endregion
 
-using System;
-
-namespace Revise.Files.Attributes {
+namespace Revise.Files {
     /// <summary>
-    /// Represents an attribute for identifying table types.
+    /// Specifies the operator to use when making comparisons.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
-    public class TableTypeIdentifierAttribute : Attribute {
-        #region Properties
-
-        /// <summary>
-        /// Gets the value.
-        /// </summary>
-        public string Value {
-            get;
-            private set;
-        }
-
-        #endregion
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Attributes.TableTypeIdentifierAttribute"/> class.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        public TableTypeIdentifierAttribute(string value) {
-            Value = value;
-        }
+    public enum ComparisonOperator : byte {
+        Equal = 0,
+        MoreThan = 1,
+        MoreThanOrEqualTo = 2,
+        LessThan = 3,
+        LessThanOrEqualTo = 4,
+        DoesntEqual = 10
     }
 }

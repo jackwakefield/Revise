@@ -7,9 +7,10 @@ File Formats
 The following is a list of file formats implemented and yet to be implemented in the [Revise.Files](https://github.com/xadet/Revise/tree/master/Revise.Files) library.
 ### Implemented
 
+* AIP
 * CHR
 * EFT
-* HIM (generating quad patches is currently bugged)
+* HIM
 * HLP
 * IDX
 * LIT
@@ -27,7 +28,6 @@ The following is a list of file formats implemented and yet to be implemented in
 
 ### Not Implemented
 
-* AIP
 * CON
 * IFO
 * PTL
