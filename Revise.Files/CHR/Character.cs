@@ -21,9 +21,9 @@
 
 using System.Collections.Generic;
 
-namespace Revise.Files {
+namespace Revise.Files.CHR {
     /// <summary>
-    /// Represents a CHR character.
+    /// Represents a character.
     /// </summary>
     public class Character {
         #region Properties
@@ -79,7 +79,7 @@ namespace Revise.Files {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Character"/> class.
+        /// Initializes a new instance of the <see cref="Character"/> class.
         /// </summary>
         public Character() {
             Name = string.Empty;

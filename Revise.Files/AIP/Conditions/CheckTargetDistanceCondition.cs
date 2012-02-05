@@ -20,8 +20,9 @@
 #endregion
 
 using System.IO;
+using Revise.Files.AIP.Interfaces;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Conditions {
     /// <summary>
     /// Represents a condition to check the target distance.
     /// </summary>
@@ -46,7 +47,7 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to check if the distance or more or less than the <see cref="Distance" /> value.
+        /// Gets or sets a value indicating whether to check if the distance is more or less than the <see cref="Distance" /> value.
         /// </summary>
         public bool More {
             get;

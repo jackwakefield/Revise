@@ -20,8 +20,9 @@
 #endregion
 
 using System.Collections.Generic;
+using Revise.Files.AIP.Interfaces;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP {
     /// <summary>
     /// Represents an AI event.
     /// </summary>

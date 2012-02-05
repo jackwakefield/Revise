@@ -27,7 +27,7 @@ namespace Revise.Files.Exceptions {
     /// </summary>
     public class InvalidBoneCountException : Exception {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidBoneCountException"/> class.
+        /// Initializes a new instance of the <see cref="InvalidBoneCountException"/> class.
         /// </summary>
         public InvalidBoneCountException()
             : base("The bone count exceed the maximum value permitted") {

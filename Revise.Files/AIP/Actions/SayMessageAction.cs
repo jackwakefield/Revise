@@ -20,9 +20,10 @@
 #endregion
 
 using System.IO;
+using Revise.Files.AIP.Interfaces;
 using Revise.IO;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Actions {
     /// <summary>
     /// Represents an action to say the specified message.
     /// </summary>
@@ -63,6 +64,13 @@ namespace Revise.Files {
         }
 
         #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SayMessageAction"/> class.
+        /// </summary>
+        public SayMessageAction() {
+            Text = string.Empty;
+        }
 
         /// <summary>
         /// Reads the condition data from the underlying stream.

@@ -22,15 +22,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace Revise.Files {
+namespace Revise.Files.STB {
     /// <summary>
-    /// Represents an STB file row.
+    /// Represents an data file row.
     /// </summary>
     public class DataRow {
         private List<string> data;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.DataRow"/> class.
+        /// Initializes a new instance of the <see cref="DataRow"/> class.
         /// </summary>
         /// <param name="columnCount">The number of columns to add.</param>
         public DataRow(int columnCount) {

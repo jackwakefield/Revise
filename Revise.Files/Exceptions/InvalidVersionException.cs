@@ -44,7 +44,7 @@ namespace Revise.Files.Exceptions {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidVersionException"/> class.
+        /// Initializes a new instance of the <see cref="InvalidVersionException"/> class.
         /// </summary>
         public InvalidVersionException(object version)
             : base(string.Format(MESSAGE_FORMAT, version)) {

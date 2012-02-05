@@ -20,8 +20,9 @@
 #endregion
 
 using System.IO;
+using Revise.Files.AIP.Interfaces;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Actions {
     /// <summary>
     /// Represents an action to move to a character within the specified distance and with the require ability condition.
     /// </summary>
@@ -54,7 +55,7 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to check if the characters ability or more or less than the source characters.
+        /// Gets or sets a value indicating whether to check if the characters ability is more or less than the source characters.
         /// </summary>
         public bool More {
             get;

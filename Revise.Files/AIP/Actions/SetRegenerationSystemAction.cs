@@ -20,8 +20,9 @@
 #endregion
 
 using System.IO;
+using Revise.Files.AIP.Interfaces;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Actions {
     /// <summary>
     /// Represents an action to enable, disable or toggle the regeneration system for the specified map.
     /// </summary>

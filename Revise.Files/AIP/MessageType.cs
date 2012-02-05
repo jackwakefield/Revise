@@ -19,7 +19,7 @@
 
 #endregion
 
-namespace Revise.Files {
+namespace Revise.Files.AIP {
     /// <summary>
     /// Specifies the message type.
     /// </summary>

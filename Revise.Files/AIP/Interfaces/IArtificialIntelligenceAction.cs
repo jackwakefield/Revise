@@ -21,7 +21,7 @@
 
 using System.IO;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Interfaces {
     /// <summary>
     /// Provides an interface for AI actions.
     /// </summary>

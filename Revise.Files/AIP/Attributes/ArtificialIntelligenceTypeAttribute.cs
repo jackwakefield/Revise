@@ -21,7 +21,7 @@
 
 using System;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Attributes {
     /// <summary>
     /// Represents an attribute for associating classes with condition or action types.
     /// </summary>

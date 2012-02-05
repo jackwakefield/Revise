@@ -27,7 +27,7 @@ namespace Revise.Files.Exceptions {
     /// </summary>
     public class FileNotLoadedException : Exception {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileNotLoadedException"/> class.
+        /// Initializes a new instance of the <see cref="FileNotLoadedException"/> class.
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
         public FileNotLoadedException(string message)

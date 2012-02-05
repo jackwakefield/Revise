@@ -27,7 +27,7 @@ namespace Revise.Files.Exceptions {
     /// </summary>
     public class InvalidHelpNodeCountException : Exception {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidHelpNodeCountException"/> class.
+        /// Initializes a new instance of the <see cref="InvalidHelpNodeCountException"/> class.
         /// </summary>
         public InvalidHelpNodeCountException()
             : base("There must be only one root node") {

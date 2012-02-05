@@ -19,7 +19,9 @@
 
 #endregion
 
-namespace Revise.Files {
+using Revise.Files.AIP.Attributes;
+using Revise.Files.AIP.Conditions;
+namespace Revise.Files.AIP {
     /// <summary>
     /// Specifies the AI condition types.
     /// </summary>

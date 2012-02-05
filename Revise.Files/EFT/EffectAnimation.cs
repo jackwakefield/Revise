@@ -21,7 +21,7 @@
 
 using SharpDX;
 
-namespace Revise.Files {
+namespace Revise.Files.EFT {
     /// <summary>
     /// Repreesnts an animation of an effect file.
     /// </summary>
@@ -215,7 +215,7 @@ namespace Revise.Files {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.EffectAnimation"/> class.
+        /// Initializes a new instance of the <see cref="EffectAnimation"/> class.
         /// </summary>
         public EffectAnimation() {
             EffectName = string.Empty;

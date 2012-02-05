@@ -45,7 +45,7 @@ namespace Revise.Files.Exceptions {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileReadOnlyException"/> class.
+        /// Initializes a new instance of the <see cref="FileReadOnlyException"/> class.
         /// </summary>
         /// <param name="filePath">The file path of the file which threw the exception.</param>
         public FileReadOnlyException(string filePath)

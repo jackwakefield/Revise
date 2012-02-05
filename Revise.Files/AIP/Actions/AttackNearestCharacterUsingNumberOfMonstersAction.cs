@@ -20,8 +20,9 @@
 #endregion
 
 using System.IO;
+using Revise.Files.AIP.Interfaces;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Actions {
     /// <summary>
     /// Represents an action to attack the nearest character using the maximum amount of a certain monster within the specified distance.
     /// </summary>

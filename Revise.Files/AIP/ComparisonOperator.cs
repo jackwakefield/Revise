@@ -19,7 +19,7 @@
 
 #endregion
 
-namespace Revise.Files {
+namespace Revise.Files.AIP {
     /// <summary>
     /// Specifies the operator to use when making comparisons.
     /// </summary>

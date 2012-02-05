@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IntVector2.cs" />
     <Compile Include="IO\AlignedBinaryReader.cs" />
     <Compile Include="IO\AlignedBinaryWriter.cs" />
     <Compile Include="ShortVector2.cs" />

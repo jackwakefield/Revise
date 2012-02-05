@@ -21,7 +21,7 @@
 
 using SharpDX;
 
-namespace Revise.Files {
+namespace Revise.Files.ZMD {
     /// <summary>
     /// Represents a bone.
     /// </summary>
@@ -31,9 +31,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the bone parent.
         /// </summary>
-        /// <value>
-        /// The bone parent.
-        /// </value>
         public int Parent {
             get;
             set;
@@ -42,9 +39,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the bone name.
         /// </summary>
-        /// <value>
-        /// The bone name.
-        /// </value>
         public string Name {
             get;
             set;
@@ -53,9 +47,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the translation position value.
         /// </summary>
-        /// <value>
-        /// The translation position value.
-        /// </value>
         public Vector3 Translation {
             get;
             set;
@@ -64,9 +55,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the rotation value.
         /// </summary>
-        /// <value>
-        /// The rotation value.
-        /// </value>
         public Quaternion Rotation {
             get;
             set;

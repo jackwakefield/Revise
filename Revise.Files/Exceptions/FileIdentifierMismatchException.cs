@@ -61,7 +61,7 @@ namespace Revise.Files.Exceptions {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileIdentifierMismatchException"/> class.
+        /// Initializes a new instance of the <see cref="FileIdentifierMismatchException"/> class.
         /// </summary>
         /// <param name="filePath">The file path of the file which threw the exception.</param>
         /// <param name="identifierExpected">The file identifier the file reader expected.</param>

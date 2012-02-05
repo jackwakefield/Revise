@@ -19,7 +19,7 @@
 
 #endregion
 
-namespace Revise.Files {
+namespace Revise.Files.ZMS {
     /// <summary>
     /// Specifies the pool properties of the vertex buffer.
     /// </summary>

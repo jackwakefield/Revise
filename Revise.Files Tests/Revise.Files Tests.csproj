@@ -62,25 +62,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AIPTests.cs" />
-    <Compile Include="CHRTests.cs" />
-    <Compile Include="EFTTests.cs" />
-    <Compile Include="HIMTests.cs" />
-    <Compile Include="HLPTests.cs" />
-    <Compile Include="IDXTests.cs" />
-    <Compile Include="LITTests.cs" />
-    <Compile Include="LODTests.cs" />
-    <Compile Include="LTBTests.cs" />
-    <Compile Include="MOVTests.cs" />
-    <Compile Include="STBTests.cs" />
+    <Compile Include="ArtificialIntelligenceFileTests.cs" />
+    <Compile Include="CharacterFileTests.cs" />
+    <Compile Include="EffectFileTests.cs" />
+    <Compile Include="HeightmapFileTests.cs" />
+    <Compile Include="HelpFileTests.cs" />
+    <Compile Include="VirtualFileIndexFileTests.cs" />
+    <Compile Include="LightmapFileTests.cs" />
+    <Compile Include="LevelOfDetailFileTests.cs" />
+    <Compile Include="LanguageFileTests.cs" />
+    <Compile Include="MovementFileTests.cs" />
+    <Compile Include="DataFileTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="STLTests.cs" />
-    <Compile Include="TBLTests.cs" />
-    <Compile Include="TILTests.cs" />
-    <Compile Include="TSITests.cs" />
-    <Compile Include="ZCATests.cs" />
-    <Compile Include="ZMDTests.cs" />
-    <Compile Include="ZMSTests.cs" />
+    <Compile Include="StringTableFileTests.cs" />
+    <Compile Include="TableFileTests.cs" />
+    <Compile Include="TileFileTests.cs" />
+    <Compile Include="SpriteFileTests.cs" />
+    <Compile Include="CameraFileTests.cs" />
+    <Compile Include="BoneFileTests.cs" />
+    <Compile Include="ModelFileTests.cs" />
+    <Compile Include="ZoneFileTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Revise.Common\Revise.Common.csproj">
@@ -118,6 +119,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\HELP.HLP">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\JPT01.ZON">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\LIST_FACEITEM_S.STL">

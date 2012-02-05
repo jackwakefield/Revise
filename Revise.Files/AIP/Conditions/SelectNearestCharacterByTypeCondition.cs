@@ -20,9 +20,10 @@
 #endregion
 
 using System.IO;
+using Revise.Files.AIP.Interfaces;
 using Revise.IO;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Conditions {
     /// <summary>
     /// Represents a condition to select the nearest character.
     /// </summary>

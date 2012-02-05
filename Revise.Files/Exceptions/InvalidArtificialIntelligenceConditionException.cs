@@ -44,7 +44,7 @@ namespace Revise.Files.Exceptions {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidArtificialIntelligenceConditionException"/> class.
+        /// Initializes a new instance of the <see cref="InvalidArtificialIntelligenceConditionException"/> class.
         /// </summary>
         public InvalidArtificialIntelligenceConditionException(int condition)
             : base(string.Format(MESSAGE_FORMAT, condition)) {

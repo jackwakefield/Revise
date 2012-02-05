@@ -19,9 +19,9 @@
 
 #endregion
 
-namespace Revise.Files {
+namespace Revise.Files.STB {
     /// <summary>
-    /// Represents an STB file column.
+    /// Represents an data file column.
     /// </summary>
     public class DataColumn {
         #region Properties
@@ -29,9 +29,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the colum name.
         /// </summary>
-        /// <value>
-        /// The column name.
-        /// </value>
         public string Name {
             get;
             set;
@@ -40,9 +37,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the column width.
         /// </summary>
-        /// <value>
-        /// The column width.
-        /// </value>
         public short Width {
             get;
             set;

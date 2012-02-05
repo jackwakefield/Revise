@@ -21,7 +21,7 @@
 
 using SharpDX;
 
-namespace Revise.Files {
+namespace Revise.Files.EFT {
     /// <summary>
     /// Repreesnts a particle of an effect file.
     /// </summary>
@@ -127,7 +127,7 @@ namespace Revise.Files {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.EffectParticle"/> class.
+        /// Initializes a new instance of the <see cref="EffectParticle"/> class.
         /// </summary>
         public EffectParticle() {
             Name = string.Empty;

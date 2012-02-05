@@ -70,6 +70,26 @@ public static class BinaryReaderExtensions {
     }
 
     /// <summary>
+    /// Reads a string with a pre-fixed length as a 8-bit integer from the underlying stream.
+    /// </summary>
+    /// <returns>
+    /// The read string.
+    /// </returns>
+    public static string ReadByteString(this BinaryReader reader) {
+        return reader.ReadByteString(DefaultEncoding);
+    }
+
+    /// <summary>
+    /// Reads a string with a pre-fixed length as a 8-bit integer from the underlying stream.
+    /// </summary>
+    /// <returns>
+    /// The read string.
+    /// </returns>
+    public static string ReadByteString(this BinaryReader reader, Encoding encoding) {
+        return reader.ReadString(reader.ReadByte(), DefaultEncoding);
+    }
+
+    /// <summary>
     /// Reads a string with a pre-fixed length as a 16-bit integer from the underlying stream.
     /// </summary>
     /// <returns>

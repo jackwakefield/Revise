@@ -21,9 +21,9 @@
 
 using System.Collections.Generic;
 
-namespace Revise.Files {
+namespace Revise.Files.HLP {
     /// <summary>
-    /// Represents an HLP node.
+    /// Represents a help node.
     /// </summary>
     public class HelpNode {
         #region Properties
@@ -31,9 +31,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the node name.
         /// </summary>
-        /// <value>
-        /// The node name.
-        /// </value>
         public string Name {
             get;
             set;
@@ -50,7 +47,7 @@ namespace Revise.Files {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.HelpNode"/> class.
+        /// Initializes a new instance of the <see cref="HelpNode"/> class.
         /// </summary>
         public HelpNode() {
             Name = string.Empty;

@@ -19,7 +19,9 @@
 
 #endregion
 
-namespace Revise.Files {
+using Revise.Files.AIP.Actions;
+using Revise.Files.AIP.Attributes;
+namespace Revise.Files.AIP {
     /// <summary>
     /// Specifies the AI action types.
     /// </summary>

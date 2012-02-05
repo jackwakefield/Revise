@@ -20,8 +20,9 @@
 #endregion
 
 using System.IO;
+using Revise.Files.AIP.Interfaces;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Conditions {
     /// <summary>
     /// Represents a condition to compare abilities.
     /// </summary>
@@ -46,7 +47,7 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to check if the target characters ability or more or less than the source characters.
+        /// Gets or sets a value indicating whether to check if the target characters ability is more or less than the source characters.
         /// </summary>
         public bool More {
             get;

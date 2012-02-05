@@ -19,11 +19,11 @@
 
 #endregion
 
-namespace Revise.Files {
+namespace Revise.Files.ZMS {
     /// <summary>
     /// Specifies the properties of a vertex.
     /// </summary>
-    public enum VertexFormat {
+    internal enum VertexFormat {
         None = 1 << 0,
         Position = 1 << 1,
         Normal = 1 << 2,

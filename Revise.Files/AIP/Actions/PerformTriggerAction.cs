@@ -20,9 +20,10 @@
 #endregion
 
 using System.IO;
+using Revise.Files.AIP.Interfaces;
 using Revise.IO;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Actions {
     /// <summary>
     /// Represents an action to execute a Lua function.
     /// </summary>
@@ -47,6 +48,13 @@ namespace Revise.Files {
         }
 
         #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PerformTriggerAction"/> class.
+        /// </summary>
+        public PerformTriggerAction() {
+            Trigger = string.Empty;
+        }
 
         /// <summary>
         /// Reads the condition data from the underlying stream.

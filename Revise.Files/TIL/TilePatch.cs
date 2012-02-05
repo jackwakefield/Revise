@@ -19,7 +19,7 @@
 
 #endregion
 
-namespace Revise.Files {
+namespace Revise.Files.TIL {
     /// <summary>
     /// Represents a tile.
     /// </summary>
@@ -27,33 +27,21 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the brush value.
         /// </summary>
-        /// <value>
-        /// The brush value.
-        /// </value>
         public byte Brush;
 
         /// <summary>
         /// Gets or sets the index of the tile.
         /// </summary>
-        /// <value>
-        /// The index of the tile.
-        /// </value>
         public byte TileIndex;
 
         /// <summary>
         /// Gets or sets the tile set value.
         /// </summary>
-        /// <value>
-        /// The tile set value.
-        /// </value>
         public byte TileSet;
 
         /// <summary>
         /// Gets or sets the tile value.
         /// </summary>
-        /// <value>
-        /// The tile value.
-        /// </value>
         public int Tile;
     }
 }

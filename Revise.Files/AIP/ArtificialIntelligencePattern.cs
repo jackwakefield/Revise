@@ -21,7 +21,7 @@
 
 using System.Collections.Generic;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP {
     /// <summary>
     /// Represents an AI pattern.
     /// </summary>

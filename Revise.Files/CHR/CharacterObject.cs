@@ -19,7 +19,7 @@
 
 #endregion
 
-namespace Revise.Files {
+namespace Revise.Files.CHR {
     /// <summary>
     /// Represents a character object.
     /// </summary>

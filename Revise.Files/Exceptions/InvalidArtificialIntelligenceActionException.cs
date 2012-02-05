@@ -44,7 +44,7 @@ namespace Revise.Files.Exceptions {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.InvalidArtificialIntelligenceActionException"/> class.
+        /// Initializes a new instance of the <see cref="InvalidArtificialIntelligenceActionException"/> class.
         /// </summary>
         public InvalidArtificialIntelligenceActionException(int action)
             : base(string.Format(MESSAGE_FORMAT, action)) {

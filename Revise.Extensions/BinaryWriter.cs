@@ -42,6 +42,24 @@ public static class BinaryWriterExtensions {
     }
 
     /// <summary>
+    /// Writes the specified string pre-fixed with the string length as a 8-bit integer to the underlying stream.
+    /// </summary>
+    /// <param name="value">The string value.</param>
+    public static void WriteByteString(this BinaryWriter writer, string value) {
+        writer.WriteByteString(value, DefaultEncoding);
+    }
+
+    /// <summary>
+    /// Writes the specified string pre-fixed with the string length as a 8-bit integer to the underlying stream.
+    /// </summary>
+    /// <param name="value">The string value.</param>
+    /// <param name="encoding">The character encoding.</param>
+    public static void WriteByteString(this BinaryWriter writer, string value, Encoding encoding) {
+        writer.Write((byte)encoding.GetByteCount(value));
+        writer.WriteString(value, encoding);
+    }
+
+    /// <summary>
     /// Writes the specified string pre-fixed with the string length as a 16-bit integer to the underlying stream.
     /// </summary>
     /// <param name="value">The string value.</param>

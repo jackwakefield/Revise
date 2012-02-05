@@ -19,7 +19,7 @@
 
 #endregion
 
-namespace Revise.Files {
+namespace Revise.Files.ZCA {
     /// <summary>
     /// Specifies the projection matrix creation type.
     /// </summary>

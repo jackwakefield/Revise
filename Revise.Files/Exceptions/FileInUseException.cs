@@ -45,7 +45,7 @@ namespace Revise.Files.Exceptions {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.Exceptions.FileInUseException"/> class.
+        /// Initializes a new instance of the <see cref="FileInUseException"/> class.
         /// </summary>
         /// <param name="filePath">The file path of the file which threw the exception.</param>
         public FileInUseException(string filePath)

@@ -22,15 +22,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace Revise.Files {
+namespace Revise.Files.LTB {
     /// <summary>
-    /// Represents an LTB file row.
+    /// Represents an language file row.
     /// </summary>
     public class LanguageRow {
         private List<string> data;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.LanguageRow"/> class.
+        /// Initializes a new instance of the <see cref="LanguageRow"/> class.
         /// </summary>
         /// <param name="columnCount">The number of columns to add.</param>
         public LanguageRow(int columnCount) {

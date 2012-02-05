@@ -19,9 +19,9 @@
 
 #endregion
 
-namespace Revise.Files {
+namespace Revise.Files.HLP {
     /// <summary>
-    /// Represents an HLP page.
+    /// Represents a help page.
     /// </summary>
     public class HelpPage {
         #region Properties
@@ -29,9 +29,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the page title.
         /// </summary>
-        /// <value>
-        /// The page title.
-        /// </value>
         public string Title {
             get;
             set;
@@ -40,9 +37,6 @@ namespace Revise.Files {
         /// <summary>
         /// Gets or sets the page content.
         /// </summary>
-        /// <value>
-        /// The page content.
-        /// </value>
         public string Content {
             get;
             set;
@@ -51,7 +45,7 @@ namespace Revise.Files {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.HelpPage"/> class.
+        /// Initializes a new instance of the <see cref="HelpPage"/> class.
         /// </summary>
         public HelpPage() {
             Title = string.Empty;

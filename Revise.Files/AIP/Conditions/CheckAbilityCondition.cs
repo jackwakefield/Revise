@@ -20,10 +20,11 @@
 #endregion
 
 using System.IO;
+using Revise.Files.AIP.Interfaces;
 
-namespace Revise.Files {
+namespace Revise.Files.AIP.Conditions {
     /// <summary>
-    /// Represents a condition to check the ability.
+    /// Represents a condition to check the specified ability.
     /// </summary>
     public class CheckAbilityCondition : IArtificialIntelligenceCondition {
         #region Properties
@@ -54,7 +55,7 @@ namespace Revise.Files {
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to check if the source characters ability or more or less than <see cref="Value"/>.
+        /// Gets or sets a value indicating whether to check if the source characters ability is more or less than <see cref="Value"/>.
         /// </summary>
         public bool More {
             get;

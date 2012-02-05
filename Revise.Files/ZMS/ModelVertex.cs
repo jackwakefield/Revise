@@ -21,9 +21,9 @@
 
 using SharpDX;
 
-namespace Revise.Files {
+namespace Revise.Files.ZMS {
     /// <summary>
-    /// Repreesnts vertex properties from a model file.
+    /// Represents vertex properties from a model file.
     /// </summary>
     public class ModelVertex {
         #region Properties
@@ -87,7 +87,7 @@ namespace Revise.Files {
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Revise.Files.ModelVertex"/> class.
+        /// Initializes a new instance of the <see cref="ModelVertex"/> class.
         /// </summary>
         public ModelVertex() {
             TextureCoordinates = new Vector2[4];
