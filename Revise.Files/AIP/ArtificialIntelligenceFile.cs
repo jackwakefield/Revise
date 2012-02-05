@@ -93,13 +93,13 @@ namespace Revise.Files.AIP {
 
             for (int i = 0; i < patternCount; i++) {
                 var pattern = new ArtificialIntelligencePattern();
-                pattern.Name = reader.ReadString(32);
+                pattern.Name = reader.ReadString(32).TrimEnd('\0');
 
                 int eventCount = reader.ReadInt32();
 
                 for (int j = 0; j < eventCount; j++) {
                     var @event = new ArtificialIntelligenceEvent();
-                    @event.Name = reader.ReadString(32);
+                    @event.Name = reader.ReadString(32).TrimEnd('\0');
 
                     int conditionCount = reader.ReadInt32();
 

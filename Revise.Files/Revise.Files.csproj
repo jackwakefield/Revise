@@ -121,6 +121,11 @@
     <Compile Include="AIP\MessageType.cs" />
     <Compile Include="AIP\SummonPosition.cs" />
     <Compile Include="AIP\TargetType.cs" />
+    <Compile Include="CONV\ConversationFile.cs" />
+    <Compile Include="CONV\ConversationFunction.cs" />
+    <Compile Include="CONV\ConversationMessageType.cs" />
+    <Compile Include="CONV\ConversationMessage.cs" />
+    <Compile Include="CONV\ConversationMenu.cs" />
     <Compile Include="Exceptions\InvalidArtificialIntelligenceActionException.cs" />
     <Compile Include="Exceptions\InvalidArtificialIntelligenceConditionException.cs" />
     <Compile Include="STL\Attributes\StringTableTypeIdentifierAttribute.cs" />

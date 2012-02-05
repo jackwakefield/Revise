@@ -117,8 +117,8 @@ public static class BinaryWriterExtensions {
     /// </summary>
     /// <param name="value">The string value.</param>
     /// <param name="length">The fixed length.</param>
-    public static void WriteString(this BinaryWriter writer, string value, int length) {
-        writer.WriteString(value, length, DefaultEncoding);
+    public static void WriteString(this BinaryWriter writer, string value, int length, char paddingCharacter = '\0') {
+        writer.WriteString(value, length, DefaultEncoding, paddingCharacter);
     }
 
     /// <summary>
@@ -127,9 +127,13 @@ public static class BinaryWriterExtensions {
     /// <param name="value">The string value.</param>
     /// <param name="length">The fixed length.</param>
     /// <param name="encoding">The character encoding.</param>
-    public static void WriteString(this BinaryWriter writer, string value, int length, Encoding encoding) {
+    public static void WriteString(this BinaryWriter writer, string value, int length, Encoding encoding, char paddingCharacter = '\0') {
         byte[] values = encoding.GetBytes(value);
         Array.Resize<byte>(ref values, length);
+
+        for (int i = encoding.GetByteCount(value); i < length; i++) {
+            values[i] = (byte)paddingCharacter;
+        }
 
         writer.Write(values);
     }

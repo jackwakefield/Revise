@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="ArtificialIntelligenceFileTests.cs" />
     <Compile Include="CharacterFileTests.cs" />
+    <Compile Include="ConversationFileTests.cs" />
     <Compile Include="EffectFileTests.cs" />
     <Compile Include="HeightmapFileTests.cs" />
     <Compile Include="HelpFileTests.cs" />
@@ -94,6 +95,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Files\EM01-001.CON">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Files\31_30.HIM">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

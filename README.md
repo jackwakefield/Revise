@@ -9,6 +9,7 @@ The following is a list of file formats implemented and yet to be implemented in
 
 * AIP
 * CHR
+* CON
 * EFT
 * HIM
 * HLP
@@ -29,7 +30,6 @@ The following is a list of file formats implemented and yet to be implemented in
 
 ### Not Implemented
 
-* CON
 * IFO
 * PTL
 * QSD
