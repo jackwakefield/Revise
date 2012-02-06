@@ -31,7 +31,7 @@ namespace Revise.Files.AIP.Interfaces {
         /// <summary>
         /// Gets the condition type.
         /// </summary>
-        ArtificialIntelligenceConditions Type {
+        ArtificialIntelligenceCondition Type {
             get;
         }
 

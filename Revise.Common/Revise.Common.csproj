@@ -39,6 +39,9 @@
     <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpDX">
+      <HintPath>..\packages\SharpDX.2.0.2\lib\net20\SharpDX.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +54,7 @@
     <Compile Include="IntVector2.cs" />
     <Compile Include="IO\AlignedBinaryReader.cs" />
     <Compile Include="IO\AlignedBinaryWriter.cs" />
+    <Compile Include="MinMax.cs" />
     <Compile Include="ShortVector2.cs" />
     <Compile Include="ShortVector3.cs" />
     <Compile Include="ShortVector4.cs" />

@@ -31,7 +31,7 @@ namespace Revise.Files.AIP.Interfaces {
         /// <summary>
         /// Gets the action type.
         /// </summary>
-        ArtificialIntelligenceActions Type {
+        ArtificialIntelligenceAction Type {
             get;
         }
 

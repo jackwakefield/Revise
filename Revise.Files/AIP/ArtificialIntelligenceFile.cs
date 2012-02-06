@@ -106,9 +106,9 @@ namespace Revise.Files.AIP {
                     for (int k = 0; k < conditionCount; k++) {
                         long position = stream.Position;
                         int size = reader.ReadInt32();
-                        var type = (ArtificialIntelligenceConditions)(reader.ReadInt32() ^ CONDITION_MASK);
+                        var type = (ArtificialIntelligenceCondition)(reader.ReadInt32() ^ CONDITION_MASK);
 
-                        if (!Enum.IsDefined(typeof(ArtificialIntelligenceConditions), type)) {
+                        if (!Enum.IsDefined(typeof(ArtificialIntelligenceCondition), type)) {
                             throw new InvalidArtificialIntelligenceConditionException((int)type);
                         }
 
@@ -131,9 +131,9 @@ namespace Revise.Files.AIP {
                     for (int k = 0; k < actionCount; k++) {
                         long position = stream.Position;
                         int size = reader.ReadInt32();
-                        var type = (ArtificialIntelligenceActions)(reader.ReadInt32() ^ ACTION_MASK);
+                        var type = (ArtificialIntelligenceAction)(reader.ReadInt32() ^ ACTION_MASK);
 
-                        if (!Enum.IsDefined(typeof(ArtificialIntelligenceActions), type)) {
+                        if (!Enum.IsDefined(typeof(ArtificialIntelligenceAction), type)) {
                             throw new InvalidArtificialIntelligenceActionException((int)type);
                         }
 

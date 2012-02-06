@@ -149,11 +149,11 @@ namespace Revise.Files.CON {
 
                     byte[] condition = reader.ReadBytes(32);
                     Obfuscate(condition, menuMessageCount, menuSize);
-                    message.Condition = encoding.GetString(condition);
+                    message.Condition = encoding.GetString(condition).TrimEnd('\0');
 
                     byte[] action = reader.ReadBytes(32);
                     Obfuscate(action, menuMessageCount, menuSize);
-                    message.Action = encoding.GetString(action);
+                    message.Action = encoding.GetString(action).TrimEnd('\0');
 
                     message.StringID = Obfuscate(reader.ReadInt32(), menuMessageCount, menuSize);
                     
@@ -187,7 +187,7 @@ namespace Revise.Files.CON {
                 ConversationFunction function = Functions[i];
 
                 if (function.IsEnabled) {
-                    functionMask ^= (short)(1 << i);
+                    functionMask |= (short)(1 << i);
                 }
             }
 

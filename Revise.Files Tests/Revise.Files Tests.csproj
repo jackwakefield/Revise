@@ -52,6 +52,10 @@
     <Reference Include="SharpDX">
       <HintPath>..\packages\SharpDX.2.0.2\lib\net20\SharpDX.dll</HintPath>
     </Reference>
+    <Reference Include="SharpDX.Direct3D9, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SharpDX.Direct3D9.2.0.2\lib\net20\SharpDX.Direct3D9.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -68,6 +72,7 @@
     <Compile Include="EffectFileTests.cs" />
     <Compile Include="HeightmapFileTests.cs" />
     <Compile Include="HelpFileTests.cs" />
+    <Compile Include="ParticleFileTests.cs" />
     <Compile Include="VirtualFileIndexFileTests.cs" />
     <Compile Include="LightmapFileTests.cs" />
     <Compile Include="LevelOfDetailFileTests.cs" />
@@ -126,6 +131,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\JPT01.ZON">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\LEVELUP_01.PTL">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\LIST_FACEITEM_S.STL">

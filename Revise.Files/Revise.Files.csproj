@@ -78,8 +78,8 @@
     <Compile Include="AIP\Actions\SpawnMonsterAtPositionWithMasterTypeAction.cs" />
     <Compile Include="AIP\Actions\SpawnMonsterWithMasterTypeAction.cs" />
     <Compile Include="AIP\Actions\TransformIntoMonsterAction.cs" />
-    <Compile Include="AIP\ArtificialIntelligenceActions.cs" />
-    <Compile Include="AIP\ArtificialIntelligenceConditions.cs" />
+    <Compile Include="AIP\ArtificialIntelligenceAction.cs" />
+    <Compile Include="AIP\ArtificialIntelligenceCondition.cs" />
     <Compile Include="AIP\ArtificialIntelligenceFile.cs" />
     <Compile Include="AIP\ArtificialIntelligenceEvent.cs" />
     <Compile Include="AIP\ArtificialIntelligencePattern.cs" />
@@ -128,6 +128,29 @@
     <Compile Include="CONV\ConversationMenu.cs" />
     <Compile Include="Exceptions\InvalidArtificialIntelligenceActionException.cs" />
     <Compile Include="Exceptions\InvalidArtificialIntelligenceConditionException.cs" />
+    <Compile Include="Exceptions\InvalidParticleEventTypeException.cs" />
+    <Compile Include="PTL\AlignmentType.cs" />
+    <Compile Include="PTL\Attributes\ParticleEventTypeAttribute.cs" />
+    <Compile Include="PTL\CoordinateType.cs" />
+    <Compile Include="PTL\Events\AlphaEvent.cs" />
+    <Compile Include="PTL\Events\BlueColourEvent.cs" />
+    <Compile Include="PTL\Events\ColourEvent.cs" />
+    <Compile Include="PTL\Events\GreenColourEvent.cs" />
+    <Compile Include="PTL\Events\ParticleEvent.cs" />
+    <Compile Include="PTL\Events\RedColourEvent.cs" />
+    <Compile Include="PTL\Events\RotationEvent.cs" />
+    <Compile Include="PTL\Events\ScaleEvent.cs" />
+    <Compile Include="PTL\Events\TextureEvent.cs" />
+    <Compile Include="PTL\Events\TimerEvent.cs" />
+    <Compile Include="PTL\Events\VelocityEvent.cs" />
+    <Compile Include="PTL\Events\VelocityXEvent.cs" />
+    <Compile Include="PTL\Events\VelocityYEvent.cs" />
+    <Compile Include="PTL\Events\VelocityZEvent.cs" />
+    <Compile Include="PTL\ImplementationType.cs" />
+    <Compile Include="PTL\Interfaces\IParticleEvent.cs" />
+    <Compile Include="PTL\ParticleEventType.cs" />
+    <Compile Include="PTL\ParticleFile.cs" />
+    <Compile Include="PTL\ParticleSequence.cs" />
     <Compile Include="STL\Attributes\StringTableTypeIdentifierAttribute.cs" />
     <Compile Include="CHR\AnimationType.cs" />
     <Compile Include="CHR\Character.cs" />
@@ -216,7 +239,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

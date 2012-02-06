@@ -33,9 +33,9 @@ namespace Revise.Files.AIP.Conditions {
         /// <summary>
         /// Gets the condition type.
         /// </summary>
-        public ArtificialIntelligenceConditions Type {
+        public ArtificialIntelligenceCondition Type {
             get {
-                return ArtificialIntelligenceConditions.SelectNearestCharacterByType;
+                return ArtificialIntelligenceCondition.SelectNearestCharacterByType;
             }
         }
 

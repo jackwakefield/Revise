@@ -34,9 +34,9 @@ namespace Revise.Files.AIP.Actions {
         /// <summary>
         /// Gets the action type.
         /// </summary>
-        public ArtificialIntelligenceActions Type {
+        public ArtificialIntelligenceAction Type {
             get {
-                return ArtificialIntelligenceActions.DropRandomItem;
+                return ArtificialIntelligenceAction.DropRandomItem;
             }
         }
 

@@ -25,7 +25,7 @@ namespace Revise.Files.AIP {
     /// <summary>
     /// Specifies the AI action types.
     /// </summary>
-    public enum ArtificialIntelligenceActions {
+    public enum ArtificialIntelligenceAction {
         [ArtificialIntelligenceType(typeof(HaltActionsAction))]
         HaltActions = 1,
 

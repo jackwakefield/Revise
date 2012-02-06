@@ -25,7 +25,7 @@ namespace Revise.Files.AIP {
     /// <summary>
     /// Specifies the AI condition types.
     /// </summary>
-    public enum ArtificialIntelligenceConditions {
+    public enum ArtificialIntelligenceCondition {
         [ArtificialIntelligenceType(typeof(FightOrDelayCondition))]
         FightOrDelay = 1,
         
