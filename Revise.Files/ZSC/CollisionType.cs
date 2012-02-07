@@ -19,24 +19,19 @@
 
 #endregion
 
-using System;
-
-namespace Revise.Files.ZMS {
+namespace Revise.Files.ZSC {
     /// <summary>
-    /// Specifies the properties of a vertex.
+    /// Defines the model part collision type.
     /// </summary>
-    [Flags]
-    internal enum VertexFormat {
-        None = 1 << 0,
-        Position = 1 << 1,
-        Normal = 1 << 2,
-        Colour = 1 << 3,
-        BlendWeight = 1 << 4,
-        BlendIndex = 1 << 5,
-        Tangent = 1 << 6,
-        TextureCoordinate0 = 1 << 7,
-        TextureCoordinate1 = 1 << 8,
-        TextureCoordinate2 = 1 << 9,
-        TextureCoordinate3 = 1 << 10,
+    public enum CollisionType : short {
+        None = 0,
+	    BoundingSphere = 1,
+	    AxisAlignedBoundingBox = 3,
+        OrientedBoundingBox = 3,
+	    Polygon = 1 << 2,
+	    NotMoveable = 1 << 3, 
+	    NotPickable = 1 << 4,
+        HeightOnly = 1 << 5,
+        NoCameraCollision = 1 << 6,
     }
 }

@@ -28,10 +28,10 @@ The following is a list of file formats implemented and yet to be implemented in
 * ZMD
 * ZMS
 * ZON
+* ZSC
 
 ### Not Implemented
 
 * IFO
 * QSD
 * ZMO
-* ZSC

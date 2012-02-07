@@ -225,6 +225,14 @@ public static class BinaryReaderExtensions {
     /// Reads a colour from the underlying stream.
     /// </summary>
     /// <returns>The vector read.</returns>
+    public static Color3 ReadColour3(this BinaryReader reader) {
+        return new Color3(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
+    }
+
+    /// <summary>
+    /// Reads a colour from the underlying stream.
+    /// </summary>
+    /// <returns>The vector read.</returns>
     public static Color4 ReadColour4(this BinaryReader reader) {
         return new Color4(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
     }

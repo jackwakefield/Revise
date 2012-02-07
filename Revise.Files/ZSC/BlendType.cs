@@ -19,24 +19,29 @@
 
 #endregion
 
-using System;
-
-namespace Revise.Files.ZMS {
+namespace Revise.Files.ZSC {
     /// <summary>
-    /// Specifies the properties of a vertex.
+    /// Defines the texture blend types.
     /// </summary>
-    [Flags]
-    internal enum VertexFormat {
-        None = 1 << 0,
-        Position = 1 << 1,
-        Normal = 1 << 2,
-        Colour = 1 << 3,
-        BlendWeight = 1 << 4,
-        BlendIndex = 1 << 5,
-        Tangent = 1 << 6,
-        TextureCoordinate0 = 1 << 7,
-        TextureCoordinate1 = 1 << 8,
-        TextureCoordinate2 = 1 << 9,
-        TextureCoordinate3 = 1 << 10,
+    public enum BlendType {
+        /// <summary>
+        /// The source blend mode is set to source alpha and destination to inverse source alpha, the blend operation is set to add.
+        /// </summary>
+        Normal = 0,
+
+        /// <summary>
+        /// The source and destination blend modes are set to one, the blend operation set to add.
+        /// </summary>
+        Lighten = 1,
+
+        /// <summary>
+        /// Custom blend types set by the client.
+        /// </summary>
+        Custom = 3,
+
+        /// <summary>
+        /// Skips setting the blending types.
+        /// </summary>
+        None = 255
     }
 }

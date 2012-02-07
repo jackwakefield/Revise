@@ -215,6 +215,16 @@
     <Compile Include="ZON\ZonePosition.cs" />
     <Compile Include="ZON\ZoneTile.cs" />
     <Compile Include="ZON\ZoneType.cs" />
+    <Compile Include="ZSC\BlendType.cs" />
+    <Compile Include="ZSC\CollisionType.cs" />
+    <Compile Include="ZSC\EffectType.cs" />
+    <Compile Include="ZSC\GlowType.cs" />
+    <Compile Include="ZSC\ModelListFile.cs" />
+    <Compile Include="ZSC\ModelListObject.cs" />
+    <Compile Include="ZSC\ModelListPart.cs" />
+    <Compile Include="ZSC\ModelListEffect.cs" />
+    <Compile Include="ZSC\ModelListPropertyType.cs" />
+    <Compile Include="ZSC\TextureFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SharpDX">

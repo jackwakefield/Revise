@@ -72,6 +72,7 @@
     <Compile Include="EffectFileTests.cs" />
     <Compile Include="HeightmapFileTests.cs" />
     <Compile Include="HelpFileTests.cs" />
+    <Compile Include="ModelListFileTests.cs" />
     <Compile Include="ParticleFileTests.cs" />
     <Compile Include="VirtualFileIndexFileTests.cs" />
     <Compile Include="LightmapFileTests.cs" />
@@ -134,6 +135,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\LEVELUP_01.PTL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\LIST_DECO_JPT.ZSC">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\LIST_FACEITEM_S.STL">

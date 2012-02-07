@@ -19,24 +19,22 @@
 
 #endregion
 
-using System;
-
-namespace Revise.Files.ZMS {
+namespace Revise.Files.ZSC {
     /// <summary>
-    /// Specifies the properties of a vertex.
+    /// Defines the model list property types.
     /// </summary>
-    [Flags]
-    internal enum VertexFormat {
-        None = 1 << 0,
-        Position = 1 << 1,
-        Normal = 1 << 2,
-        Colour = 1 << 3,
-        BlendWeight = 1 << 4,
-        BlendIndex = 1 << 5,
-        Tangent = 1 << 6,
-        TextureCoordinate0 = 1 << 7,
-        TextureCoordinate1 = 1 << 8,
-        TextureCoordinate2 = 1 << 9,
-        TextureCoordinate3 = 1 << 10,
+    internal enum ModelListPropertyType : byte {
+        Position = 1,
+        Rotation = 2,
+        Scale = 3,
+        AxisRotation = 4,
+        BoneIndex = 5,
+        DummyIndex = 6,
+        Parent = 7,
+        Animation = 8,
+        Collision = 29,
+        ConstantAnimation = 30,
+        VisibleRangeSet = 31,
+        UseLightmap = 32
     }
 }
