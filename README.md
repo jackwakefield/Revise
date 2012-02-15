@@ -14,6 +14,7 @@ The following is a list of file formats implemented and yet to be implemented in
 * HIM
 * HLP
 * IDX
+* IFO
 * LIT
 * LOD
 * LTB
@@ -32,6 +33,5 @@ The following is a list of file formats implemented and yet to be implemented in
 
 ### Not Implemented
 
-* IFO
 * QSD
 * ZMO

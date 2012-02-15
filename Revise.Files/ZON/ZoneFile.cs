@@ -50,12 +50,12 @@ namespace Revise.Files.ZON {
             set {
                 width = value;
 
-                ZonePosition[,] positions = new ZonePosition[width, Positions.GetLength(0)];
+                ZonePosition[,] positions = new ZonePosition[width, Positions.GetLength(1)];
                 int copyWidth = width < Positions.GetLength(0) ? width : Positions.GetLength(0);
 
-                for (int x = 0; x < copyWidth; x++) {
-                    for (int y = 0; y < Positions.GetLength(1); y++) {
-                        positions[x, y] = Positions[x, y];
+                for (int w = 0; w < copyWidth; w++) {
+                    for (int h = 0; h < Positions.GetLength(1); h++) {
+                        positions[w, h] = Positions[w, h];
                     }
                 }
 
@@ -76,9 +76,9 @@ namespace Revise.Files.ZON {
                 ZonePosition[,] positions = new ZonePosition[Positions.GetLength(0), height];
                 int copyHeight = height < Positions.GetLength(1) ? height : Positions.GetLength(1);
 
-                for (int x = 0; x < Positions.GetLength(0); x++) {
-                    for (int y = 0; y < copyHeight; y++) {
-                        positions[x, y] = Positions[x, y];
+                for (int w = 0; w < Positions.GetLength(0); w++) {
+                    for (int h = 0; h < copyHeight; h++) {
+                        positions[w, h] = Positions[w, h];
                     }
                 }
 
@@ -319,10 +319,10 @@ namespace Revise.Files.ZON {
                         GridSize = reader.ReadSingle();
                         StartPosition = new IntVector2(reader.ReadInt32(), reader.ReadInt32());
 
-                        for (int x = 0; x < Width; x++) {
-                            for (int y = 0; y < Height; y++) {
-                                Positions[x, y].IsUsed = reader.ReadBoolean();
-                                Positions[x, y].Position = reader.ReadVector2();
+                        for (int w = 0; w < Width; w++) {
+                            for (int h = 0; h < Height; h++) {
+                                Positions[w, h].IsUsed = reader.ReadBoolean();
+                                Positions[w, h].Position = reader.ReadVector2();
                             }
                         }
                         break;

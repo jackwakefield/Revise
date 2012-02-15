@@ -72,6 +72,7 @@
     <Compile Include="EffectFileTests.cs" />
     <Compile Include="HeightmapFileTests.cs" />
     <Compile Include="HelpFileTests.cs" />
+    <Compile Include="MapDataFileTests.cs" />
     <Compile Include="ModelListFileTests.cs" />
     <Compile Include="ParticleFileTests.cs" />
     <Compile Include="VirtualFileIndexFileTests.cs" />
@@ -101,6 +102,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Files\33_32.IFO">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Files\EM01-001.CON">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

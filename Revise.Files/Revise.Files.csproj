@@ -128,7 +128,27 @@
     <Compile Include="CONV\ConversationMenu.cs" />
     <Compile Include="Exceptions\InvalidArtificialIntelligenceActionException.cs" />
     <Compile Include="Exceptions\InvalidArtificialIntelligenceConditionException.cs" />
+    <Compile Include="Exceptions\InvalidMapBlockTypeException.cs" />
     <Compile Include="Exceptions\InvalidParticleEventTypeException.cs" />
+    <Compile Include="IFO\Attributes\MapBlockTypeAttribute.cs" />
+    <Compile Include="IFO\Blocks\MapAnimation.cs" />
+    <Compile Include="IFO\Blocks\MapBuilding.cs" />
+    <Compile Include="IFO\Blocks\MapCollisionObject.cs" />
+    <Compile Include="IFO\Blocks\MapEffect.cs" />
+    <Compile Include="IFO\Blocks\MapEventObject.cs" />
+    <Compile Include="IFO\Blocks\MapMonsterSpawn.cs" />
+    <Compile Include="IFO\Blocks\MapNPC.cs" />
+    <Compile Include="IFO\Blocks\MapObject.cs" />
+    <Compile Include="IFO\Blocks\MapSound.cs" />
+    <Compile Include="IFO\Blocks\MapWarpPoint.cs" />
+    <Compile Include="IFO\Blocks\MapWaterPatches.cs" />
+    <Compile Include="IFO\Blocks\MonsterSpawnPoint.cs" />
+    <Compile Include="IFO\Blocks\WaterPatch.cs" />
+    <Compile Include="IFO\Interfaces\IMapBlock.cs" />
+    <Compile Include="IFO\MapBlockType.cs" />
+    <Compile Include="IFO\MapDataFile.cs" />
+    <Compile Include="IFO\Blocks\MapBlock.cs" />
+    <Compile Include="IFO\Blocks\MapWaterPlane.cs" />
     <Compile Include="PTL\AlignmentType.cs" />
     <Compile Include="PTL\Attributes\ParticleEventTypeAttribute.cs" />
     <Compile Include="PTL\CoordinateType.cs" />
@@ -251,6 +271,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
