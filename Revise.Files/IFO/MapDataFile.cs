@@ -27,7 +27,7 @@ using Revise.Files.Exceptions;
 using Revise.Files.IFO.Attributes;
 using Revise.Files.IFO.Blocks;
 using Revise.Files.IFO.Interfaces;
-using SharpDX;
+using SlimDX;
 
 namespace Revise.Files.IFO {
     /// <summary>

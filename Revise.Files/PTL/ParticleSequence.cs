@@ -21,8 +21,8 @@
 
 using System.Collections.Generic;
 using Revise.Files.PTL.Interfaces;
-using SharpDX;
-using SharpDX.Direct3D9;
+using SlimDX;
+using SlimDX.Direct3D9;
 
 namespace Revise.Files.PTL {
     /// <summary>

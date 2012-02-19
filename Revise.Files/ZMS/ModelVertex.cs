@@ -19,7 +19,7 @@
 
 #endregion
 
-using SharpDX;
+using SlimDX;
 
 namespace Revise.Files.ZMS {
     /// <summary>

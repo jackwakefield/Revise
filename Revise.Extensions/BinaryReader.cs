@@ -23,7 +23,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Revise;
-using SharpDX;
+using SlimDX;
 
 /// <summary>
 /// A collection of extensions for the <see cref="BinaryReader"/> class.
@@ -157,13 +157,13 @@ public static class BinaryReaderExtensions {
     /// </summary>
     /// <returns>The matrix read.</returns>
     public static Matrix ReadMatrix(this BinaryReader reader) {
-        float[] values = new float[16];
+        Matrix value = new Matrix();
 
-        for (int i = 0; i < 16; i++) {
-            values[i] = reader.ReadSingle();
+        for (int i = 0; i < 4; i++) {
+            value.set_Rows(i, reader.ReadVector4());
         }
 
-        return new Matrix(values);
+        return value;
     }
 
     /// <summary>

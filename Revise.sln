@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise.Files Tests", "Revis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise.Extensions", "Revise.Extensions\Revise.Extensions.csproj", "{6114A78C-DA76-4333-9649-1B49AD2B4AE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise.Extensions Tests", "Revise.Extensions Tests\Revise.Extensions Tests.csproj", "{0C08660D-40CC-41C7-93B1-CFD0664A7EF7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise.Common", "Revise.Common\Revise.Common.csproj", "{35368721-7710-4DB3-93CF-FC604EF14609}"
 EndProject
 Global
@@ -43,10 +41,6 @@ Global
 		{6114A78C-DA76-4333-9649-1B49AD2B4AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6114A78C-DA76-4333-9649-1B49AD2B4AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6114A78C-DA76-4333-9649-1B49AD2B4AE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C08660D-40CC-41C7-93B1-CFD0664A7EF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C08660D-40CC-41C7-93B1-CFD0664A7EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C08660D-40CC-41C7-93B1-CFD0664A7EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C08660D-40CC-41C7-93B1-CFD0664A7EF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{35368721-7710-4DB3-93CF-FC604EF14609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{35368721-7710-4DB3-93CF-FC604EF14609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35368721-7710-4DB3-93CF-FC604EF14609}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +51,5 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7AFBDBCF-CA04-434C-B492-15B16DA05306} = {CF62FABF-BBC9-4984-AD1E-841ADFA111AF}
-		{0C08660D-40CC-41C7-93B1-CFD0664A7EF7} = {CF62FABF-BBC9-4984-AD1E-841ADFA111AF}
 	EndGlobalSection
 EndGlobal

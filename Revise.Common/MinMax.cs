@@ -20,7 +20,7 @@
 #endregion
 
 using System;
-using SharpDX;
+using SlimDX;
 
 namespace Revise {
     /// <summary>

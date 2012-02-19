@@ -23,7 +23,7 @@ using System;
 using System.IO;
 using System.Text;
 using Revise;
-using SharpDX;
+using SlimDX;
 
 /// <summary>
 /// A collection of extensions for the <see cref="BinaryWriter"/> class.
@@ -218,5 +218,26 @@ public static class BinaryWriterExtensions {
         if (!w) {
             writer.Write(value.W);
         }
+    }
+
+    /// <summary>
+    /// Writes the specified colour to the underlying stream.
+    /// </summary>
+    /// <param name="value">The colour value.</param>
+    public static void Write(this BinaryWriter writer, Color3 value) {
+        writer.Write(value.Red);
+        writer.Write(value.Green);
+        writer.Write(value.Blue);
+    }
+
+    /// <summary>
+    /// Writes the specified colour to the underlying stream.
+    /// </summary>
+    /// <param name="value">The colour value.</param>
+    public static void Write(this BinaryWriter writer, Color4 value) {
+        writer.Write(value.Alpha);
+        writer.Write(value.Red);
+        writer.Write(value.Green);
+        writer.Write(value.Blue);
     }
 }

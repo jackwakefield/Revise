@@ -22,7 +22,7 @@
 using System.IO;
 using System.Text;
 using Revise.Files.Exceptions;
-using SharpDX;
+using SlimDX;
 
 namespace Revise.Files.ZCA {
     /// <summary>

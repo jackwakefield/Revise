@@ -29,7 +29,7 @@ namespace Revise.Files.Tests {
     /// </summary>
     [TestFixture]
     public class MotionFileTests {
-        private const string TEST_FILE = "Files/JELLYBEAN2_DIE.ZMO";
+        private const string TEST_FILE = "Files/_WIND_01.ZMO";
 
         /// <summary>
         /// Tests the load method.
