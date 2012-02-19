@@ -81,7 +81,7 @@ namespace Revise.Files.ZMS {
         /// </summary>
         public Vector2[] TextureCoordinates {
             get;
-            set;
+            private set;
         }
 
         #endregion

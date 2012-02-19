@@ -101,19 +101,7 @@ namespace Revise.Files.ZMS {
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the texture coordinates with index 0 are enabled in the vertex.
-        /// </summary>
-        public bool TextureCoordinates0Enabled {
-            get {
-                return CheckFlag(VertexFormat.TextureCoordinate0);
-            }
-            set {
-                SetFlag(VertexFormat.TextureCoordinate0, value);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the texture coordinates with index 1 are enabled in the vertex.
+        /// Gets or sets a value indicating whether the first texture coordinates are enabled in the vertex.
         /// </summary>
         public bool TextureCoordinates1Enabled {
             get {
@@ -125,7 +113,7 @@ namespace Revise.Files.ZMS {
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the texture coordinates with index 2 are enabled in the vertex.
+        /// Gets or sets a value indicating whether the second texture coordinates are enabled in the vertex.
         /// </summary>
         public bool TextureCoordinates2Enabled {
             get {
@@ -137,7 +125,7 @@ namespace Revise.Files.ZMS {
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the texture coordinates with index 3 are enabled in the vertex.
+        /// Gets or sets a value indicating whether the third texture coordinates are enabled in the vertex.
         /// </summary>
         public bool TextureCoordinates3Enabled {
             get {
@@ -145,6 +133,18 @@ namespace Revise.Files.ZMS {
             }
             set {
                 SetFlag(VertexFormat.TextureCoordinate3, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the fourth texture coordinates are enabled in the vertex.
+        /// </summary>
+        public bool TextureCoordinates4Enabled {
+            get {
+                return CheckFlag(VertexFormat.TextureCoordinate4);
+            }
+            set {
+                SetFlag(VertexFormat.TextureCoordinate4, value);
             }
         }
 
@@ -289,28 +289,28 @@ namespace Revise.Files.ZMS {
                 }
             }
 
-            if (TextureCoordinates0Enabled) {
+            if (TextureCoordinates1Enabled) {
                 for (int i = 0; i < vertexCount; i++) {
                     ModelVertex vertex = Vertices[i];
                     vertex.TextureCoordinates[0] = reader.ReadVector2();
                 }
             }
 
-            if (TextureCoordinates1Enabled) {
+            if (TextureCoordinates2Enabled) {
                 for (int i = 0; i < vertexCount; i++) {
                     ModelVertex vertex = Vertices[i];
                     vertex.TextureCoordinates[1] = reader.ReadVector2();
                 }
             }
 
-            if (TextureCoordinates2Enabled) {
+            if (TextureCoordinates3Enabled) {
                 for (int i = 0; i < vertexCount; i++) {
                     ModelVertex vertex = Vertices[i];
                     vertex.TextureCoordinates[2] = reader.ReadVector2();
                 }
             }
 
-            if (TextureCoordinates3Enabled) {
+            if (TextureCoordinates4Enabled) {
                 for (int i = 0; i < vertexCount; i++) {
                     ModelVertex vertex = Vertices[i];
                     vertex.TextureCoordinates[3] = reader.ReadVector2();
@@ -395,25 +395,25 @@ namespace Revise.Files.ZMS {
                 });
             }
 
-            if (TextureCoordinates0Enabled) {
+            if (TextureCoordinates1Enabled) {
                 Vertices.ForEach(vertex => {
                     writer.Write(vertex.TextureCoordinates[0]);
                 });
             }
 
-            if (TextureCoordinates1Enabled) {
+            if (TextureCoordinates2Enabled) {
                 Vertices.ForEach(vertex => {
                     writer.Write(vertex.TextureCoordinates[1]);
                 });
             }
 
-            if (TextureCoordinates2Enabled) {
+            if (TextureCoordinates3Enabled) {
                 Vertices.ForEach(vertex => {
                     writer.Write(vertex.TextureCoordinates[2]);
                 });
             }
 
-            if (TextureCoordinates3Enabled) {
+            if (TextureCoordinates4Enabled) {
                 Vertices.ForEach(vertex => {
                     writer.Write(vertex.TextureCoordinates[3]);
                 });
@@ -482,7 +482,7 @@ namespace Revise.Files.ZMS {
             base.Reset();
 
             Pool = PoolType.Static;
-            format = VertexFormat.Position | VertexFormat.TextureCoordinate0;
+            format = VertexFormat.Position | VertexFormat.TextureCoordinate1;
 
             Clear();
         }

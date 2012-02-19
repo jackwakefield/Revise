@@ -74,6 +74,7 @@
     <Compile Include="HelpFileTests.cs" />
     <Compile Include="MapDataFileTests.cs" />
     <Compile Include="ModelListFileTests.cs" />
+    <Compile Include="MotionFileTests.cs" />
     <Compile Include="ParticleFileTests.cs" />
     <Compile Include="VirtualFileIndexFileTests.cs" />
     <Compile Include="LightmapFileTests.cs" />
@@ -133,6 +134,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\HELP.HLP">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Files\JELLYBEAN2_DIE.ZMO">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Files\JPT01.ZON">

@@ -34,9 +34,9 @@ namespace Revise.Files.ZMS {
         BlendWeight = 1 << 4,
         BlendIndex = 1 << 5,
         Tangent = 1 << 6,
-        TextureCoordinate0 = 1 << 7,
-        TextureCoordinate1 = 1 << 8,
-        TextureCoordinate2 = 1 << 9,
-        TextureCoordinate3 = 1 << 10,
+        TextureCoordinate1 = 1 << 7,
+        TextureCoordinate2 = 1 << 8,
+        TextureCoordinate3 = 1 << 9,
+        TextureCoordinate4 = 1 << 10,
     }
 }

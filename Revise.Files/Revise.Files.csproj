@@ -129,6 +129,7 @@
     <Compile Include="Exceptions\InvalidArtificialIntelligenceActionException.cs" />
     <Compile Include="Exceptions\InvalidArtificialIntelligenceConditionException.cs" />
     <Compile Include="Exceptions\InvalidMapBlockTypeException.cs" />
+    <Compile Include="Exceptions\InvalidMotionChannelType.cs" />
     <Compile Include="Exceptions\InvalidParticleEventTypeException.cs" />
     <Compile Include="IFO\Attributes\MapBlockTypeAttribute.cs" />
     <Compile Include="IFO\Blocks\MapAnimation.cs" />
@@ -224,6 +225,17 @@
     <Compile Include="ZCA\CameraFile.cs" />
     <Compile Include="ZMD\Bone.cs" />
     <Compile Include="ZMD\BoneFile.cs" />
+    <Compile Include="ZMO\Attributes\MotionChannelTypeAttribute.cs" />
+    <Compile Include="ZMO\Channels\AlphaChannel.cs" />
+    <Compile Include="ZMO\Channels\MotionChannel.cs" />
+    <Compile Include="ZMO\Channels\NormalChannel.cs" />
+    <Compile Include="ZMO\Channels\PositionChannel.cs" />
+    <Compile Include="ZMO\Channels\RotationChannel.cs" />
+    <Compile Include="ZMO\Channels\ScaleChannel.cs" />
+    <Compile Include="ZMO\Channels\TextureAnimationChannel.cs" />
+    <Compile Include="ZMO\Channels\TextureCoordinateChannel.cs" />
+    <Compile Include="ZMO\ChannelType.cs" />
+    <Compile Include="ZMO\MotionFile.cs" />
     <Compile Include="ZMS\ModelVertex.cs" />
     <Compile Include="ZMS\PoolType.cs" />
     <Compile Include="ZMS\VertexFormat.cs" />
