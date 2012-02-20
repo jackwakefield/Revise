@@ -23,7 +23,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Revise.Files.Exceptions;
-using SlimDX;
+using SharpDX;
 
 namespace Revise.Files.ZMS {
     /// <summary>
@@ -267,8 +267,10 @@ namespace Revise.Files.ZMS {
 
             if (ColoursEnabled) {
                 for (int i = 0; i < vertexCount; i++) {
+                    float alpha = reader.ReadSingle();
+
                     ModelVertex vertex = Vertices[i];
-                    vertex.Colour = reader.ReadColour4();
+                    vertex.Colour = new Color4(reader.ReadVector3(), alpha);
                 }
             }
 
@@ -373,7 +375,10 @@ namespace Revise.Files.ZMS {
 
             if (ColoursEnabled) {
                 Vertices.ForEach(vertex => {
-                    writer.Write(vertex.Colour);
+                    writer.Write(vertex.Colour.Alpha);
+                    writer.Write(vertex.Colour.Red);
+                    writer.Write(vertex.Colour.Green);
+                    writer.Write(vertex.Colour.Blue);
                 });
             }
 

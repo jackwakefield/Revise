@@ -21,7 +21,7 @@
 
 using System.IO;
 using Revise.Files.IFO.Interfaces;
-using SlimDX;
+using SharpDX;
 
 namespace Revise.Files.IFO.Blocks {
     /// <summary>

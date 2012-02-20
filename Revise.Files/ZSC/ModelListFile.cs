@@ -22,7 +22,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using SlimDX;
+using SharpDX;
 
 namespace Revise.Files.ZSC {
     /// <summary>
@@ -267,7 +267,7 @@ namespace Revise.Files.ZSC {
                 writer.Write((short)(texture.UseSpecularShader ? 1 : 0));
                 writer.Write(texture.Alpha);
                 writer.Write((short)texture.GlowType);
-                writer.Write(texture.GlowColour);
+                writer.Write(texture.GlowColour.ToVector3());
             });
 
             writer.Write((short)EffectFiles.Count);
@@ -297,7 +297,7 @@ namespace Revise.Files.ZSC {
                             writer.Write(part.Position);
                         }
 
-                        if (part.Rotation.X != 0 || part.Rotation.Y != 0 || part.Rotation.Z != 0 || part.Rotation.W != 0) {
+                        if (part.Rotation != Quaternion.Zero) {
                             writer.Write((byte)ModelListPropertyType.Rotation);
                             writer.Write((byte)(sizeof(float) * 4));
                             writer.Write(part.Rotation, true);
@@ -309,7 +309,7 @@ namespace Revise.Files.ZSC {
                             writer.Write(part.Scale);
                         }
 
-                        if (part.AxisRotation.X != 0 || part.AxisRotation.Y != 0 || part.AxisRotation.Z != 0 || part.AxisRotation.W != 0) {
+                        if (part.AxisRotation != Quaternion.Zero) {
                             writer.Write((byte)ModelListPropertyType.AxisRotation);
                             writer.Write((byte)(sizeof(float) * 4));
                             writer.Write(part.AxisRotation, true);
@@ -388,8 +388,8 @@ namespace Revise.Files.ZSC {
                             writer.Write((byte)(sizeof(float) * 3));
                             writer.Write(effect.Position);
                         }
-                        
-                        if (effect.Rotation.X != 0.0f || effect.Rotation.Y != 0 || effect.Rotation.Z != 0 || effect.Rotation.W != 0) {
+
+                        if (effect.Rotation != Quaternion.Zero) {
                             writer.Write((byte)ModelListPropertyType.Rotation);
                             writer.Write((byte)(sizeof(float) * 4));
                             writer.Write(effect.Rotation, true);

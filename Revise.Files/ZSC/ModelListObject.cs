@@ -20,7 +20,7 @@
 #endregion
 
 using System.Collections.Generic;
-using SlimDX;
+using SharpDX;
 
 namespace Revise.Files.ZSC {
     /// <summary>

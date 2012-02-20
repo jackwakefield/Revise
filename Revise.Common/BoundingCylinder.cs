@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (c) 2010-2011 SlimDX - Alexandre Mutel
+// Copyright (c) 2010-2011 SharpDX - Alexandre Mutel
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -66,7 +66,7 @@
 using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
-using SlimDX;
+using SharpDX;
 
 namespace Revise {
     /// <summary>
@@ -135,7 +135,7 @@ namespace Revise {
             if (format == null)
                 return ToString();
 
-            return string.Format(CultureInfo.CurrentCulture, "Center:{0} Radius:{1}", Center.ToString(),
+            return string.Format(CultureInfo.CurrentCulture, "Center:{0} Radius:{1}", Center.ToString(format, CultureInfo.CurrentCulture),
                 Radius.ToString(format, CultureInfo.CurrentCulture));
         }
 
@@ -162,7 +162,7 @@ namespace Revise {
             if (format == null)
                 return ToString(formatProvider);
 
-            return string.Format(formatProvider, "Center:{0} Radius:{1}", Center.ToString(),
+            return string.Format(formatProvider, "Center:{0} Radius:{1}", Center.ToString(format, formatProvider),
                 Radius.ToString(format, formatProvider));
         }
 
