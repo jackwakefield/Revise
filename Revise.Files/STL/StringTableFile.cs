@@ -59,23 +59,15 @@ namespace Revise.Files.STL {
 
         #endregion
 
-        private static readonly int languageCount;
+        private int languageCount;
 
         private List<StringTableKey> keys;
         private List<StringTableRow> rows;
 
         /// <summary>
-        /// Initializes the <see cref="StringTableFile"/> class.
-        /// </summary>
-        static StringTableFile() {
-            Array languages = Enum.GetValues(typeof(StringTableLanguage));
-            languageCount = languages.Length;
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="StringTableFile"/> class.
         /// </summary>
-        public StringTableFile() {
+        public StringTableFile() {            
             keys = new List<StringTableKey>();
             rows = new List<StringTableRow>();
 
@@ -132,7 +124,7 @@ namespace Revise.Files.STL {
                 keys.Add(key);
             }
 
-            int languageCount = reader.ReadInt32();
+            languageCount = reader.ReadInt32();
 
             for (int j = 0; j < rowCount; j++) {
                 StringTableRow row = new StringTableRow(languageCount);
@@ -319,6 +311,10 @@ namespace Revise.Files.STL {
         public override void Reset() {
             base.Reset();
 
+            // Set the language count to max if we are going to make a new file
+            Array languages = Enum.GetValues(typeof(StringTableLanguage));
+            languageCount = languages.Length;
+            
             TableType = StringTableType.Normal;
             Clear();
         }
