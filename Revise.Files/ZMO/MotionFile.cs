@@ -114,7 +114,7 @@ namespace Revise.Files.ZMO {
             }
 
             FramesPerSecond = reader.ReadInt32();
-            int frameCount = reader.ReadInt32();
+            frameCount = reader.ReadInt32();
             int channelCount = reader.ReadInt32();
 
             for (int i = 0; i < channelCount; i++) {
