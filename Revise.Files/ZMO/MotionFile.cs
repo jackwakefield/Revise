@@ -114,7 +114,7 @@ namespace Revise.Files.ZMO {
             }
 
             FramesPerSecond = reader.ReadInt32();
-            frameCount = reader.ReadInt32();
+            FrameCount = reader.ReadInt32();
             int channelCount = reader.ReadInt32();
 
             for (int i = 0; i < channelCount; i++) {
@@ -126,12 +126,12 @@ namespace Revise.Files.ZMO {
 
                 MotionChannel channel = (MotionChannel)type.GetAttributeValue<MotionChannelTypeAttribute, object>(x => x.CreateInstance());
                 channel.Index = reader.ReadInt32();
-                channel.FrameCount = frameCount;
+                channel.FrameCount = FrameCount;
 
                 channels.Add(channel);
             }
 
-            for (int i = 0; i < frameCount; i++) {
+            for (int i = 0; i < FrameCount; i++) {
                 for (int j = 0; j < channelCount; j++) {
                     MotionChannel channel = channels[j];
                     channel.ReadFrame(reader, i);
