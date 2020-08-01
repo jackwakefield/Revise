@@ -1,9 +1,5 @@
 ﻿#region License
 
-
-
-#endregion
-
 /**
 * Copyright (C) 2012 Jack Wakefield
 * 
@@ -20,6 +16,9 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+#endregion
+
 namespace Revise.AIP
 {
     /// <summary>
