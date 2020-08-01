@@ -41,7 +41,7 @@ namespace Revise.IFO {
         /// <summary>
         /// Gets or sets the map position.
         /// </summary>
-        public Vector2 MapPosition {
+        public IntVector2 MapPosition {
             get;
             set;
         }
@@ -49,7 +49,7 @@ namespace Revise.IFO {
         /// <summary>
         /// Gets or sets the zone position.
         /// </summary>
-        public Vector2 ZonePosition {
+        public IntVector2 ZonePosition {
             get;
             set;
         }
@@ -218,8 +218,8 @@ namespace Revise.IFO {
                 stream.Seek(offset, SeekOrigin.Begin);
 
                 if (type == MapBlockType.MapInformation) {
-                    MapPosition = new Vector2(reader.ReadInt32(), reader.ReadInt32());
-                    ZonePosition = new Vector2(reader.ReadInt32(), reader.ReadInt32());
+                    MapPosition = new IntVector2(reader.ReadInt32(), reader.ReadInt32());
+                    ZonePosition = new IntVector2(reader.ReadInt32(), reader.ReadInt32());
                     World = reader.ReadMatrix();
                     Name = reader.ReadString();
                 }else if(type == MapBlockType.WaterPatch){
@@ -419,8 +419,8 @@ namespace Revise.IFO {
             base.Reset();
 
             WaterPatches = new MapWaterPatches();
-            MapPosition = new Vector2();
-            ZonePosition = new Vector2();
+            MapPosition = new IntVector2();
+            ZonePosition = new IntVector2();
             World = Matrix4x4.Identity;
             Name = string.Empty;
             WaterSize = 2000.0f;

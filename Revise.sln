@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise", "Revise\Revise.csproj", "{24AC4DAD-4179-4DB6-9457-4250429ED2C1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CF62FABF-BBC9-4984-AD1E-841ADFA111AF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise Tests", "Revise Tests\Revise Tests.csproj", "{7AFBDBCF-CA04-434C-B492-15B16DA05306}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{7AFBDBCF-CA04-434C-B492-15B16DA05306}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

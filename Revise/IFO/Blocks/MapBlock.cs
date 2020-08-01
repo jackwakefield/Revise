@@ -73,7 +73,7 @@ namespace Revise.IFO.Blocks {
         /// <summary>
         /// Gets or sets the map position.
         /// </summary>
-        public Vector2 MapPosition {
+        public IntVector2 MapPosition {
             get;
             set;
         }
@@ -114,7 +114,7 @@ namespace Revise.IFO.Blocks {
             EventID = reader.ReadInt16();
             ObjectType = reader.ReadInt32();
             ObjectID = reader.ReadInt32();
-            MapPosition = new Vector2(reader.ReadInt32(), reader.ReadInt32());
+            MapPosition = new IntVector2(reader.ReadInt32(), reader.ReadInt32());
             Rotation = reader.ReadQuaternion();
             Position = reader.ReadVector3();
             Scale = reader.ReadVector3();
