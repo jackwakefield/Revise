@@ -1,55 +1,46 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise", "Revise\Revise.csproj", "{24AC4DAD-4179-4DB6-9457-4250429ED2C1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{35368721-7710-4DB3-93CF-FC604EF14609} = {35368721-7710-4DB3-93CF-FC604EF14609}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise.Files", "Revise.Files\Revise.Files.csproj", "{5EBE8893-60C4-444F-A2D5-39C81035B013}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CF62FABF-BBC9-4984-AD1E-841ADFA111AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise.Files Tests", "Revise.Files Tests\Revise.Files Tests.csproj", "{7AFBDBCF-CA04-434C-B492-15B16DA05306}"
-	ProjectSection(ProjectDependencies) = postProject
-		{6114A78C-DA76-4333-9649-1B49AD2B4AE4} = {6114A78C-DA76-4333-9649-1B49AD2B4AE4}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise.Extensions", "Revise.Extensions\Revise.Extensions.csproj", "{6114A78C-DA76-4333-9649-1B49AD2B4AE4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise.Common", "Revise.Common\Revise.Common.csproj", "{35368721-7710-4DB3-93CF-FC604EF14609}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revise Tests", "Revise Tests\Revise Tests.csproj", "{7AFBDBCF-CA04-434C-B492-15B16DA05306}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{24AC4DAD-4179-4DB6-9457-4250429ED2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24AC4DAD-4179-4DB6-9457-4250429ED2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24AC4DAD-4179-4DB6-9457-4250429ED2C1}.Debug|x86.ActiveCfg = Debug|x86
+		{24AC4DAD-4179-4DB6-9457-4250429ED2C1}.Debug|x86.Build.0 = Debug|x86
 		{24AC4DAD-4179-4DB6-9457-4250429ED2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24AC4DAD-4179-4DB6-9457-4250429ED2C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5EBE8893-60C4-444F-A2D5-39C81035B013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5EBE8893-60C4-444F-A2D5-39C81035B013}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5EBE8893-60C4-444F-A2D5-39C81035B013}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5EBE8893-60C4-444F-A2D5-39C81035B013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24AC4DAD-4179-4DB6-9457-4250429ED2C1}.Release|x86.ActiveCfg = Release|x86
+		{24AC4DAD-4179-4DB6-9457-4250429ED2C1}.Release|x86.Build.0 = Release|x86
 		{7AFBDBCF-CA04-434C-B492-15B16DA05306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7AFBDBCF-CA04-434C-B492-15B16DA05306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AFBDBCF-CA04-434C-B492-15B16DA05306}.Debug|x86.ActiveCfg = Debug|x86
+		{7AFBDBCF-CA04-434C-B492-15B16DA05306}.Debug|x86.Build.0 = Debug|x86
 		{7AFBDBCF-CA04-434C-B492-15B16DA05306}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AFBDBCF-CA04-434C-B492-15B16DA05306}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6114A78C-DA76-4333-9649-1B49AD2B4AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6114A78C-DA76-4333-9649-1B49AD2B4AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6114A78C-DA76-4333-9649-1B49AD2B4AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6114A78C-DA76-4333-9649-1B49AD2B4AE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35368721-7710-4DB3-93CF-FC604EF14609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35368721-7710-4DB3-93CF-FC604EF14609}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35368721-7710-4DB3-93CF-FC604EF14609}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35368721-7710-4DB3-93CF-FC604EF14609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AFBDBCF-CA04-434C-B492-15B16DA05306}.Release|x86.ActiveCfg = Release|x86
+		{7AFBDBCF-CA04-434C-B492-15B16DA05306}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7AFBDBCF-CA04-434C-B492-15B16DA05306} = {CF62FABF-BBC9-4984-AD1E-841ADFA111AF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2F29741-DD98-4648-939B-15B887F7AF75}
 	EndGlobalSection
 EndGlobal
