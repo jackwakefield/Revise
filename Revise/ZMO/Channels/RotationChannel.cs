@@ -74,7 +74,7 @@ namespace Revise.ZMO.Channels {
         /// <param name="reader">The reader.</param>
         /// <param name="frame">The frame to read.</param>
         public override void ReadFrame(BinaryReader reader, int frame) {
-            frames[frame] = reader.ReadQuaternion();
+            frames[frame] = reader.ReadQuaternion(true);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Revise.ZMO.Channels {
         /// <param name="writer">The writer.</param>
         /// <param name="frame">The frame to write.</param>
         public override void WriteFrame(BinaryWriter writer, int frame) {
-            writer.Write(frames[frame]);
+            writer.Write(frames[frame], true);
         }
     }
 }

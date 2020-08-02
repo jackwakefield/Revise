@@ -94,11 +94,13 @@ namespace Revise.ZMD {
             }
 
             for (int i = 0; i < boneCount; i++) {
-                Bone bone = new Bone();
-                bone.Parent = reader.ReadInt32();
-                bone.Name = reader.ReadNullTerminatedString();
-                bone.Translation = reader.ReadVector3();
-                bone.Rotation = reader.ReadQuaternion(true);
+                Bone bone = new Bone
+                {
+                    Parent = reader.ReadInt32(),
+                    Name = reader.ReadNullTerminatedString(),
+                    Translation = reader.ReadVector3(),
+                    Rotation = reader.ReadQuaternion(true)
+                };
 
                 Bones.Add(bone);
             }
@@ -110,10 +112,12 @@ namespace Revise.ZMD {
             }
 
             for (int i = 0; i < dummyCount; i++) {
-                Bone dummy = new Bone();
-                dummy.Name = reader.ReadNullTerminatedString();
-                dummy.Parent = reader.ReadInt32();
-                dummy.Translation = reader.ReadVector3();
+                Bone dummy = new Bone
+                {
+                    Name = reader.ReadNullTerminatedString(),
+                    Parent = reader.ReadInt32(),
+                    Translation = reader.ReadVector3()
+                };
 
                 if (version == 3) {
                     dummy.Rotation = reader.ReadQuaternion(true);
