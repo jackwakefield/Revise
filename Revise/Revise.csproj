@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{24AC4DAD-4179-4DB6-9457-4250429ED2C1}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Revise</RootNamespace>
     <AssemblyName>Revise</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -25,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -34,24 +36,25 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <OutputPath>bin\Debug\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <OutputPath>bin\Release\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpDX">
-      <HintPath>..\packages\SharpDX.2.0.4\lib\net20\SharpDX.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct3D9">
-      <HintPath>..\packages\SharpDX.Direct3D9.2.0.4\lib\net20\SharpDX.Direct3D9.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -65,24 +68,240 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="AIP\AbilityType.cs" />
+    <Compile Include="AIP\Actions\AttackNearestCharacterAction.cs" />
+    <Compile Include="AIP\Actions\AttackNearestCharacterDuplicateAction.cs" />
+    <Compile Include="AIP\Actions\AttackNearestCharacterUsingNumberOfMonstersAction.cs" />
+    <Compile Include="AIP\Actions\AttackOwnerIfNotAllyAction.cs" />
+    <Compile Include="AIP\Actions\AttackSelectedCharacterAction.cs" />
+    <Compile Include="AIP\Actions\AttackTargetCharacterAction.cs" />
+    <Compile Include="AIP\Actions\AttackTargetUsingAlliedMonstersAction.cs" />
+    <Compile Include="AIP\Actions\AttackTargetUsingNumberOfMonstersAction.cs" />
+    <Compile Include="AIP\Actions\CommitSuicideAction.cs" />
+    <Compile Include="AIP\Actions\DropRandomItemAction.cs" />
+    <Compile Include="AIP\Actions\GiveItemToOwnerAction.cs" />
+    <Compile Include="AIP\Actions\HaltActionsAction.cs" />
+    <Compile Include="AIP\Actions\Invalid22Action.cs" />
+    <Compile Include="AIP\Actions\Invalid23Action.cs" />
+    <Compile Include="AIP\Actions\MoveAwayFromTargetAction.cs" />
+    <Compile Include="AIP\Actions\MoveNearOwnerAction.cs" />
+    <Compile Include="AIP\Actions\MoveToNearbyCharacterByAbilityAction.cs" />
+    <Compile Include="AIP\Actions\MoveToRandomPositionAction.cs" />
+    <Compile Include="AIP\Actions\MoveToRandomPositionOfSelectedCharacterAction.cs" />
+    <Compile Include="AIP\Actions\MoveToRandomSpawnLocationAction.cs" />
+    <Compile Include="AIP\Actions\PerformEmotionAction.cs" />
+    <Compile Include="AIP\Actions\PerformSkillAction.cs" />
+    <Compile Include="AIP\Actions\PerformSpecialAttackAction.cs" />
+    <Compile Include="AIP\Actions\PerformTriggerAction.cs" />
+    <Compile Include="AIP\Actions\RunAwayAction.cs" />
+    <Compile Include="AIP\Actions\SayMessageAction.cs" />
+    <Compile Include="AIP\Actions\SayMessageByTypeAction.cs" />
+    <Compile Include="AIP\Actions\SetAIVariableAction.cs" />
+    <Compile Include="AIP\Actions\SetEconomyVariableAction.cs" />
+    <Compile Include="AIP\Actions\SetNPCVariableAction.cs" />
+    <Compile Include="AIP\Actions\SetPlayerKillFlagAction.cs" />
+    <Compile Include="AIP\Actions\SetRegenerationSystemAction.cs" />
+    <Compile Include="AIP\Actions\SetWorldVariableAction.cs" />
+    <Compile Include="AIP\Actions\SpawnMonsterAction.cs" />
+    <Compile Include="AIP\Actions\SpawnMonsterAtPositionAction.cs" />
+    <Compile Include="AIP\Actions\SpawnMonsterAtPositionWithMasterTypeAction.cs" />
+    <Compile Include="AIP\Actions\SpawnMonsterWithMasterTypeAction.cs" />
+    <Compile Include="AIP\Actions\TransformIntoMonsterAction.cs" />
+    <Compile Include="AIP\ArtificialIntelligenceAction.cs" />
+    <Compile Include="AIP\ArtificialIntelligenceCondition.cs" />
+    <Compile Include="AIP\ArtificialIntelligenceEvent.cs" />
+    <Compile Include="AIP\ArtificialIntelligenceFile.cs" />
+    <Compile Include="AIP\ArtificialIntelligencePattern.cs" />
+    <Compile Include="AIP\Attributes\ArtificialIntelligenceTypeAttribute.cs" />
+    <Compile Include="AIP\ComparisonOperator.cs" />
+    <Compile Include="AIP\Conditions\CheckAbilityCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckChannelNumberCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckClanMasterStatusCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckDamageCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckDateAndTimeCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckDistanceBetweenOwnerCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckEconomicVariableCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckHealthCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckMagicStatusCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckMoveDistanceCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckNPCVariableCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckOwnerCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckOwnerTargetCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckSourceAbilityCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckTargetAbilityCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckTargetDistanceCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckVariableCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckWeekDayAndTimeCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckWorldTimeCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckWorldVariableCondition.cs" />
+    <Compile Include="AIP\Conditions\CheckZoneTimeCondition.cs" />
+    <Compile Include="AIP\Conditions\CompareAbilityCondition.cs" />
+    <Compile Include="AIP\Conditions\FightOrDelayCondition.cs" />
+    <Compile Include="AIP\Conditions\HasTargetCondition.cs" />
+    <Compile Include="AIP\Conditions\RandomCondition.cs" />
+    <Compile Include="AIP\Conditions\SelectNearestCharacterByCountCondition.cs" />
+    <Compile Include="AIP\Conditions\SelectNearestCharacterByTypeCondition.cs" />
+    <Compile Include="AIP\Conditions\SelectNearestCharacterCondition.cs" />
+    <Compile Include="AIP\Conditions\SelectNPCCondition.cs" />
+    <Compile Include="AIP\Conditions\TimeOfDayCondition.cs" />
+    <Compile Include="AIP\Interfaces\IArtificialIntelligenceAction.cs" />
+    <Compile Include="AIP\Interfaces\IArtificialIntelligenceCondition.cs" />
+    <Compile Include="AIP\MagicStatus.cs" />
+    <Compile Include="AIP\MessageType.cs" />
+    <Compile Include="AIP\SummonPosition.cs" />
+    <Compile Include="AIP\TargetType.cs" />
+    <Compile Include="AIP\VariableOperation.cs" />
+    <Compile Include="BoundingBox.cs" />
+    <Compile Include="ReaderWriter\BinaryReader.cs" />
+    <Compile Include="ReaderWriter\BinaryWriter.cs" />
+    <Compile Include="BoundingCylinder.cs" />
+    <Compile Include="CHR\AnimationType.cs" />
+    <Compile Include="CHR\Character.cs" />
+    <Compile Include="CHR\CharacterAnimation.cs" />
+    <Compile Include="CHR\CharacterEffect.cs" />
+    <Compile Include="CHR\CharacterFile.cs" />
+    <Compile Include="CHR\CharacterObject.cs" />
+    <Compile Include="CONV\ConversationFile.cs" />
+    <Compile Include="CONV\ConversationFunction.cs" />
+    <Compile Include="CONV\ConversationMenu.cs" />
+    <Compile Include="CONV\ConversationMessage.cs" />
+    <Compile Include="CONV\ConversationMessageType.cs" />
+    <Compile Include="EFT\EffectAnimation.cs" />
+    <Compile Include="EFT\EffectFile.cs" />
+    <Compile Include="EFT\EffectParticle.cs" />
+    <Compile Include="Enum.cs" />
+    <Compile Include="Exceptions\FileIdentifierMismatchException.cs" />
+    <Compile Include="Exceptions\FileInUseException.cs" />
+    <Compile Include="Exceptions\FileNotLoadedException.cs" />
+    <Compile Include="Exceptions\FileReadOnlyException.cs" />
+    <Compile Include="Exceptions\InvalidArtificialIntelligenceActionException.cs" />
+    <Compile Include="Exceptions\InvalidArtificialIntelligenceConditionException.cs" />
+    <Compile Include="Exceptions\InvalidBoneCountException.cs" />
+    <Compile Include="Exceptions\InvalidHelpNodeCountException.cs" />
+    <Compile Include="Exceptions\InvalidMapBlockTypeException.cs" />
+    <Compile Include="Exceptions\InvalidMotionChannelType.cs" />
+    <Compile Include="Exceptions\InvalidParticleEventTypeException.cs" />
+    <Compile Include="Exceptions\InvalidVersionException.cs" />
+    <Compile Include="FileLoader.cs" />
+    <Compile Include="HIM\HeightmapFile.cs" />
+    <Compile Include="HIM\HeightmapPatch.cs" />
+    <Compile Include="HLP\HelpFile.cs" />
+    <Compile Include="HLP\HelpNode.cs" />
+    <Compile Include="HLP\HelpPage.cs" />
+    <Compile Include="IDX\VirtualFileIndexEntry.cs" />
+    <Compile Include="IDX\VirtualFileIndexFile.cs" />
+    <Compile Include="IDX\VirtualFileIndexSystem.cs" />
+    <Compile Include="IFO\Attributes\MapBlockTypeAttribute.cs" />
+    <Compile Include="IFO\Blocks\MapAnimation.cs" />
+    <Compile Include="IFO\Blocks\MapBlock.cs" />
+    <Compile Include="IFO\Blocks\MapBuilding.cs" />
+    <Compile Include="IFO\Blocks\MapCollisionObject.cs" />
+    <Compile Include="IFO\Blocks\MapEffect.cs" />
+    <Compile Include="IFO\Blocks\MapEventObject.cs" />
+    <Compile Include="IFO\Blocks\MapMonsterSpawn.cs" />
+    <Compile Include="IFO\Blocks\MapNPC.cs" />
+    <Compile Include="IFO\Blocks\MapObject.cs" />
+    <Compile Include="IFO\Blocks\MapSound.cs" />
+    <Compile Include="IFO\Blocks\MapWarpPoint.cs" />
+    <Compile Include="IFO\Blocks\MapWaterPatches.cs" />
+    <Compile Include="IFO\Blocks\MapWaterPlane.cs" />
+    <Compile Include="IFO\Blocks\MonsterSpawnPoint.cs" />
+    <Compile Include="IFO\Blocks\WaterPatch.cs" />
+    <Compile Include="IFO\Interfaces\IMapBlock.cs" />
+    <Compile Include="IFO\MapBlockType.cs" />
+    <Compile Include="IFO\MapDataFile.cs" />
+    <Compile Include="Types\Color3.cs" />
+    <Compile Include="Types\Color4.cs" />
+    <Compile Include="Types\IntVector2.cs" />
+    <Compile Include="LIT\LightmapFile.cs" />
+    <Compile Include="LIT\LightmapObject.cs" />
+    <Compile Include="LIT\LightmapPart.cs" />
+    <Compile Include="LOD\LevelOfDetailFile.cs" />
+    <Compile Include="LTB\LanguageFile.cs" />
+    <Compile Include="LTB\LanguageRow.cs" />
+    <Compile Include="MOV\MovementFile.cs" />
+    <Compile Include="PTL\AlignmentType.cs" />
+    <Compile Include="PTL\Attributes\ParticleEventTypeAttribute.cs" />
+    <Compile Include="PTL\CoordinateType.cs" />
+    <Compile Include="PTL\Events\AlphaEvent.cs" />
+    <Compile Include="PTL\Events\BlueColourEvent.cs" />
+    <Compile Include="PTL\Events\ColourEvent.cs" />
+    <Compile Include="PTL\Events\GreenColourEvent.cs" />
+    <Compile Include="PTL\Events\ParticleEvent.cs" />
+    <Compile Include="PTL\Events\RedColourEvent.cs" />
+    <Compile Include="PTL\Events\RotationEvent.cs" />
+    <Compile Include="PTL\Events\ScaleEvent.cs" />
+    <Compile Include="PTL\Events\TextureEvent.cs" />
+    <Compile Include="PTL\Events\TimerEvent.cs" />
+    <Compile Include="PTL\Events\VelocityEvent.cs" />
+    <Compile Include="PTL\Events\VelocityXEvent.cs" />
+    <Compile Include="PTL\Events\VelocityYEvent.cs" />
+    <Compile Include="PTL\Events\VelocityZEvent.cs" />
+    <Compile Include="PTL\ImplementationType.cs" />
+    <Compile Include="PTL\Interfaces\IParticleEvent.cs" />
+    <Compile Include="PTL\ParticleEventType.cs" />
+    <Compile Include="PTL\ParticleFile.cs" />
+    <Compile Include="PTL\ParticleSequence.cs" />
+    <Compile Include="Types\Utils.cs" />
+    <Compile Include="Types\ShortVector2.cs" />
+    <Compile Include="Types\ShortVector3.cs" />
+    <Compile Include="Types\ShortVector4.cs" />
+    <Compile Include="STB\DataColumn.cs" />
+    <Compile Include="STB\DataFile.cs" />
+    <Compile Include="STB\DataRow.cs" />
+    <Compile Include="STL\Attributes\StringTableTypeIdentifierAttribute.cs" />
+    <Compile Include="STL\StringTableFile.cs" />
+    <Compile Include="STL\StringTableKey.cs" />
+    <Compile Include="STL\StringTableLanguage.cs" />
+    <Compile Include="STL\StringTableRow.cs" />
+    <Compile Include="STL\StringTableType.cs" />
+    <Compile Include="TBL\TableFile.cs" />
+    <Compile Include="TIL\TileFile.cs" />
+    <Compile Include="TIL\TilePatch.cs" />
+    <Compile Include="TSI\Sprite.cs" />
+    <Compile Include="TSI\SpriteFile.cs" />
+    <Compile Include="TSI\SpriteTexture.cs" />
+    <Compile Include="ZCA\CameraFile.cs" />
+    <Compile Include="ZCA\ProjectionType.cs" />
+    <Compile Include="ZMD\Bone.cs" />
+    <Compile Include="ZMD\BoneFile.cs" />
+    <Compile Include="ZMO\Attributes\MotionChannelTypeAttribute.cs" />
+    <Compile Include="ZMO\Channels\AlphaChannel.cs" />
+    <Compile Include="ZMO\Channels\MotionChannel.cs" />
+    <Compile Include="ZMO\Channels\NormalChannel.cs" />
+    <Compile Include="ZMO\Channels\PositionChannel.cs" />
+    <Compile Include="ZMO\Channels\RotationChannel.cs" />
+    <Compile Include="ZMO\Channels\ScaleChannel.cs" />
+    <Compile Include="ZMO\Channels\TextureAnimationChannel.cs" />
+    <Compile Include="ZMO\Channels\TextureCoordinateChannel.cs" />
+    <Compile Include="ZMO\ChannelType.cs" />
+    <Compile Include="ZMO\MotionFile.cs" />
+    <Compile Include="ZMS\ModelFile.cs" />
+    <Compile Include="ZMS\ModelVertex.cs" />
+    <Compile Include="ZMS\PoolType.cs" />
+    <Compile Include="ZMS\VertexFormat.cs" />
+    <Compile Include="ZON\SpawnPoint.cs" />
+    <Compile Include="ZON\TileRotation.cs" />
+    <Compile Include="ZON\ZoneBlock.cs" />
+    <Compile Include="ZON\ZoneFile.cs" />
+    <Compile Include="ZON\ZonePosition.cs" />
+    <Compile Include="ZON\ZoneTile.cs" />
+    <Compile Include="ZON\ZoneType.cs" />
+    <Compile Include="ZSC\BlendType.cs" />
+    <Compile Include="ZSC\CollisionType.cs" />
+    <Compile Include="ZSC\EffectType.cs" />
+    <Compile Include="ZSC\GlowType.cs" />
+    <Compile Include="ZSC\ModelListEffect.cs" />
+    <Compile Include="ZSC\ModelListFile.cs" />
+    <Compile Include="ZSC\ModelListObject.cs" />
+    <Compile Include="ZSC\ModelListPart.cs" />
+    <Compile Include="ZSC\ModelListPropertyType.cs" />
+    <Compile Include="ZSC\TextureFile.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO\AlignedBinaryReader.cs" />
+    <Compile Include="IO\AlignedBinaryWriter.cs" />
+    <Compile Include="MinMax.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,20 +325,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Revise.Common\Revise.Common.csproj">
-      <Project>{35368721-7710-4DB3-93CF-FC604EF14609}</Project>
-      <Name>Revise.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Revise.Extensions\Revise.Extensions.csproj">
-      <Project>{6114A78C-DA76-4333-9649-1B49AD2B4AE4}</Project>
-      <Name>Revise.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Revise.Files\Revise.Files.csproj">
-      <Project>{5EBE8893-60C4-444F-A2D5-39C81035B013}</Project>
-      <Name>Revise.Files</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
