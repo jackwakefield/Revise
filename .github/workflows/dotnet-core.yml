@@ -19,7 +19,7 @@ jobs:
     - name: Setup NuGet.exe for use with actions
       uses: NuGet/setup-nuget@v1.0.2
       with:
-        nuget-api-key: ${{secret.GITHUB_TOKEN}}
+        nuget-api-key: ${{secrets.GITHUB_TOKEN}}
         nuget-api-key-source: github
     - name: Install dependencies
       run: dotnet restore
