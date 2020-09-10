@@ -1,65 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{24AC4DAD-4179-4DB6-9457-4250429ED2C1}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Revise</RootNamespace>
-    <AssemblyName>Revise</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <OutputPath>bin\Debug\</OutputPath>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <OutputPath>bin\Release\</OutputPath>
-    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -68,6 +17,16 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
     <Compile Include="AIP\AbilityType.cs" />
     <Compile Include="AIP\Actions\AttackNearestCharacterAction.cs" />
     <Compile Include="AIP\Actions\AttackNearestCharacterDuplicateAction.cs" />
@@ -152,8 +111,6 @@
     <Compile Include="AIP\TargetType.cs" />
     <Compile Include="AIP\VariableOperation.cs" />
     <Compile Include="BoundingBox.cs" />
-    <Compile Include="ReaderWriter\BinaryReader.cs" />
-    <Compile Include="ReaderWriter\BinaryWriter.cs" />
     <Compile Include="BoundingCylinder.cs" />
     <Compile Include="CHR\AnimationType.cs" />
     <Compile Include="CHR\Character.cs" />
@@ -210,15 +167,15 @@
     <Compile Include="IFO\Interfaces\IMapBlock.cs" />
     <Compile Include="IFO\MapBlockType.cs" />
     <Compile Include="IFO\MapDataFile.cs" />
-    <Compile Include="Types\Color3.cs" />
-    <Compile Include="Types\Color4.cs" />
-    <Compile Include="Types\IntVector2.cs" />
+    <Compile Include="IO\AlignedBinaryReader.cs" />
+    <Compile Include="IO\AlignedBinaryWriter.cs" />
     <Compile Include="LIT\LightmapFile.cs" />
     <Compile Include="LIT\LightmapObject.cs" />
     <Compile Include="LIT\LightmapPart.cs" />
     <Compile Include="LOD\LevelOfDetailFile.cs" />
     <Compile Include="LTB\LanguageFile.cs" />
     <Compile Include="LTB\LanguageRow.cs" />
+    <Compile Include="MinMax.cs" />
     <Compile Include="MOV\MovementFile.cs" />
     <Compile Include="PTL\AlignmentType.cs" />
     <Compile Include="PTL\Attributes\ParticleEventTypeAttribute.cs" />
@@ -242,10 +199,8 @@
     <Compile Include="PTL\ParticleEventType.cs" />
     <Compile Include="PTL\ParticleFile.cs" />
     <Compile Include="PTL\ParticleSequence.cs" />
-    <Compile Include="Types\Utils.cs" />
-    <Compile Include="Types\ShortVector2.cs" />
-    <Compile Include="Types\ShortVector3.cs" />
-    <Compile Include="Types\ShortVector4.cs" />
+    <Compile Include="ReaderWriter\BinaryReader.cs" />
+    <Compile Include="ReaderWriter\BinaryWriter.cs" />
     <Compile Include="STB\DataColumn.cs" />
     <Compile Include="STB\DataFile.cs" />
     <Compile Include="STB\DataRow.cs" />
@@ -261,6 +216,13 @@
     <Compile Include="TSI\Sprite.cs" />
     <Compile Include="TSI\SpriteFile.cs" />
     <Compile Include="TSI\SpriteTexture.cs" />
+    <Compile Include="Types\Color3.cs" />
+    <Compile Include="Types\Color4.cs" />
+    <Compile Include="Types\IntVector2.cs" />
+    <Compile Include="Types\ShortVector2.cs" />
+    <Compile Include="Types\ShortVector3.cs" />
+    <Compile Include="Types\ShortVector4.cs" />
+    <Compile Include="Types\Utils.cs" />
     <Compile Include="ZCA\CameraFile.cs" />
     <Compile Include="ZCA\ProjectionType.cs" />
     <Compile Include="ZMD\Bone.cs" />
@@ -297,41 +259,18 @@
     <Compile Include="ZSC\ModelListPart.cs" />
     <Compile Include="ZSC\ModelListPropertyType.cs" />
     <Compile Include="ZSC\TextureFile.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="IO\AlignedBinaryReader.cs" />
-    <Compile Include="IO\AlignedBinaryWriter.cs" />
-    <Compile Include="MinMax.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
+    <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
 </Project>
