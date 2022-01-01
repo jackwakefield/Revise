@@ -66,32 +66,93 @@
 using System;
 using System.Globalization;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace Revise {
     /// <summary>
-    /// Represents a bounding cylinder in three dimensional space.
+    /// Represents an axis-aligned bounding box in three dimensional space.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 4)]
-    public struct BoundingCylinder : IEquatable<BoundingCylinder>, IFormattable {
+    public struct BoundingBox : IEquatable<BoundingBox>, IFormattable {
         /// <summary>
-        /// The center of the cylinder in three dimensional space.
+        /// The minimum point of the box.
         /// </summary>
-        public Vector2 Center;
+        public Vector3 Minimum;
 
         /// <summary>
-        /// The radius of the cylinder.
+        /// The maximum point of the box.
         /// </summary>
-        public float Radius;
+        public Vector3 Maximum;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BoundingCylinder"/> struct.
+        /// Initializes a new instance of the <see cref="BoundingBox"/> struct.
         /// </summary>
-        /// <param name="center">The center of the sphere in three dimensional space.</param>
-        /// <param name="radius">The radius of the sphere.</param>
-        public BoundingCylinder(Vector2 center, float radius) {
-            this.Center = center;
-            this.Radius = radius;
+        /// <param name="minimum">The minimum vertex of the bounding box.</param>
+        /// <param name="maximum">The maximum vertex of the bounding box.</param>
+        public BoundingBox(Vector3 minimum, Vector3 maximum) {
+            this.Minimum = minimum;
+            this.Maximum = maximum;
+        }
+
+        /// <summary>
+        /// Returns the width of the bounding box
+        /// </summary>
+        public float Width {
+            get { return this.Maximum.X - this.Minimum.X; }
+        }
+
+        /// <summary>
+        /// Returns the height of the bounding box
+        /// </summary>
+        public float Height {
+            get { return this.Maximum.Y - this.Minimum.Y; }
+        }
+
+        /// <summary>
+        /// Returns the height of the bounding box
+        /// </summary>
+        public float Depth {
+            get { return this.Maximum.Z - this.Minimum.Z; }
+        }
+
+        /// <summary>
+        /// Returns the size of the bounding box
+        /// </summary>
+        public Vector3 Size {
+            get { return this.Maximum - this.Minimum; }
+        }
+
+        /// <summary>
+        /// Returns the size of the bounding box
+        /// </summary>
+        public Vector3 Center {
+            get { return (this.Maximum + this.Minimum) * 0.5f; }
+        }
+
+        /// <summary>
+        /// Retrieves the eight corners of the bounding box.
+        /// </summary>
+        /// <returns>An array of points representing the eight corners of the bounding box.</returns>
+        public Vector3[] GetCorners() {
+            Vector3[] results = new Vector3[8];
+            GetCorners(results);
+            return results;
+        }
+
+        /// <summary>
+        /// Retrieves the eight corners of the bounding box.
+        /// </summary>
+        /// <returns>An array of points representing the eight corners of the bounding box.</returns>
+        public void GetCorners(Vector3[] corners) {
+            corners[0] = new Vector3(Minimum.X, Maximum.Y, Maximum.Z);
+            corners[1] = new Vector3(Maximum.X, Maximum.Y, Maximum.Z);
+            corners[2] = new Vector3(Maximum.X, Minimum.Y, Maximum.Z);
+            corners[3] = new Vector3(Minimum.X, Minimum.Y, Maximum.Z);
+            corners[4] = new Vector3(Minimum.X, Maximum.Y, Minimum.Z);
+            corners[5] = new Vector3(Maximum.X, Maximum.Y, Minimum.Z);
+            corners[6] = new Vector3(Maximum.X, Minimum.Y, Minimum.Z);
+            corners[7] = new Vector3(Minimum.X, Minimum.Y, Minimum.Z);
         }
 
         /// <summary>
@@ -100,8 +161,9 @@ namespace Revise {
         /// <param name="left">The first value to compare.</param>
         /// <param name="right">The second value to compare.</param>
         /// <returns><c>true</c> if <paramref name="left"/> has the same value as <paramref name="right"/>; otherwise, <c>false</c>.</returns>
-        public static bool operator ==(BoundingCylinder left, BoundingCylinder right) {
-            return left.Equals(right);
+        [MethodImpl((MethodImplOptions)0x100)] // MethodImplOptions.AggressiveInlining
+        public static bool operator ==(BoundingBox left, BoundingBox right) {
+            return left.Equals(ref right);
         }
 
         /// <summary>
@@ -110,8 +172,9 @@ namespace Revise {
         /// <param name="left">The first value to compare.</param>
         /// <param name="right">The second value to compare.</param>
         /// <returns><c>true</c> if <paramref name="left"/> has a different value than <paramref name="right"/>; otherwise, <c>false</c>.</returns>
-        public static bool operator !=(BoundingCylinder left, BoundingCylinder right) {
-            return !left.Equals(right);
+        [MethodImpl((MethodImplOptions)0x100)] // MethodImplOptions.AggressiveInlining
+        public static bool operator !=(BoundingBox left, BoundingBox right) {
+            return !left.Equals(ref right);
         }
 
         /// <summary>
@@ -121,7 +184,7 @@ namespace Revise {
         /// A <see cref="System.String"/> that represents this instance.
         /// </returns>
         public override string ToString() {
-            return string.Format(CultureInfo.CurrentCulture, "Center:{0} Radius:{1}", Center.ToString(), Radius.ToString());
+            return string.Format(CultureInfo.CurrentCulture, "Minimum:{0} Maximum:{1}", Minimum.ToString(), Maximum.ToString());
         }
 
         /// <summary>
@@ -135,8 +198,8 @@ namespace Revise {
             if (format == null)
                 return ToString();
 
-            return string.Format(CultureInfo.CurrentCulture, "Center:{0} Radius:{1}", Center.ToString(format, CultureInfo.CurrentCulture),
-                Radius.ToString(format, CultureInfo.CurrentCulture));
+            return string.Format(CultureInfo.CurrentCulture, "Minimum:{0} Maximum:{1}", Minimum.ToString(format, CultureInfo.CurrentCulture),
+                Maximum.ToString(format, CultureInfo.CurrentCulture));
         }
 
         /// <summary>
@@ -147,7 +210,7 @@ namespace Revise {
         /// A <see cref="System.String"/> that represents this instance.
         /// </returns>
         public string ToString(IFormatProvider formatProvider) {
-            return string.Format(formatProvider, "Center:{0} Radius:{1}", Center.ToString(), Radius.ToString());
+            return string.Format(formatProvider, "Minimum:{0} Maximum:{1}", Minimum.ToString(), Maximum.ToString());
         }
 
         /// <summary>
@@ -162,8 +225,8 @@ namespace Revise {
             if (format == null)
                 return ToString(formatProvider);
 
-            return string.Format(formatProvider, "Center:{0} Radius:{1}", Center.ToString(format, formatProvider),
-                Radius.ToString(format, formatProvider));
+            return string.Format(formatProvider, "Minimum:{0} Maximum:{1}", Minimum.ToString(format, formatProvider),
+                Maximum.ToString(format, formatProvider));
         }
 
         /// <summary>
@@ -173,18 +236,33 @@ namespace Revise {
         /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
         /// </returns>
         public override int GetHashCode() {
-            return Center.GetHashCode() + Radius.GetHashCode();
+            unchecked {
+                return (Minimum.GetHashCode() * 397) ^ Maximum.GetHashCode();
+            }
         }
 
         /// <summary>
-        /// Determines whether the specified <see cref="BoundingCylinder"/> is equal to this instance.
+        /// Determines whether the specified <see cref="Vector4"/> is equal to this instance.
         /// </summary>
-        /// <param name="value">The <see cref="BoundingCylinder"/> to compare with this instance.</param>
+        /// <param name="value">The <see cref="Vector4"/> to compare with this instance.</param>
         /// <returns>
-        /// <c>true</c> if the specified <see cref="BoundingCylinder"/> is equal to this instance; otherwise, <c>false</c>.
+        /// <c>true</c> if the specified <see cref="Vector4"/> is equal to this instance; otherwise, <c>false</c>.
         /// </returns>
-        public bool Equals(BoundingCylinder value) {
-            return Center == value.Center && Radius == value.Radius;
+        [MethodImpl((MethodImplOptions)0x100)] // MethodImplOptions.AggressiveInlining
+        public bool Equals(ref BoundingBox value) {
+            return Minimum == value.Minimum && Maximum == value.Maximum;
+        }
+
+        /// <summary>
+        /// Determines whether the specified <see cref="Vector4"/> is equal to this instance.
+        /// </summary>
+        /// <param name="value">The <see cref="Vector4"/> to compare with this instance.</param>
+        /// <returns>
+        /// <c>true</c> if the specified <see cref="Vector4"/> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
+        [MethodImpl((MethodImplOptions)0x100)] // MethodImplOptions.AggressiveInlining
+        public bool Equals(BoundingBox value) {
+            return Equals(ref value);
         }
 
         /// <summary>
@@ -195,13 +273,11 @@ namespace Revise {
         /// <c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.
         /// </returns>
         public override bool Equals(object value) {
-            if (value == null)
+            if (!(value is BoundingBox))
                 return false;
 
-            if (!ReferenceEquals(value.GetType(), typeof(BoundingCylinder)))
-                return false;
-
-            return Equals((BoundingCylinder)value);
+            var strongValue = (BoundingBox)value;
+            return Equals(ref strongValue);
         }
     }
 }

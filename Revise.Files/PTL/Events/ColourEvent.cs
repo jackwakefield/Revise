@@ -20,7 +20,6 @@
 #endregion
 
 using System.IO;
-using SharpDX;
 
 namespace Revise.Files.PTL.Events {
     /// <summary>
@@ -65,8 +64,8 @@ namespace Revise.Files.PTL.Events {
         public override void Write(BinaryWriter writer) {
             base.Write(writer);
 
-            writer.Write(Colour.Minimum.ToVector4());
-            writer.Write(Colour.Maximum.ToVector4());
+            writer.Write(Colour.Minimum);
+            writer.Write(Colour.Maximum);
         }
     }
 }

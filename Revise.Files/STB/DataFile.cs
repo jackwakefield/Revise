@@ -107,7 +107,7 @@ namespace Revise.Files.STB {
         /// <exception cref="Revise.Exceptions.FileIdentifierMismatchException">Thrown when the specified file has the incorrect file header expected.</exception>
         /// <exception cref="Revise.Exceptions.InvalidVersionException">Thrown when the version of the file is invalid.</exception>
         public override void Load(Stream stream) {
-            BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryReader reader = new BinaryReader(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             string identifier = reader.ReadString(3);
 
@@ -160,7 +160,7 @@ namespace Revise.Files.STB {
         /// </summary>
         /// <param name="stream">The stream to save to.</param>
         public override void Save(Stream stream) {
-            BinaryWriter writer = new BinaryWriter(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryWriter writer = new BinaryWriter(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             writer.WriteString(FILE_IDENTIFIER);
             writer.Write('1');

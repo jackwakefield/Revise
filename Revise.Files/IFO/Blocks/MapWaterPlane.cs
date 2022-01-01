@@ -20,8 +20,8 @@
 #endregion
 
 using System.IO;
+using System.Numerics;
 using Revise.Files.IFO.Interfaces;
-using SharpDX;
 
 namespace Revise.Files.IFO.Blocks {
     /// <summary>

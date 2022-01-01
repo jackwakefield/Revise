@@ -19,8 +19,6 @@
 
 #endregion
 
-using SharpDX;
-
 namespace Revise.Files.ZSC {
     /// <summary>
     /// Represents a model list texture file.

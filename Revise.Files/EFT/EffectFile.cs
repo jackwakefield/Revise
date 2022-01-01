@@ -95,7 +95,7 @@ namespace Revise.Files.EFT {
         /// </summary>
         /// <param name="stream">The stream to read from.</param>
         public override void Load(Stream stream) {
-            BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryReader reader = new BinaryReader(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             Name = reader.ReadIntString();
             SoundEnabled = reader.ReadInt32() != 0;
@@ -159,7 +159,7 @@ namespace Revise.Files.EFT {
         /// </summary>
         /// <param name="stream">The stream to save to.</param>
         public override void Save(Stream stream) {
-            BinaryWriter writer = new BinaryWriter(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryWriter writer = new BinaryWriter(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             writer.WriteIntString(Name);
             writer.Write(SoundEnabled ? 1 : 0);

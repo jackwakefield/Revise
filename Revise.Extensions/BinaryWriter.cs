@@ -21,9 +21,9 @@
 
 using System;
 using System.IO;
+using System.Numerics;
 using System.Text;
 using Revise;
-using SharpDX;
 
 /// <summary>
 /// A collection of extensions for the <see cref="BinaryWriter"/> class.
@@ -38,7 +38,7 @@ public static class BinaryWriterExtensions {
     /// Initializes the <see cref="BinaryReaderExtensions"/> class.
     /// </summary>
     static BinaryWriterExtensions() {
-        DefaultEncoding = Encoding.GetEncoding("EUC-KR");
+        DefaultEncoding = CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR");
     }
 
     /// <summary>
@@ -142,12 +142,23 @@ public static class BinaryWriterExtensions {
     /// Writes the specified matrix to the underlying stream.
     /// </summary>
     /// <param name="value">The matrix value.</param>
-    public static void Write(this BinaryWriter writer, Matrix value) {
-        float[] values = value.ToArray();
-
-        for (int i = 0; i < values.Length; i++) {
-            writer.Write(values[i]);
-        }
+    public static void Write(this BinaryWriter writer, Matrix4x4 value) {
+        writer.Write(value.M11);
+        writer.Write(value.M12);
+        writer.Write(value.M13);
+        writer.Write(value.M14);
+        writer.Write(value.M21);
+        writer.Write(value.M22);
+        writer.Write(value.M23);
+        writer.Write(value.M24);
+        writer.Write(value.M31);
+        writer.Write(value.M32);
+        writer.Write(value.M33);
+        writer.Write(value.M34);
+        writer.Write(value.M41);
+        writer.Write(value.M42);
+        writer.Write(value.M43);
+        writer.Write(value.M44);
     }
 
     /// <summary>
@@ -218,5 +229,26 @@ public static class BinaryWriterExtensions {
         if (!w) {
             writer.Write(value.W);
         }
+    }
+
+    /// <summary>
+    /// Writes the specified color to the underlying stream.
+    /// </summary>
+    /// <param name="value">The color value.</param>
+    public static void Write(this BinaryWriter writer, Color3 value) {
+        writer.Write(value.Red);
+        writer.Write(value.Green);
+        writer.Write(value.Blue);
+    }
+
+    /// <summary>
+    /// Writes the specified color to the underlying stream.
+    /// </summary>
+    /// <param name="value">The color value.</param>
+    public static void Write(this BinaryWriter writer, Color4 value) {
+        writer.Write(value.Red);
+        writer.Write(value.Green);
+        writer.Write(value.Blue);
+        writer.Write(value.Alpha);
     }
 }

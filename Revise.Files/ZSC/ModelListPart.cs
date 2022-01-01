@@ -19,7 +19,7 @@
 
 #endregion
 
-using SharpDX;
+using System.Numerics;
 
 namespace Revise.Files.ZSC {
     /// <summary>

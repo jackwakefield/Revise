@@ -23,11 +23,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Numerics;
 using Revise.Files.Exceptions;  
 using Revise.Files.IFO.Attributes;
 using Revise.Files.IFO.Blocks;
 using Revise.Files.IFO.Interfaces;
-using SharpDX;
 
 namespace Revise.Files.IFO {
     /// <summary>
@@ -57,7 +57,7 @@ namespace Revise.Files.IFO {
         /// <summary>
         /// Gets or sets the world matrix.
         /// </summary>
-        public Matrix World {
+        public Matrix4x4 World {
             get;
             set;
         }
@@ -201,7 +201,7 @@ namespace Revise.Files.IFO {
         /// </summary>
         /// <param name="stream">The stream to read from.</param>
         public override void Load(Stream stream) {
-            BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryReader reader = new BinaryReader(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             int blockCount = reader.ReadInt32();
 
@@ -287,7 +287,7 @@ namespace Revise.Files.IFO {
         /// </summary>
         /// <param name="stream">The stream to save to.</param>
         public override void Save(Stream stream) {
-            BinaryWriter writer = new BinaryWriter(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryWriter writer = new BinaryWriter(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             writer.Write(BLOCK_COUNT);
 
@@ -421,7 +421,7 @@ namespace Revise.Files.IFO {
             WaterPatches = new MapWaterPatches();
             MapPosition = new IntVector2();
             ZonePosition = new IntVector2();
-            World = Matrix.Identity;
+            World = Matrix4x4.Identity;
             Name = string.Empty;
             WaterSize = 2000.0f;
 

@@ -23,7 +23,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Revise.Files.Exceptions;
-using SharpDX;
 
 namespace Revise.Files.ZMS {
     /// <summary>
@@ -226,7 +225,7 @@ namespace Revise.Files.ZMS {
         /// </summary>
         /// <param name="stream">The stream to read from.</param>
         public override void Load(Stream stream) {
-            BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryReader reader = new BinaryReader(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             string identifier = reader.ReadNullTerminatedString();
 
@@ -345,7 +344,7 @@ namespace Revise.Files.ZMS {
         /// </summary>
         /// <param name="stream">The stream to save to.</param>
         public override void Save(Stream stream) {
-            BinaryWriter writer = new BinaryWriter(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryWriter writer = new BinaryWriter(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             writer.WriteString(FILE_IDENTIFIER_8);
             writer.Write((byte)0);

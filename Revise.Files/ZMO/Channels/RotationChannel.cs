@@ -21,7 +21,7 @@
 
 using System;
 using System.IO;
-using SharpDX;
+using System.Numerics;
 
 namespace Revise.Files.ZMO.Channels {
     /// <summary>

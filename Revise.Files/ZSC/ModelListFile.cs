@@ -21,8 +21,8 @@
 
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using System.Text;
-using SharpDX;
 
 namespace Revise.Files.ZSC {
     /// <summary>
@@ -82,7 +82,7 @@ namespace Revise.Files.ZSC {
         /// </summary>
         /// <param name="stream">The stream to read from.</param>
         public override void Load(Stream stream) {
-            BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryReader reader = new BinaryReader(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             short modelFileCount = reader.ReadInt16();
 
@@ -242,7 +242,7 @@ namespace Revise.Files.ZSC {
         /// </summary>
         /// <param name="stream">The stream to save to.</param>
         public override void Save(Stream stream) {
-            BinaryWriter writer = new BinaryWriter(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryWriter writer = new BinaryWriter(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             writer.Write((short)ModelFiles.Count);
 
@@ -297,7 +297,7 @@ namespace Revise.Files.ZSC {
                             writer.Write(part.Position);
                         }
 
-                        if (part.Rotation != Quaternion.Zero) {
+                        if (part.Rotation.X != 0 || part.Rotation.Y != 0 || part.Rotation.Z != 0 || part.Rotation.W != 0) {
                             writer.Write((byte)ModelListPropertyType.Rotation);
                             writer.Write((byte)(sizeof(float) * 4));
                             writer.Write(part.Rotation, true);
@@ -309,7 +309,7 @@ namespace Revise.Files.ZSC {
                             writer.Write(part.Scale);
                         }
 
-                        if (part.AxisRotation != Quaternion.Zero) {
+                        if (part.AxisRotation.X != 0 || part.AxisRotation.Y != 0 || part.AxisRotation.Z != 0 || part.AxisRotation.W != 0) {
                             writer.Write((byte)ModelListPropertyType.AxisRotation);
                             writer.Write((byte)(sizeof(float) * 4));
                             writer.Write(part.AxisRotation, true);
@@ -389,7 +389,7 @@ namespace Revise.Files.ZSC {
                             writer.Write(effect.Position);
                         }
 
-                        if (effect.Rotation != Quaternion.Zero) {
+                        if (effect.Rotation.X != 0 || effect.Rotation.Y != 0 || effect.Rotation.Z != 0 || effect.Rotation.W != 0) {
                             writer.Write((byte)ModelListPropertyType.Rotation);
                             writer.Write((byte)(sizeof(float) * 4));
                             writer.Write(effect.Rotation, true);

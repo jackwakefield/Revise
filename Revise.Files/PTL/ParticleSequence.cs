@@ -20,9 +20,8 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Numerics;
 using Revise.Files.PTL.Interfaces;
-using SharpDX;
-using SharpDX.Direct3D9;
 
 namespace Revise.Files.PTL {
     /// <summary>
@@ -146,7 +145,7 @@ namespace Revise.Files.PTL {
         /// <summary>
         /// Gets or sets the destination blend mode.
         /// </summary>
-        public Blend DestinationBlendMode {
+        public int DestinationBlendMode {
             get;
             set;
         }
@@ -154,7 +153,7 @@ namespace Revise.Files.PTL {
         /// <summary>
         /// Gets or sets the source blend mode.
         /// </summary>
-        public Blend SourceBlendMode {
+        public int SourceBlendMode {
             get;
             set;
         }
@@ -162,7 +161,7 @@ namespace Revise.Files.PTL {
         /// <summary>
         /// Gets or sets the blend operation.
         /// </summary>
-        public BlendOperation BlendOperation {
+        public int BlendOperation {
             get;
             set;
         }

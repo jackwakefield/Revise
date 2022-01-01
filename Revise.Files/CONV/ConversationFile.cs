@@ -83,7 +83,7 @@ namespace Revise.Files.CON {
         /// </summary>
         /// <param name="stream">The stream to read from.</param>
         public override void Load(Stream stream) {
-            Encoding encoding = Encoding.GetEncoding("EUC-KR");
+            Encoding encoding = CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR");
             BinaryReader reader = new BinaryReader(stream, encoding);
 
             stream.Seek(0, SeekOrigin.End);
@@ -178,7 +178,7 @@ namespace Revise.Files.CON {
         /// </summary>
         /// <param name="stream">The stream to save to.</param>
         public override void Save(Stream stream) {
-            Encoding encoding = Encoding.GetEncoding("EUC-KR");
+            Encoding encoding = CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR");
             BinaryWriter writer = new BinaryWriter(stream, encoding);
 
             short functionMask = 0;

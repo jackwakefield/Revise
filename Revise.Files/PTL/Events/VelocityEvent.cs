@@ -20,7 +20,7 @@
 #endregion
 
 using System.IO;
-using SharpDX;
+using System.Numerics;
 
 namespace Revise.Files.PTL.Events {
     /// <summary>

@@ -20,9 +20,9 @@
 #endregion
 
 using System.IO;
+using System.Numerics;
 using System.Text;
 using Revise.Files.Exceptions;
-using SharpDX;
 
 namespace Revise.Files.ZCA {
     /// <summary>
@@ -48,7 +48,7 @@ namespace Revise.Files.ZCA {
         /// <summary>
         /// Gets or sets the model view matrix.
         /// </summary>
-        public Matrix ModelView {
+        public Matrix4x4 ModelView {
             get;
             set;
         }
@@ -56,7 +56,7 @@ namespace Revise.Files.ZCA {
         /// <summary>
         /// Gets or sets the projection matrix.
         /// </summary>
-        public Matrix Projection {
+        public Matrix4x4 Projection {
             get;
             set;
         }
@@ -131,7 +131,7 @@ namespace Revise.Files.ZCA {
         /// </summary>
         /// <param name="stream">The stream to read from.</param>
         public override void Load(Stream stream) {
-            BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryReader reader = new BinaryReader(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             string identifier = reader.ReadString(7);
 
@@ -159,7 +159,7 @@ namespace Revise.Files.ZCA {
         /// </summary>
         /// <param name="stream">The stream to save to.</param>
         public override void Save(Stream stream) {
-            BinaryWriter writer = new BinaryWriter(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryWriter writer = new BinaryWriter(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             writer.WriteString(FILE_IDENTIFIER);
             writer.Write((int)ProjectionType);

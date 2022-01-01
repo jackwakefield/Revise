@@ -21,9 +21,9 @@
 
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using System.Text;
 using Revise;
-using SharpDX;
 
 /// <summary>
 /// A collection of extensions for the <see cref="BinaryReader"/> class.
@@ -38,7 +38,7 @@ public static class BinaryReaderExtensions {
     /// Initializes the <see cref="BinaryReaderExtensions"/> class.
     /// </summary>
     static BinaryReaderExtensions() {
-        DefaultEncoding = Encoding.GetEncoding("EUC-KR");
+        DefaultEncoding = CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR");
     }
 
     /// <summary>
@@ -156,14 +156,25 @@ public static class BinaryReaderExtensions {
     /// Reads a matrix from the underlying stream.
     /// </summary>
     /// <returns>The matrix read.</returns>
-    public static Matrix ReadMatrix(this BinaryReader reader) {
-        float[] values = new float[16];
-
-        for (int i = 0; i < 16; i++) {
-            values[i] = reader.ReadSingle();
-        }
-
-        return new Matrix(values);
+    public static Matrix4x4 ReadMatrix(this BinaryReader reader) {
+        return new Matrix4x4() {
+            M11 = reader.ReadSingle(),
+            M12 = reader.ReadSingle(),
+            M13 = reader.ReadSingle(),
+            M14 = reader.ReadSingle(),
+            M21 = reader.ReadSingle(),
+            M22 = reader.ReadSingle(),
+            M23 = reader.ReadSingle(),
+            M24 = reader.ReadSingle(),
+            M31 = reader.ReadSingle(),
+            M32 = reader.ReadSingle(),
+            M33 = reader.ReadSingle(),
+            M34 = reader.ReadSingle(),
+            M41 = reader.ReadSingle(),
+            M42 = reader.ReadSingle(),
+            M43 = reader.ReadSingle(),
+            M44 = reader.ReadSingle(),
+        };
     }
 
     /// <summary>

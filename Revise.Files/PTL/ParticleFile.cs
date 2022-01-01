@@ -22,12 +22,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using System.Text;
 using Revise.Files.Exceptions;
 using Revise.Files.PTL.Attributes;
 using Revise.Files.PTL.Interfaces;
-using SharpDX;
-using SharpDX.Direct3D9;
 
 namespace Revise.Files.PTL {
     /// <summary>
@@ -60,7 +59,7 @@ namespace Revise.Files.PTL {
         /// </summary>
         /// <param name="stream">The stream to read from.</param>
         public override void Load(Stream stream) {
-            BinaryReader reader = new BinaryReader(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryReader reader = new BinaryReader(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             int sequenceCount = reader.ReadInt32();
 
@@ -80,9 +79,9 @@ namespace Revise.Files.PTL {
                 sequence.TextureWidth = reader.ReadInt32();
                 sequence.TextureHeight = reader.ReadInt32();
                 sequence.Implementation = (ImplementationType)reader.ReadInt32();
-                sequence.DestinationBlendMode = (Blend)reader.ReadInt32();
-                sequence.SourceBlendMode = (Blend)reader.ReadInt32();
-                sequence.BlendOperation = (BlendOperation)reader.ReadInt32();
+                sequence.DestinationBlendMode = reader.ReadInt32();
+                sequence.SourceBlendMode = reader.ReadInt32();
+                sequence.BlendOperation = reader.ReadInt32();
 
                 int eventCount = reader.ReadInt32();
 
@@ -109,7 +108,7 @@ namespace Revise.Files.PTL {
         /// </summary>
         /// <param name="stream">The stream to save to.</param>
         public override void Save(Stream stream) {
-            BinaryWriter writer = new BinaryWriter(stream, Encoding.GetEncoding("EUC-KR"));
+            BinaryWriter writer = new BinaryWriter(stream, CodePagesEncodingProvider.Instance.GetEncoding("EUC-KR"));
 
             writer.Write(Sequences.Count);
 
@@ -133,9 +132,9 @@ namespace Revise.Files.PTL {
                 writer.Write(sequence.TextureWidth);
                 writer.Write(sequence.TextureHeight);
                 writer.Write((int)sequence.Implementation);
-                writer.Write((int)sequence.DestinationBlendMode);
-                writer.Write((int)sequence.SourceBlendMode);
-                writer.Write((int)sequence.BlendOperation);
+                writer.Write(sequence.DestinationBlendMode);
+                writer.Write(sequence.SourceBlendMode);
+                writer.Write(sequence.BlendOperation);
 
                 writer.Write(sequence.Events.Count);
 
