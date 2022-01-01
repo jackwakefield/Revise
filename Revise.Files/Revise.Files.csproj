@@ -3,6 +3,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>xadet</Authors>
+    <Product>Revise</Product>
+    <Copyright>© 2022 Jack Wakefield</Copyright>
+    <Description>A package for reading and writing ROSE Online file formats</Description>
+    <RepositoryUrl>https://github.com/jackwakefield/Revise/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>

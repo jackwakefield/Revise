@@ -3,6 +3,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>xadet</Authors>
+    <Product>Revise</Product>
+    <Description>A package of extensions used by Revise</Description>
+    <Copyright>© 2022 Jack Wakefield</Copyright>
+    <RepositoryUrl>https://github.com/jackwakefield/Revise/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>
