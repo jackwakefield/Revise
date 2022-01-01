@@ -11,6 +11,7 @@
     <Product>Revise</Product>
     <Authors>xadet</Authors>
     <Copyright>© 2022 Jack Wakefield</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>

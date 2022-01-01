@@ -10,6 +10,7 @@
     <Copyright>© 2022 Jack Wakefield</Copyright>
     <RepositoryUrl>https://github.com/jackwakefield/Revise/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>
