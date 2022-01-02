@@ -4,7 +4,7 @@
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>xadet</Authors>
+    <Authors>xadet;RavenX8;L3nn0x</Authors>
     <Product>Revise</Product>
     <Copyright>© 2022 Jack Wakefield</Copyright>
     <Description>A package for reading and writing ROSE Online file formats</Description>

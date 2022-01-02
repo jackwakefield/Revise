@@ -4,7 +4,7 @@
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>xadet</Authors>
+    <Authors>xadet;RavenX8;L3nn0x</Authors>
     <Product>Revise</Product>
     <Description>A package of extensions used by Revise</Description>
     <Copyright>© 2022 Jack Wakefield</Copyright>

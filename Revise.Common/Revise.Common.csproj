@@ -9,7 +9,7 @@
     <RepositoryType>git</RepositoryType>
     <Description>A package of common classes used by Revise</Description>
     <Product>Revise</Product>
-    <Authors>xadet</Authors>
+    <Authors>xadet;RavenX8;L3nn0x</Authors>
     <Copyright>© 2022 Jack Wakefield</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
