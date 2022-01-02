@@ -12,6 +12,7 @@
     <Authors>xadet;RavenX8;L3nn0x</Authors>
     <Copyright>© 2022 Jack Wakefield</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Version>1.0.1</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>
