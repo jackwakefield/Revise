@@ -86,15 +86,15 @@ namespace Revise.Files.TIL {
 
             tiles = new TilePatch[height, width];
 
-            for (int h = height - 1; h >= 0; h--) {
-                for (int w = 0; w < width; w++) {
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
                     TilePatch tile = new TilePatch();
                     tile.Brush = reader.ReadByte();
                     tile.TileIndex = reader.ReadByte();
                     tile.TileSet = reader.ReadByte();
                     tile.Tile = reader.ReadInt32();
 
-                    tiles[h, w] = tile;
+                    tiles[y, x] = tile;
                 }
             }
         }
@@ -109,9 +109,9 @@ namespace Revise.Files.TIL {
             writer.Write(Width);
             writer.Write(Height);
 
-            for (int h = Height - 1; h >= 0; h--) {
-                for (int w = 0; w < Width; w++) {
-                    TilePatch tile = tiles[h, w];
+            for (int y = 0; y < Height; y++) {
+                for (int x = 0; x < Width; x++) {
+                    TilePatch tile = tiles[y, x];
                     writer.Write(tile.Brush);
                     writer.Write(tile.TileIndex);
                     writer.Write(tile.TileSet);
