@@ -86,7 +86,7 @@ namespace Revise.Files.TIL {
 
             tiles = new TilePatch[height, width];
 
-            for (int y = 0; y < height; y++) {
+            for (int y = height - 1; y >= 0; y--) {
                 for (int x = 0; x < width; x++) {
                     TilePatch tile = new TilePatch();
                     tile.Brush = reader.ReadByte();
@@ -109,7 +109,7 @@ namespace Revise.Files.TIL {
             writer.Write(Width);
             writer.Write(Height);
 
-            for (int y = 0; y < Height; y++) {
+            for (int y = Height - 1; y >= 0; y--) {
                 for (int x = 0; x < Width; x++) {
                     TilePatch tile = tiles[y, x];
                     writer.Write(tile.Brush);

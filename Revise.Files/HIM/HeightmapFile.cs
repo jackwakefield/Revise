@@ -115,7 +115,7 @@ namespace Revise.Files.HIM {
             int patchGridCount = reader.ReadInt32();
             float patchSize = reader.ReadSingle();
 
-            for (int h = 0; h < height; h++) {
+            for (int h = height - 1; h >= 0; h--) {
                 for (int w = 0; w < width; w++) {
                     heights[h, w] = reader.ReadSingle();
                 }
@@ -152,7 +152,7 @@ namespace Revise.Files.HIM {
             writer.Write(PATCH_GRID_COUNT);
             writer.Write(PATCH_SIZE);
 
-            for (int h = 0; h < Height; h++) {
+            for (int h = Height - 1; h >= 0; h--) {
                 for (int w = 0; w < Width; w++) {
                     writer.Write(heights[h, w]);
                 }
