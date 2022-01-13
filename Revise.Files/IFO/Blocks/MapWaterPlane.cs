@@ -53,8 +53,17 @@ namespace Revise.Files.IFO.Blocks {
         /// </summary>
         /// <param name="reader">The reader.</param>
         public void Read(BinaryReader reader) {
-            StartPosition = reader.ReadVector3();
-            EndPosition = reader.ReadVector3();
+            StartPosition = new Vector3() {
+                X = reader.ReadSingle(),
+                Z = reader.ReadSingle(),
+                Y = reader.ReadSingle(),
+            };
+
+            EndPosition = new Vector3() {
+                X = reader.ReadSingle(),
+                Z = reader.ReadSingle(),
+                Y = reader.ReadSingle(),
+            };
         }
 
         /// <summary>
@@ -62,8 +71,13 @@ namespace Revise.Files.IFO.Blocks {
         /// </summary>
         /// <param name="writer">The writer.</param>
         public void Write(BinaryWriter writer) {
-            writer.Write(StartPosition);
-            writer.Write(EndPosition);
+            writer.Write(StartPosition.X);
+            writer.Write(StartPosition.Z);
+            writer.Write(StartPosition.Y);
+
+            writer.Write(EndPosition.X);
+            writer.Write(EndPosition.Z);
+            writer.Write(EndPosition.Y);
         }
     }
 }
