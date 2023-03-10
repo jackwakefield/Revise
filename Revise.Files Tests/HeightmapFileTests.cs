@@ -2,17 +2,17 @@
 
 /**
  * Copyright (C) 2011 Jack Wakefield
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -81,10 +81,10 @@ namespace Revise.Files.Tests {
                 }
             }
 
-            for (int x = 0; x < heightmapFile.Patches.GetLength(0); x++) {
-                for (int y = 0; y < heightmapFile.Patches.GetLength(1); y++) {
-                    Assert.AreEqual(heightmapFile.Patches[x, y].Minimum, savedHeightmapFile.Patches[x, y].Minimum, "Minimum patch values do not match");
-                    Assert.AreEqual(heightmapFile.Patches[x, y].Maximum, savedHeightmapFile.Patches[x, y].Maximum, "Maximum patch values do not match");
+            for (int h = 0; h < heightmapFile.Patches.GetLength(0); h++) {
+                for (int w = 0; w < heightmapFile.Patches.GetLength(1); w++) {
+                    Assert.AreEqual(heightmapFile.Patches[h, w].Minimum, savedHeightmapFile.Patches[h, w].Minimum, "Minimum patch values do not match");
+                    Assert.AreEqual(heightmapFile.Patches[h, w].Maximum, savedHeightmapFile.Patches[h, w].Maximum, "Maximum patch values do not match");
                 }
             }
 
